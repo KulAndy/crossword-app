@@ -10,9 +10,13 @@ declare module "cwg" {
     height: number;
     ownerMap: (
       | {
+          h: number;
+          hIdx: number;
           horizontal?: number;
           letter: string;
+          v: number;
           vertical?: number;
+          vIdx: number;
         }
       | undefined
     )[][];

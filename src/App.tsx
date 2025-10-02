@@ -29,6 +29,50 @@ export default function App() {
   >(null);
   const inputReferences = useRef<HTMLInputElement[][]>([]);
 
+  const generateNumberedLabels = (): Record<string, number> => {
+    if (!cwResult) return {};
+
+    const labels: Record<string, number> = {};
+    let labelCounter = 1;
+
+    const sortedObjects = cwResult.positionObjArr.toSorted(
+      (a, b) => a.yNum * 10_000 - b.yNum * 10_000 + a.xNum - b.xNum,
+    );
+
+    let orderNumber = 0;
+    for (let index = 0; index < sortedObjects.length; index++) {
+      const word = sortedObjects[index];
+      const startX = word.xNum;
+      const startY = word.yNum;
+      const key = `${startX},${startY}`;
+      if (
+        index > 0 &&
+        word.yNum === sortedObjects[index - 1].yNum &&
+        word.xNum === sortedObjects[index - 1].xNum
+      ) {
+        if (!labels[key]) {
+          labels[key] = orderNumber;
+        }
+      } else if (!labels[key]) {
+        labels[key] = ++orderNumber;
+      }
+    }
+
+    for (const word of sortedObjects) {
+      const startX = word.xNum;
+      const startY = word.yNum;
+      const key = `${startX},${startY}`;
+
+      if (!labels[key]) {
+        labels[key] = labelCounter++;
+      }
+    }
+
+    return labels;
+  };
+
+  const numberedLabels = generateNumberedLabels();
+
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
       .then((resource) => {
@@ -148,6 +192,20 @@ export default function App() {
   const wordToDefinition = Object.fromEntries(
     rows.map((r) => [r.term.toUpperCase(), r.def]),
   );
+
+  const isFirstLetter = (x: number, y: number): boolean => {
+    if (!cwResult) {
+      return false;
+    }
+    return !!numberedLabels[`${x},${y}`];
+  };
+
+  const getLabelNumber = (x: number, y: number): null | number => {
+    if (!cwResult) {
+      return null;
+    }
+    return numberedLabels[`${x},${y}`] || null;
+  };
 
   const handleFocus = useCallback(
     (y: number, x: number) => {
@@ -279,20 +337,6 @@ export default function App() {
     [cwResult],
   );
 
-  const isFirstLetter = (x: number, y: number): boolean => {
-    if (!cwResult) return false;
-    return cwResult.positionObjArr.some((w) => w.xNum === x && w.yNum === y);
-  };
-
-  const getLabelNumber = (x: number, y: number): null | number => {
-    if (!cwResult) return null;
-    const word = cwResult.positionObjArr.find(
-      (w) => w.xNum === x && w.yNum === y,
-    );
-    if (!word) return null;
-    return cwResult.positionObjArr.indexOf(word) + 1;
-  };
-
   const question = (
     <>
       {currentWord && (
@@ -308,7 +352,7 @@ export default function App() {
           }}
         >
           <b>
-            {cwResult && cwResult.positionObjArr.indexOf(currentWord) + 1}.
+            {numberedLabels[`${currentWord.xNum},${currentWord.yNum}`]}.
             {lastDirection === "horizontal" ? " Across" : " Down"}
           </b>{" "}
           {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
@@ -464,9 +508,14 @@ export default function App() {
               <ul>
                 {cwResult.positionObjArr
                   .filter((w) => w.isHorizon)
+                  .toSorted(
+                    (a, b) =>
+                      numberedLabels[`${a.xNum},${a.yNum}`] -
+                      numberedLabels[`${b.xNum},${b.yNum}`],
+                  )
                   .map((w, index) => (
                     <li key={index}>
-                      <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
+                      <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
                       {wordToDefinition[w.wordStr] || w.wordStr}
                     </li>
                   ))}
@@ -477,9 +526,14 @@ export default function App() {
               <ul>
                 {cwResult.positionObjArr
                   .filter((w) => !w.isHorizon)
+                  .toSorted(
+                    (a, b) =>
+                      numberedLabels[`${a.xNum},${a.yNum}`] -
+                      numberedLabels[`${b.xNum},${b.yNum}`],
+                  )
                   .map((w, index) => (
                     <li key={index}>
-                      <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
+                      <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
                       {wordToDefinition[w.wordStr] || w.wordStr}
                     </li>
                   ))}
