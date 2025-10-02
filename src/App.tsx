@@ -1,6 +1,6 @@
 import CWG, { type CWGResult, type PositionObject } from "cwg";
-import { useCallback, useEffect, useRef, useState } from "react";
 import Rand, { PRNG } from "rand-seed";
+import { useCallback, useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 
 interface Row {
@@ -126,7 +126,9 @@ export default function App() {
   };
 
   const renderGrid = (): string[][] => {
-    if (!cwResult) return [];
+    if (!cwResult) {
+      return [];
+    }
     const { height, positionObjArr, width } = cwResult;
     const grid: string[][] = Array.from({ length: height }, () =>
       Array.from({ length: width }, () => ""),
@@ -145,6 +147,25 @@ export default function App() {
   const grid = renderGrid();
   const wordToDefinition = Object.fromEntries(
     rows.map((r) => [r.term.toUpperCase(), r.def]),
+  );
+
+  const handleFocus = useCallback(
+    (y: number, x: number) => {
+      if (!cwResult) {
+        return;
+      }
+
+      const word = cwResult.positionObjArr.find((w) => {
+        return w.isHorizon
+          ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
+          : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
+      });
+
+      if (word) {
+        setCurrentWord(word);
+      }
+    },
+    [cwResult],
   );
 
   const handleInputChange = useCallback(
@@ -404,6 +425,9 @@ export default function App() {
                               handleInputChange(y, x, lastLetter);
                             }}
                             onClick={() => setLastDirection(null)}
+                            onFocus={() => {
+                              handleFocus(y, x);
+                            }}
                             onKeyDown={(event) => handleKeyDown(event, y, x)}
                             ref={(element) => {
                               if (element) {
