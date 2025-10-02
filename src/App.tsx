@@ -22,10 +22,9 @@ export default function App() {
   const [seed, setSeed] = useState<string>("123");
   const [userGrid, setUserGrid] = useState<string[][]>([]);
   const [currentWord, setCurrentWord] = useState<PositionObj | null>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [lastDirection, setLastDirection] = useState<"horizontal" | "vertical">(
-    "horizontal",
-  );
+  const [lastDirection, setLastDirection] = useState<
+    "horizontal" | "vertical" | null
+  >(null);
   const inputRefs = useRef<HTMLInputElement[][]>([]);
 
   useEffect(() => {
@@ -100,7 +99,6 @@ export default function App() {
         return true;
       });
 
-      // Use a seeded random engine for sorting
       const seededRandom = (seed: string) => {
         let value = 0;
         for (let i = 0; i < seed.length; i++) {
@@ -132,8 +130,6 @@ export default function App() {
         }
         res = newRes;
       }
-
-      console.log(res);
 
       setCwResult(res);
       setUserGrid(
@@ -169,12 +165,14 @@ export default function App() {
 
   const handleInputChange = useCallback(
     (y: number, x: number, value: string) => {
+      if (!cwResult) {
+        return;
+      }
+
       const newGrid = [...userGrid];
       newGrid[y][x] = value.toUpperCase();
       setUserGrid(newGrid);
 
-      if (!cwResult) return;
-
       const word = cwResult.positionObjArr.find((w) => {
         if (w.isHorizon) {
           return w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length;
@@ -186,46 +184,29 @@ export default function App() {
       if (word) {
         setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
-        setCurrentIndex(index);
-        setLastDirection(word.isHorizon ? "horizontal" : "vertical");
+        const wordDirection =
+          lastDirection ?? word.isHorizon ? "horizontal" : "vertical";
+
+        setLastDirection((prev) => prev ?? wordDirection);
 
         if (value && index < word.wordStr.length - 1) {
-          const nextX = word.isHorizon ? x + 1 : x;
-          const nextY = word.isHorizon ? y : y + 1;
+          const nextX = lastDirection === "horizontal" ? x + 1 : x;
+          const nextY = lastDirection === "horizontal" ? y : y + 1;
           setTimeout(() => {
             inputRefs.current[nextY]?.[nextX]?.focus();
+            inputRefs.current[nextY]?.[nextX]?.select();
           }, 0);
         }
       }
     },
-    [userGrid, cwResult],
-  );
-
-  const handleInputFocus = useCallback(
-    (y: number, x: number) => {
-      if (!cwResult) return;
-
-      const word = cwResult.positionObjArr.find((w) => {
-        if (w.isHorizon) {
-          return w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length;
-        } else {
-          return w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
-        }
-      });
-
-      if (word) {
-        setCurrentWord(word);
-        const index = word.isHorizon ? x - word.xNum : y - word.yNum;
-        setCurrentIndex(index);
-        setLastDirection(word.isHorizon ? "horizontal" : "vertical");
-      }
-    },
-    [cwResult],
+    [userGrid, cwResult, lastDirection],
   );
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, y: number, x: number) => {
-      if (!cwResult) return;
+      if (!cwResult) {
+        return;
+      }
 
       const word = cwResult.positionObjArr.find((w) => {
         if (w.isHorizon) {
@@ -240,8 +221,9 @@ export default function App() {
       }
 
       const index = word.isHorizon ? x - word.xNum : y - word.yNum;
+      const target = e.currentTarget as HTMLInputElement;
 
-      if (e.key === "Backspace" && !e.currentTarget.value && index > 0) {
+      if (e.key === "Backspace" && !target.value && index > 0) {
         e.preventDefault();
         const prevX = word.isHorizon ? x - 1 : x;
         const prevY = word.isHorizon ? y : y - 1;
@@ -251,6 +233,7 @@ export default function App() {
       } else {
         let newX = x;
         let newY = y;
+
         switch (e.key) {
           case "ArrowRight":
             newX = x + 1;
@@ -271,6 +254,25 @@ export default function App() {
         e.preventDefault();
         setTimeout(() => {
           inputRefs.current[newY]?.[newX]?.focus();
+
+          const word = cwResult.positionObjArr.find((w) => {
+            if (w.isHorizon) {
+              return (
+                w.yNum === newY &&
+                w.xNum <= newX &&
+                newX < w.xNum + w.wordStr.length
+              );
+            } else {
+              return (
+                w.xNum === newX &&
+                w.yNum <= newY &&
+                newY < w.yNum + w.wordStr.length
+              );
+            }
+          });
+          if (word) {
+            setLastDirection(word.isHorizon ? "horizontal" : "vertical");
+          }
         }, 0);
       }
     },
@@ -306,7 +308,7 @@ export default function App() {
           }}
         >
           <b>
-            {cwResult.positionObjArr.indexOf(currentWord) + 1}.
+            {cwResult && cwResult.positionObjArr.indexOf(currentWord) + 1}.
             {lastDirection === "horizontal" ? " Across" : " Down"}
           </b>{" "}
           {wordToDef[currentWord.wordStr] || currentWord.wordStr}
@@ -419,15 +421,21 @@ export default function App() {
                             </div>
                           )}
                           <input
-                            ref={(el) => (inputRefs.current[y][x] = el!)}
+                            ref={(el) => {
+                              if (el) {
+                                inputRefs.current[y][x] = el;
+                              }
+                            }}
                             type="text"
-                            maxLength={1}
+                            maxLength={2}
                             value={userValue}
-                            onChange={(e) =>
-                              handleInputChange(y, x, e.target.value)
-                            }
+                            onChange={(e) => {
+                              const lastLetter = e.target.value.slice(-1);
+                              e.target.value = lastLetter;
+                              handleInputChange(y, x, lastLetter);
+                            }}
                             onKeyDown={(e) => handleKeyDown(e, y, x)}
-                            onFocus={() => handleInputFocus(y, x)}
+                            onClick={() => setLastDirection(null)}
                             style={{
                               width: 32,
                               height: 32,
