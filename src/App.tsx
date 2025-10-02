@@ -310,7 +310,7 @@ export default function App() {
           <b>
             {cwResult && cwResult.positionObjArr.indexOf(currentWord) + 1}.
             {lastDirection === "horizontal" ? " Across" : " Down"}
-          </b>
+          </b>{" "}
           {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
         </div>
       )}
