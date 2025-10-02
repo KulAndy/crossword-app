@@ -1,23 +1,23 @@
 declare module "cwg" {
-  export interface PositionObj {
+  export interface PositionObject {
+    isHorizon: boolean;
     wordStr: string;
     xNum: number;
     yNum: number;
-    isHorizon: boolean;
   }
 
   export interface CWGResult {
-    positionObjArr: PositionObj[];
+    height: number;
     ownerMap: (
       | {
+          horizontal?: number;
           letter: string;
           vertical?: number;
-          horizontal?: number;
         }
       | undefined
     )[][];
+    positionObjArr: PositionObject[];
     width: number;
-    height: number;
   }
 
   function CWG(words: string[]): CWGResult;

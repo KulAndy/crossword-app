@@ -1,10 +1,10 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import CWG, { type CWGResult, type PositionObject } from "cwg";
+import { useCallback, useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
-import CWG, { type CWGResult, type PositionObj } from "cwg";
 
 interface Row {
-  term: string;
   def: string;
+  term: string;
 }
 
 type WorkbookData = {
@@ -15,27 +15,27 @@ type WorkbookData = {
 export default function App() {
   const [bases, setBases] = useState<string[]>([]);
   const [selectedBase, setSelectedBase] = useState<string>("");
-  const [workbookData, setWorkbookData] = useState<WorkbookData | null>(null);
+  const [workbookData, setWorkbookData] = useState<null | WorkbookData>(null);
   const [selectedSheet, setSelectedSheet] = useState<string>("");
   const [rows, setRows] = useState<Row[]>([]);
   const [cwResult, setCwResult] = useState<CWGResult | null>(null);
   const [seed, setSeed] = useState<string>("123");
   const [userGrid, setUserGrid] = useState<string[][]>([]);
-  const [currentWord, setCurrentWord] = useState<PositionObj | null>(null);
+  const [currentWord, setCurrentWord] = useState<null | PositionObject>(null);
   const [lastDirection, setLastDirection] = useState<
     "horizontal" | "vertical" | null
   >(null);
-  const inputRefs = useRef<HTMLInputElement[][]>([]);
+  const inputReferences = useRef<HTMLInputElement[][]>([]);
 
   useEffect(() => {
     fetch("/bases.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load /bases.json");
-        return res.json() as Promise<string[]>;
+      .then((resource) => {
+        if (!resource.ok) throw new Error("Failed to load /bases.json");
+        return resource.json() as Promise<string[]>;
       })
       .then(setBases)
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
         setBases([]);
       });
   }, []);
@@ -49,9 +49,9 @@ export default function App() {
     }
     const url = `/bases/${encodeURIComponent(selectedBase)}`;
     fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch ${url}`);
-        return res.arrayBuffer();
+      .then((resource) => {
+        if (!resource.ok) throw new Error(`Failed to fetch ${url}`);
+        return resource.arrayBuffer();
       })
       .then((buffer) => {
         const wb = XLSX.read(buffer, { type: "array" });
@@ -59,8 +59,8 @@ export default function App() {
         setSelectedSheet("");
         setRows([]);
       })
-      .catch((err) => {
-        console.error("Error reading workbook:", err);
+      .catch((error) => {
+        console.error("Error reading workbook:", error);
         setWorkbookData(null);
       });
   }, [selectedBase]);
@@ -79,8 +79,8 @@ export default function App() {
     const parsed: Row[] = (raw as (string | undefined)[][])
       .slice(1)
       .map((r) => ({
-        term: (r[0] ?? "").toString().trim(),
         def: (r[1] ?? "").toString().trim(),
+        term: (r[0] ?? "").toString().trim(),
       }))
       .filter((r) => r.term.length > 0 && r.def.length > 0);
     setRows(parsed);
@@ -101,65 +101,68 @@ export default function App() {
 
       const seededRandom = (seed: string) => {
         let value = 0;
-        for (let i = 0; i < seed.length; i++) {
-          value = (value << 5) - value + seed.charCodeAt(i);
-          value |= 0;
+        for (let index = 0; index < seed.length; index++) {
+          // eslint-disable-next-line unicorn/prefer-code-point
+          value = (value << 5) - value + seed.charCodeAt(index);
+          value = Math.trunc(value);
         }
         return () => {
-          value = Math.sin(value) * 10000;
+          value = Math.sin(value) * 10_000;
           return value - Math.floor(value);
         };
       };
 
       const random = seededRandom(seed);
 
-      const sortedRows = [...uniqueRows].sort(() => random() - 0.5);
+      const sortedRows = [...uniqueRows].toSorted(() => random() - 0.5);
 
       const wordList = sortedRows.map((r) => r.term.toUpperCase());
 
       const newWordList = wordList.slice(0, 2);
-      let res: CWGResult = CWG(newWordList);
+      let resul: CWGResult = CWG(newWordList);
 
       for (let index = 2; index < wordList.length; index++) {
         const element = wordList[index];
         newWordList.push(element);
-        const newRes = CWG(newWordList);
-        res = newRes;
-        if (newRes.width > 15 && newRes.height > 15) {
+        const newResult = CWG(newWordList);
+        resul = newResult;
+        if (newResult.width > 15 && newResult.height > 15) {
           break;
         }
-        res = newRes;
+        resul = newResult;
       }
 
-      setCwResult(res);
+      setCwResult(resul);
       setUserGrid(
-        Array(res.height)
-          .fill("")
-          .map(() => Array(res.width).fill("")),
+        Array.from({ length: resul.height }, () =>
+          Array.from({ length: resul.width }, () => ""),
+        ),
       );
-    } catch (err) {
-      console.error("Crossword generation failed:", err);
+    } catch (error) {
+      console.error("Crossword generation failed:", error);
       setCwResult(null);
     }
   };
 
   const renderGrid = (): string[][] => {
     if (!cwResult) return [];
-    const { width, height, positionObjArr } = cwResult;
+    const { height, positionObjArr, width } = cwResult;
     const grid: string[][] = Array.from({ length: height }, () =>
-      Array(width).fill(""),
+      Array.from({ length: width }, () => ""),
     );
-    positionObjArr.forEach((w: PositionObj) => {
-      for (let i = 0; i < w.wordStr.length; i++) {
-        if (w.isHorizon) grid[w.yNum][w.xNum + i] = w.wordStr[i];
-        else grid[w.yNum + i][w.xNum] = w.wordStr[i];
+
+    for (const w of positionObjArr) {
+      for (let index = 0; index < w.wordStr.length; index++) {
+        if (w.isHorizon) grid[w.yNum][w.xNum + index] = w.wordStr[index];
+        else grid[w.yNum + index][w.xNum] = w.wordStr[index];
       }
-    });
+    }
+
     return grid;
   };
 
   const grid = renderGrid();
-  const wordToDef = Object.fromEntries(
+  const wordToDefinition = Object.fromEntries(
     rows.map((r) => [r.term.toUpperCase(), r.def]),
   );
 
@@ -174,27 +177,25 @@ export default function App() {
       setUserGrid(newGrid);
 
       const word = cwResult.positionObjArr.find((w) => {
-        if (w.isHorizon) {
-          return w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length;
-        } else {
-          return w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
-        }
+        return w.isHorizon
+          ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
+          : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
 
       if (word) {
         setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const wordDirection =
-          lastDirection ?? word.isHorizon ? "horizontal" : "vertical";
+          (lastDirection ?? word.isHorizon) ? "horizontal" : "vertical";
 
-        setLastDirection((prev) => prev ?? wordDirection);
+        setLastDirection((previous) => previous ?? wordDirection);
 
         if (value && index < word.wordStr.length - 1) {
           const nextX = lastDirection === "horizontal" ? x + 1 : x;
           const nextY = lastDirection === "horizontal" ? y : y + 1;
           setTimeout(() => {
-            inputRefs.current[nextY]?.[nextX]?.focus();
-            inputRefs.current[nextY]?.[nextX]?.select();
+            inputReferences.current[nextY]?.[nextX]?.focus();
+            inputReferences.current[nextY]?.[nextX]?.select();
           }, 0);
         }
       }
@@ -203,17 +204,15 @@ export default function App() {
   );
 
   const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent, y: number, x: number) => {
+    (event: React.KeyboardEvent, y: number, x: number) => {
       if (!cwResult) {
         return;
       }
 
       const word = cwResult.positionObjArr.find((w) => {
-        if (w.isHorizon) {
-          return w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length;
-        } else {
-          return w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
-        }
+        return w.isHorizon
+          ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
+          : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
 
       if (!word) {
@@ -221,54 +220,53 @@ export default function App() {
       }
 
       const index = word.isHorizon ? x - word.xNum : y - word.yNum;
-      const target = e.currentTarget as HTMLInputElement;
+      const target = event.currentTarget as HTMLInputElement;
 
-      if (e.key === "Backspace" && !target.value && index > 0) {
-        e.preventDefault();
-        const prevX = word.isHorizon ? x - 1 : x;
-        const prevY = word.isHorizon ? y : y - 1;
+      if (event.key === "Backspace" && !target.value && index > 0) {
+        event.preventDefault();
+        const previousX = word.isHorizon ? x - 1 : x;
+        const previousY = word.isHorizon ? y : y - 1;
         setTimeout(() => {
-          inputRefs.current[prevY]?.[prevX]?.focus();
+          inputReferences.current[previousY]?.[previousX]?.focus();
         }, 0);
       } else {
         let newX = x;
         let newY = y;
 
-        switch (e.key) {
-          case "ArrowRight":
-            newX = x + 1;
-            break;
-          case "ArrowLeft":
-            newX = x - 1;
-            break;
-          case "ArrowDown":
+        switch (event.key) {
+          case "ArrowDown": {
             newY = y + 1;
             break;
-          case "ArrowUp":
+          }
+          case "ArrowLeft": {
+            newX = x - 1;
+            break;
+          }
+          case "ArrowRight": {
+            newX = x + 1;
+            break;
+          }
+          case "ArrowUp": {
             newY = y - 1;
             break;
-          default:
+          }
+          default: {
             return;
+          }
         }
 
-        e.preventDefault();
+        event.preventDefault();
         setTimeout(() => {
-          inputRefs.current[newY]?.[newX]?.focus();
+          inputReferences.current[newY]?.[newX]?.focus();
 
           const word = cwResult.positionObjArr.find((w) => {
-            if (w.isHorizon) {
-              return (
-                w.yNum === newY &&
-                w.xNum <= newX &&
-                newX < w.xNum + w.wordStr.length
-              );
-            } else {
-              return (
-                w.xNum === newX &&
-                w.yNum <= newY &&
-                newY < w.yNum + w.wordStr.length
-              );
-            }
+            return w.isHorizon
+              ? w.yNum === newY &&
+                  w.xNum <= newX &&
+                  newX < w.xNum + w.wordStr.length
+              : w.xNum === newX &&
+                  w.yNum <= newY &&
+                  newY < w.yNum + w.wordStr.length;
           });
           if (word) {
             setLastDirection(word.isHorizon ? "horizontal" : "vertical");
@@ -284,7 +282,7 @@ export default function App() {
     return cwResult.positionObjArr.some((w) => w.xNum === x && w.yNum === y);
   };
 
-  const getLabelNumber = (x: number, y: number): number | null => {
+  const getLabelNumber = (x: number, y: number): null | number => {
     if (!cwResult) return null;
     const word = cwResult.positionObjArr.find(
       (w) => w.xNum === x && w.yNum === y,
@@ -298,32 +296,32 @@ export default function App() {
       {currentWord && (
         <div
           style={{
-            padding: 8,
             border: "1px solid #ccc",
             borderRadius: 4,
-            zIndex: 10,
             left: lastDirection === "horizontal" ? 0 : "100%",
-            top: lastDirection === "horizontal" ? "100%" : 0,
             margin: 4,
+            padding: 8,
+            top: lastDirection === "horizontal" ? "100%" : 0,
+            zIndex: 10,
           }}
         >
           <b>
             {cwResult && cwResult.positionObjArr.indexOf(currentWord) + 1}.
             {lastDirection === "horizontal" ? " Across" : " Down"}
           </b>{" "}
-          {wordToDef[currentWord.wordStr] || currentWord.wordStr}
+          {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
         </div>
       )}
     </>
   );
 
   return (
-    <div style={{ padding: 20, fontFamily: "system-ui, sans-serif" }}>
+    <div style={{ fontFamily: "system-ui, sans-serif", padding: 20 }}>
       <h1>Bases / Sheets → Terms / Crossword</h1>
       <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
         <select
+          onChange={(event) => setSelectedBase(event.target.value)}
           value={selectedBase}
-          onChange={(e) => setSelectedBase(e.target.value)}
         >
           <option value="">Select file</option>
           {bases.map((f) => (
@@ -333,9 +331,9 @@ export default function App() {
           ))}
         </select>
         <select
-          value={selectedSheet}
-          onChange={(e) => setSelectedSheet(e.target.value)}
           disabled={!workbookData}
+          onChange={(event) => setSelectedSheet(event.target.value)}
+          value={selectedSheet}
         >
           <option value="">Select sheet</option>
           {workbookData?.sheets.map((s) => (
@@ -350,12 +348,16 @@ export default function App() {
           <label>
             Seed:{" "}
             <input
+              onChange={(event) => setSeed(event.target.value)}
               type="number"
               value={seed}
-              onChange={(e) => setSeed(e.target.value)}
             />
           </label>
-          <button onClick={handleGenerate} style={{ marginLeft: 10 }}>
+          <button
+            onClick={handleGenerate}
+            style={{ marginLeft: 10 }}
+            type="button"
+          >
             Generate Crossword
           </button>
         </div>
@@ -376,7 +378,8 @@ export default function App() {
                 {grid.map((row, y) => (
                   <tr key={y}>
                     {row.map((cell, x) => {
-                      if (!inputRefs.current[y]) inputRefs.current[y] = [];
+                      if (!inputReferences.current[y])
+                        inputReferences.current[y] = [];
                       const isFirst = isFirstLetter(x, y);
                       const labelNumber = isFirst ? getLabelNumber(x, y) : null;
                       const userValue = userGrid[y]?.[x] || "";
@@ -385,12 +388,12 @@ export default function App() {
                           <td
                             key={x}
                             style={{
-                              border: "1px solid #ccc",
                               backgroundColor: "blue",
-                              width: 32,
+                              border: "1px solid #ccc",
                               height: 32,
-                              textAlign: "center",
                               position: "relative",
+                              textAlign: "center",
+                              width: 32,
                             }}
                           />
                         );
@@ -401,52 +404,52 @@ export default function App() {
                           key={x}
                           style={{
                             border: "1px solid #ccc",
-                            width: 32,
                             height: 32,
-                            textAlign: "center",
                             position: "relative",
+                            textAlign: "center",
+                            width: 32,
                           }}
                         >
                           {isFirst && (
                             <div
                               style={{
                                 color: "black",
+                                fontSize: 8,
+                                left: 2,
                                 position: "absolute",
                                 top: 2,
-                                left: 2,
-                                fontSize: 8,
                               }}
                             >
                               {labelNumber}
                             </div>
                           )}
                           <input
-                            ref={(el) => {
-                              if (el) {
-                                inputRefs.current[y][x] = el;
-                              }
-                            }}
-                            type="text"
                             maxLength={2}
-                            value={userValue}
-                            onChange={(e) => {
-                              const lastLetter = e.target.value.slice(-1);
-                              e.target.value = lastLetter;
+                            onChange={(event) => {
+                              const lastLetter = event.target.value.slice(-1);
+                              event.target.value = lastLetter;
                               handleInputChange(y, x, lastLetter);
                             }}
-                            onKeyDown={(e) => handleKeyDown(e, y, x)}
                             onClick={() => setLastDirection(null)}
+                            onKeyDown={(event) => handleKeyDown(event, y, x)}
+                            ref={(element) => {
+                              if (element) {
+                                inputReferences.current[y][x] = element;
+                              }
+                            }}
                             style={{
-                              width: 32,
-                              height: 32,
-                              border: "none",
-                              textAlign: "center",
                               backgroundColor: isCorrect
                                 ? "lightgreen"
                                 : userValue && !isCorrect
-                                ? "lightpink"
-                                : "white",
+                                  ? "lightpink"
+                                  : "white",
+                              border: "none",
+                              height: 32,
+                              textAlign: "center",
+                              width: 32,
                             }}
+                            type="text"
+                            value={userValue}
                           />
                         </td>
                       );
@@ -464,10 +467,10 @@ export default function App() {
               <ul>
                 {cwResult.positionObjArr
                   .filter((w) => w.isHorizon)
-                  .map((w, idx) => (
-                    <li key={idx}>
+                  .map((w, index) => (
+                    <li key={index}>
                       <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
-                      {wordToDef[w.wordStr] || w.wordStr}
+                      {wordToDefinition[w.wordStr] || w.wordStr}
                     </li>
                   ))}
               </ul>
@@ -477,10 +480,10 @@ export default function App() {
               <ul>
                 {cwResult.positionObjArr
                   .filter((w) => !w.isHorizon)
-                  .map((w, idx) => (
-                    <li key={idx}>
+                  .map((w, index) => (
+                    <li key={index}>
                       <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
-                      {wordToDef[w.wordStr] || w.wordStr}
+                      {wordToDefinition[w.wordStr] || w.wordStr}
                     </li>
                   ))}
               </ul>
@@ -509,14 +512,14 @@ export default function App() {
             </thead>{" "}
             <tbody>
               {" "}
-              {rows.map((r, idx) => (
-                <tr key={idx}>
+              {rows.map((r, index) => (
+                <tr key={index}>
                   {" "}
                   <td
                     style={{
                       border: "1px solid #eee",
-                      padding: 8,
                       fontFamily: "monospace",
+                      padding: 8,
                     }}
                   >
                     {" "}
