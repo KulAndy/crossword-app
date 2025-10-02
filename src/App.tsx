@@ -20,6 +20,7 @@ export default function App() {
   const [rows, setRows] = useState<Row[]>([]);
   const [cwResult, setCwResult] = useState<CWGResult | null>(null);
   const [seed, setSeed] = useState<string>("123");
+  const [userGrid, setUserGrid] = useState<string[][]>([]);
 
   useEffect(() => {
     fetch("/bases.json")
@@ -93,6 +94,11 @@ export default function App() {
       const wordList = uniqueRows.map((r) => r.term.toUpperCase());
       const res = CWG(wordList);
       setCwResult(res);
+      setUserGrid(
+        Array(res.height)
+          .fill("")
+          .map(() => Array(res.width).fill("")),
+      );
     } catch (err) {
       console.error("Crossword generation failed:", err);
       setCwResult(null);
@@ -115,10 +121,29 @@ export default function App() {
   };
 
   const grid = renderGrid();
-
   const wordToDef = Object.fromEntries(
     rows.map((r) => [r.term.toUpperCase(), r.def]),
   );
+
+  const handleInputChange = (y: number, x: number, value: string) => {
+    const newGrid = [...userGrid];
+    newGrid[y][x] = value.toUpperCase();
+    setUserGrid(newGrid);
+  };
+
+  const isFirstLetter = (x: number, y: number): boolean => {
+    if (!cwResult) return false;
+    return cwResult.positionObjArr.some((w) => w.xNum === x && w.yNum === y);
+  };
+
+  const getLabelNumber = (x: number, y: number): number | null => {
+    if (!cwResult) return null;
+    const word = cwResult.positionObjArr.find(
+      (w) => w.xNum === x && w.yNum === y,
+    );
+    if (!word) return null;
+    return cwResult.positionObjArr.indexOf(word) + 1;
+  };
 
   return (
     <div style={{ padding: 20, fontFamily: "system-ui, sans-serif" }}>
@@ -172,35 +197,156 @@ export default function App() {
             <tbody>
               {grid.map((row, y) => (
                 <tr key={y}>
-                  {row.map((cell, x) => (
-                    <td
-                      key={x}
-                      style={{
-                        border: "1px solid #ccc",
-                        width: 24,
-                        height: 24,
-                        textAlign: "center",
-                      }}
-                    >
-                      {cell}
-                    </td>
-                  ))}
+                  {row.map((cell, x) => {
+                    const isFirst = isFirstLetter(x, y);
+                    const labelNumber = isFirst ? getLabelNumber(x, y) : null;
+                    const userValue = userGrid[y]?.[x] || "";
+                    if (cell === "") {
+                      return (
+                        <td
+                          key={x}
+                          style={{
+                            border: "1px solid #ccc",
+                            backgroundColor: "blue",
+                            width: 32,
+                            height: 32,
+                            textAlign: "center",
+                            position: "relative",
+                          }}
+                        />
+                      );
+                    }
+                    const isCorrect = userValue === cell;
+
+                    return (
+                      <td
+                        key={x}
+                        style={{
+                          border: "1px solid #ccc",
+                          width: 32,
+                          height: 32,
+                          textAlign: "center",
+                          position: "relative",
+                        }}
+                      >
+                        {isFirst && (
+                          <div
+                            style={{
+                              color: "black",
+                              position: "absolute",
+                              top: 5,
+                              left: 5,
+                              fontSize: 8,
+                            }}
+                          >
+                            {labelNumber}
+                          </div>
+                        )}
+                        <input
+                          type="text"
+                          maxLength={1}
+                          value={userValue}
+                          onChange={(e) =>
+                            handleInputChange(y, x, e.target.value)
+                          }
+                          style={{
+                            width: 32,
+                            height: 32,
+                            border: "none",
+                            textAlign: "center",
+                            backgroundColor: isCorrect
+                              ? "lightgreen"
+                              : userValue && !isCorrect
+                              ? "lightpink"
+                              : "white",
+                          }}
+                        />
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>
           </table>
           <h2>Clues</h2>
-          <ul>
-            {cwResult.positionObjArr.map((w, idx) => (
-              <li key={idx}>
-                <b>
-                  ({w.isHorizon ? "across" : "down"} @ {w.xNum},{w.yNum})
-                </b>{" "}
-                {wordToDef[w.wordStr] || w.wordStr}
-              </li>
-            ))}
-          </ul>
+          <div style={{ display: "flex", gap: 20 }}>
+            <div>
+              <h3>Horizontal</h3>
+              <ul>
+                {cwResult.positionObjArr
+                  .filter((w) => w.isHorizon)
+                  .map((w, idx) => (
+                    <li key={idx}>
+                      <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
+                      {wordToDef[w.wordStr] || w.wordStr}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Vertical</h3>
+              <ul>
+                {cwResult.positionObjArr
+                  .filter((w) => !w.isHorizon)
+                  .map((w, idx) => (
+                    <li key={idx}>
+                      <b>{cwResult.positionObjArr.indexOf(w) + 1}. </b>
+                      {wordToDef[w.wordStr] || w.wordStr}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
         </>
+      )}
+      {rows.length > 0 ? (
+        <details>
+          {" "}
+          <summary>Words</summary>{" "}
+          <table style={{ borderCollapse: "collapse", width: "100%" }}>
+            {" "}
+            <thead>
+              {" "}
+              <tr>
+                {" "}
+                <th style={{ border: "1px solid #ccc", padding: 8 }}>
+                  Term
+                </th>{" "}
+                <th style={{ border: "1px solid #ccc", padding: 8 }}>
+                  {" "}
+                  Definition{" "}
+                </th>{" "}
+              </tr>{" "}
+            </thead>{" "}
+            <tbody>
+              {" "}
+              {rows.map((r, idx) => (
+                <tr key={idx}>
+                  {" "}
+                  <td
+                    style={{
+                      border: "1px solid #eee",
+                      padding: 8,
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    {" "}
+                    {r.term}{" "}
+                  </td>{" "}
+                  <td style={{ border: "1px solid #eee", padding: 8 }}>
+                    {" "}
+                    {r.def}{" "}
+                  </td>{" "}
+                </tr>
+              ))}{" "}
+            </tbody>{" "}
+          </table>{" "}
+        </details>
+      ) : (
+        selectedBase &&
+        selectedSheet && (
+          <p>No rows found (expect col A = term, col B = def).</p>
+        )
       )}
     </div>
   );
