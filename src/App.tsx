@@ -1,5 +1,6 @@
 import CWG, { type CWGResult, type PositionObject } from "cwg";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Rand, { PRNG } from "rand-seed";
 import * as XLSX from "xlsx";
 
 interface Row {
@@ -12,6 +13,8 @@ type WorkbookData = {
   workbook: XLSX.WorkBook;
 };
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export default function App() {
   const [bases, setBases] = useState<string[]>([]);
   const [selectedBase, setSelectedBase] = useState<string>("");
@@ -19,7 +22,6 @@ export default function App() {
   const [selectedSheet, setSelectedSheet] = useState<string>("");
   const [rows, setRows] = useState<Row[]>([]);
   const [cwResult, setCwResult] = useState<CWGResult | null>(null);
-  const [seed, setSeed] = useState<string>("123");
   const [userGrid, setUserGrid] = useState<string[][]>([]);
   const [currentWord, setCurrentWord] = useState<null | PositionObject>(null);
   const [lastDirection, setLastDirection] = useState<
@@ -28,7 +30,7 @@ export default function App() {
   const inputReferences = useRef<HTMLInputElement[][]>([]);
 
   useEffect(() => {
-    fetch("/bases.json")
+    fetch(`${baseUrl}bases.json`)
       .then((resource) => {
         if (!resource.ok) throw new Error("Failed to load /bases.json");
         return resource.json() as Promise<string[]>;
@@ -47,7 +49,7 @@ export default function App() {
       setSelectedSheet("");
       return;
     }
-    const url = `/bases/${encodeURIComponent(selectedBase)}`;
+    const url = `${baseUrl}bases/${encodeURIComponent(selectedBase)}`;
     fetch(url)
       .then((resource) => {
         if (!resource.ok) throw new Error(`Failed to fetch ${url}`);
@@ -91,32 +93,11 @@ export default function App() {
       return;
     }
     try {
-      const seen = new Set<string>();
-      const uniqueRows = rows.filter((r) => {
-        const key = r.term.toLowerCase();
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
+      const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
 
-      const seededRandom = (seed: string) => {
-        let value = 0;
-        for (let index = 0; index < seed.length; index++) {
-          // eslint-disable-next-line unicorn/prefer-code-point
-          value = (value << 5) - value + seed.charCodeAt(index);
-          value = Math.trunc(value);
-        }
-        return () => {
-          value = Math.sin(value) * 10_000;
-          return value - Math.floor(value);
-        };
-      };
-
-      const random = seededRandom(seed);
-
-      const sortedRows = [...uniqueRows].toSorted(() => random() - 0.5);
-
-      const wordList = sortedRows.map((r) => r.term.toUpperCase());
+      const wordList = rows
+        .map((r) => r.term.toUpperCase())
+        .toSorted(() => rand.next() - 0.5);
 
       const newWordList = wordList.slice(0, 2);
       let resul: CWGResult = CWG(newWordList);
@@ -308,7 +289,7 @@ export default function App() {
           <b>
             {cwResult && cwResult.positionObjArr.indexOf(currentWord) + 1}.
             {lastDirection === "horizontal" ? " Across" : " Down"}
-          </b>{" "}
+          </b>
           {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
         </div>
       )}
@@ -345,14 +326,6 @@ export default function App() {
       </div>
       {rows.length > 0 && (
         <div style={{ marginBottom: 20 }}>
-          <label>
-            Seed:{" "}
-            <input
-              onChange={(event) => setSeed(event.target.value)}
-              type="number"
-              value={seed}
-            />
-          </label>
           <button
             onClick={handleGenerate}
             style={{ marginLeft: 10 }}
@@ -493,28 +466,19 @@ export default function App() {
       )}
       {rows.length > 0 ? (
         <details>
-          {" "}
-          <summary>Words</summary>{" "}
+          <summary>Words</summary>
           <table style={{ borderCollapse: "collapse", width: "100%" }}>
-            {" "}
             <thead>
-              {" "}
               <tr>
-                {" "}
+                <th style={{ border: "1px solid #ccc", padding: 8 }}>Term</th>
                 <th style={{ border: "1px solid #ccc", padding: 8 }}>
-                  Term
-                </th>{" "}
-                <th style={{ border: "1px solid #ccc", padding: 8 }}>
-                  {" "}
-                  Definition{" "}
-                </th>{" "}
-              </tr>{" "}
-            </thead>{" "}
+                  Definition
+                </th>
+              </tr>
+            </thead>
             <tbody>
-              {" "}
               {rows.map((r, index) => (
                 <tr key={index}>
-                  {" "}
                   <td
                     style={{
                       border: "1px solid #eee",
@@ -522,17 +486,15 @@ export default function App() {
                       padding: 8,
                     }}
                   >
-                    {" "}
-                    {r.term}{" "}
-                  </td>{" "}
+                    {r.term}
+                  </td>
                   <td style={{ border: "1px solid #eee", padding: 8 }}>
-                    {" "}
-                    {r.def}{" "}
-                  </td>{" "}
+                    {r.def}
+                  </td>
                 </tr>
-              ))}{" "}
-            </tbody>{" "}
-          </table>{" "}
+              ))}
+            </tbody>
+          </table>
         </details>
       ) : (
         selectedBase &&
