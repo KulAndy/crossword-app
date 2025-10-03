@@ -14,6 +14,7 @@ type WorkbookData = {
 };
 
 const baseUrl = import.meta.env.BASE_URL;
+const maxWidth = 15;
 
 export default function App() {
   const [bases, setBases] = useState<string[]>([]);
@@ -141,6 +142,7 @@ export default function App() {
 
       const wordList = rows
         .map((r) => r.term.toUpperCase())
+        .filter((item) => item.length <= maxWidth)
         .toSorted(() => rand.next() - 0.5);
 
       const newWordList = wordList.slice(0, 2);
@@ -151,7 +153,7 @@ export default function App() {
         newWordList.push(element);
         const newResult = CWG(newWordList);
         resul = newResult;
-        if (newResult.width > 15 && newResult.height > 15) {
+        if (newResult.width > maxWidth && newResult.height > maxWidth) {
           break;
         }
         resul = newResult;
