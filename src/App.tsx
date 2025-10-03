@@ -3,15 +3,14 @@ import Rand, { PRNG } from "rand-seed";
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 
-interface Row {
-  def: string;
-  term: string;
-}
+import type { Row } from "./types/Row";
+import type { WorkbookData } from "./types/WorkbookData";
 
-type WorkbookData = {
-  sheets: string[];
-  workbook: XLSX.WorkBook;
-};
+import { CluesList } from "./components/CluesList";
+import { CrosswordGrid } from "./components/CrosswordGrid";
+import { FileSelector } from "./components/FileSelector";
+import { WordsTable } from "./components/WordsTable";
+import { generateNumberedLabels } from "./utilities";
 
 const baseUrl = import.meta.env.BASE_URL;
 const maxWidth = 15;
@@ -28,51 +27,12 @@ export default function App() {
   const [lastDirection, setLastDirection] = useState<
     "horizontal" | "vertical" | null
   >(null);
+  const [wordDirection, setWordDirection] = useState<
+    "horizontal" | "vertical" | null
+  >(null);
   const inputReferences = useRef<HTMLInputElement[][]>([]);
 
-  const generateNumberedLabels = (): Record<string, number> => {
-    if (!cwResult) return {};
-
-    const labels: Record<string, number> = {};
-    let labelCounter = 1;
-
-    const sortedObjects = cwResult.positionObjArr.toSorted(
-      (a, b) => a.yNum * 10_000 - b.yNum * 10_000 + a.xNum - b.xNum,
-    );
-
-    let orderNumber = 0;
-    for (let index = 0; index < sortedObjects.length; index++) {
-      const word = sortedObjects[index];
-      const startX = word.xNum;
-      const startY = word.yNum;
-      const key = `${startX},${startY}`;
-      if (
-        index > 0 &&
-        word.yNum === sortedObjects[index - 1].yNum &&
-        word.xNum === sortedObjects[index - 1].xNum
-      ) {
-        if (!labels[key]) {
-          labels[key] = orderNumber;
-        }
-      } else if (!labels[key]) {
-        labels[key] = ++orderNumber;
-      }
-    }
-
-    for (const word of sortedObjects) {
-      const startX = word.xNum;
-      const startY = word.yNum;
-      const key = `${startX},${startY}`;
-
-      if (!labels[key]) {
-        labels[key] = labelCounter++;
-      }
-    }
-
-    return labels;
-  };
-
-  const numberedLabels = generateNumberedLabels();
+  const numberedLabels = generateNumberedLabels(cwResult);
 
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
@@ -86,6 +46,15 @@ export default function App() {
         setBases([]);
       });
   }, []);
+
+  useEffect(() => {
+    if (currentWord) {
+      setWordDirection(currentWord.isHorizon ? "horizontal" : "vertical");
+      setLastDirection((previous) =>
+        (previous ?? currentWord.isHorizon) ? "horizontal" : "vertical",
+      );
+    }
+  }, [currentWord]);
 
   useEffect(() => {
     if (!selectedBase) {
@@ -169,44 +138,6 @@ export default function App() {
       console.error("Crossword generation failed:", error);
       setCwResult(null);
     }
-  };
-
-  const renderGrid = (): string[][] => {
-    if (!cwResult) {
-      return [];
-    }
-    const { height, positionObjArr, width } = cwResult;
-    const grid: string[][] = Array.from({ length: height }, () =>
-      Array.from({ length: width }, () => ""),
-    );
-
-    for (const w of positionObjArr) {
-      for (let index = 0; index < w.wordStr.length; index++) {
-        if (w.isHorizon) grid[w.yNum][w.xNum + index] = w.wordStr[index];
-        else grid[w.yNum + index][w.xNum] = w.wordStr[index];
-      }
-    }
-
-    return grid;
-  };
-
-  const grid = renderGrid();
-  const wordToDefinition = Object.fromEntries(
-    rows.map((r) => [r.term.toUpperCase(), r.def]),
-  );
-
-  const isFirstLetter = (x: number, y: number): boolean => {
-    if (!cwResult) {
-      return false;
-    }
-    return !!numberedLabels[`${x},${y}`];
-  };
-
-  const getLabelNumber = (x: number, y: number): null | number => {
-    if (!cwResult) {
-      return null;
-    }
-    return numberedLabels[`${x},${y}`] || null;
   };
 
   const handleFocus = useCallback(
@@ -316,7 +247,6 @@ export default function App() {
             return;
           }
         }
-
         event.preventDefault();
         setTimeout(() => {
           inputReferences.current[newY]?.[newX]?.focus();
@@ -331,7 +261,13 @@ export default function App() {
                   newY < w.yNum + w.wordStr.length;
           });
           if (word) {
-            setLastDirection(word.isHorizon ? "horizontal" : "vertical");
+            if (x !== newX) {
+              setLastDirection("horizontal");
+            } else if (y === newY) {
+              setLastDirection(null);
+            } else {
+              setLastDirection("vertical");
+            }
           }
         }, 0);
       }
@@ -339,58 +275,21 @@ export default function App() {
     [cwResult],
   );
 
-  const question = (
-    <>
-      {currentWord && (
-        <div
-          style={{
-            border: "1px solid #ccc",
-            borderRadius: 4,
-            left: lastDirection === "horizontal" ? 0 : "100%",
-            margin: 4,
-            padding: 8,
-            top: lastDirection === "horizontal" ? "100%" : 0,
-            zIndex: 10,
-          }}
-        >
-          <b>
-            {numberedLabels[`${currentWord.xNum},${currentWord.yNum}`]}.
-            {lastDirection === "horizontal" ? " Across" : " Down"}
-          </b>{" "}
-          {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
-        </div>
-      )}
-    </>
+  const wordToDefinition = Object.fromEntries(
+    rows.map((r) => [r.term.toUpperCase(), r.def]),
   );
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", padding: 20 }}>
       <h1>Bases / Sheets → Terms / Crossword</h1>
-      <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
-        <select
-          onChange={(event) => setSelectedBase(event.target.value)}
-          value={selectedBase}
-        >
-          <option value="">Select file</option>
-          {bases.map((f) => (
-            <option key={f} value={f}>
-              {f.replace(/\.xlsx?$/i, "")}
-            </option>
-          ))}
-        </select>
-        <select
-          disabled={!workbookData}
-          onChange={(event) => setSelectedSheet(event.target.value)}
-          value={selectedSheet}
-        >
-          <option value="">Select sheet</option>
-          {workbookData?.sheets.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
-      </div>
+      <FileSelector
+        bases={bases}
+        onSelectBase={setSelectedBase}
+        onSelectSheet={setSelectedSheet}
+        selectedBase={selectedBase}
+        selectedSheet={selectedSheet}
+        workbookData={workbookData}
+      />
       {rows.length > 0 && (
         <div style={{ marginBottom: 20 }}>
           <button
@@ -405,177 +304,29 @@ export default function App() {
       {cwResult && (
         <>
           <h2>Crossword Grid</h2>
-          <div style={{ position: "relative" }}>
-            {question}
-            <table
-              style={{
-                borderCollapse: "collapse",
-                fontFamily: "monospace",
-                margin: "auto",
-              }}
-            >
-              <tbody>
-                {grid.map((row, y) => (
-                  <tr key={y}>
-                    {row.map((cell, x) => {
-                      if (!inputReferences.current[y])
-                        inputReferences.current[y] = [];
-                      const isFirst = isFirstLetter(x, y);
-                      const labelNumber = isFirst ? getLabelNumber(x, y) : null;
-                      const userValue = userGrid[y]?.[x] || "";
-                      if (cell === "") {
-                        return (
-                          <td
-                            key={x}
-                            style={{
-                              backgroundColor: "blue",
-                              border: "1px solid #ccc",
-                              height: 32,
-                              position: "relative",
-                              textAlign: "center",
-                              width: 32,
-                            }}
-                          />
-                        );
-                      }
-                      const isCorrect = userValue === cell;
-                      return (
-                        <td
-                          key={x}
-                          style={{
-                            border: "1px solid #ccc",
-                            height: 32,
-                            position: "relative",
-                            textAlign: "center",
-                            width: 32,
-                          }}
-                        >
-                          {isFirst && (
-                            <div
-                              style={{
-                                color: "black",
-                                fontSize: 8,
-                                left: 2,
-                                position: "absolute",
-                                top: 2,
-                              }}
-                            >
-                              {labelNumber}
-                            </div>
-                          )}
-                          <input
-                            maxLength={2}
-                            onChange={(event) => {
-                              const lastLetter = event.target.value.slice(-1);
-                              event.target.value = lastLetter;
-                              handleInputChange(y, x, lastLetter);
-                            }}
-                            onClick={() => setLastDirection(null)}
-                            onFocus={() => {
-                              handleFocus(y, x);
-                            }}
-                            onKeyDown={(event) => handleKeyDown(event, y, x)}
-                            ref={(element) => {
-                              if (element) {
-                                inputReferences.current[y][x] = element;
-                              }
-                            }}
-                            style={{
-                              backgroundColor: isCorrect
-                                ? "lightgreen"
-                                : userValue && !isCorrect
-                                  ? "lightpink"
-                                  : "white",
-                              border: "none",
-                              height: 32,
-                              textAlign: "center",
-                              width: 32,
-                            }}
-                            type="text"
-                            value={userValue}
-                          />
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {question}
-          </div>
+          <CrosswordGrid
+            currentWord={currentWord}
+            cwResult={cwResult}
+            inputReferences={inputReferences}
+            numberedLabels={numberedLabels}
+            onFocus={handleFocus}
+            onInputChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            setLastDirection={setLastDirection}
+            userGrid={userGrid}
+            wordDirection={wordDirection}
+            wordToDefinition={wordToDefinition}
+          />
           <h2>Clues</h2>
-          <div style={{ display: "flex", gap: 20 }}>
-            <div>
-              <h3>Horizontal</h3>
-              <ul>
-                {cwResult.positionObjArr
-                  .filter((w) => w.isHorizon)
-                  .toSorted(
-                    (a, b) =>
-                      numberedLabels[`${a.xNum},${a.yNum}`] -
-                      numberedLabels[`${b.xNum},${b.yNum}`],
-                  )
-                  .map((w, index) => (
-                    <li key={index}>
-                      <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
-                      {wordToDefinition[w.wordStr] || w.wordStr}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-            <div>
-              <h3>Vertical</h3>
-              <ul>
-                {cwResult.positionObjArr
-                  .filter((w) => !w.isHorizon)
-                  .toSorted(
-                    (a, b) =>
-                      numberedLabels[`${a.xNum},${a.yNum}`] -
-                      numberedLabels[`${b.xNum},${b.yNum}`],
-                  )
-                  .map((w, index) => (
-                    <li key={index}>
-                      <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
-                      {wordToDefinition[w.wordStr] || w.wordStr}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          </div>
+          <CluesList
+            cwResult={cwResult}
+            numberedLabels={numberedLabels}
+            wordToDefinition={wordToDefinition}
+          />
         </>
       )}
       {rows.length > 0 ? (
-        <details>
-          <summary>Words</summary>
-          <table style={{ borderCollapse: "collapse", width: "100%" }}>
-            <thead>
-              <tr>
-                <th style={{ border: "1px solid #ccc", padding: 8 }}>Term</th>
-                <th style={{ border: "1px solid #ccc", padding: 8 }}>
-                  Definition
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, index) => (
-                <tr key={index}>
-                  <td
-                    style={{
-                      border: "1px solid #eee",
-                      fontFamily: "monospace",
-                      padding: 8,
-                    }}
-                  >
-                    {r.term}
-                  </td>
-                  <td style={{ border: "1px solid #eee", padding: 8 }}>
-                    {r.def}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </details>
+        <WordsTable rows={rows} />
       ) : (
         selectedBase &&
         selectedSheet && (
