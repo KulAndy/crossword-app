@@ -12,10 +12,17 @@ table {
 
 td {
   border: 1px solid #ccc;
-  height: 32px;
+  height: min(5vw, 5vh, 32px);
   position: relative;
   text-align: center;
-  width: 32px;
+  width: min(5vw, 5vh, 32px);
+}
+
+td input {
+  border: none;
+  height: min(5vw, 5vh, 32px);
+  text-align: center;
+  width: min(5vw, 5vh, 32px);
 }
 
 td:empty {

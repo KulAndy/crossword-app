@@ -111,10 +111,6 @@ export const CrosswordGrid = ({
                           : userValue && !isCorrect
                             ? "lightpink"
                             : "white",
-                        border: "none",
-                        height: 32,
-                        textAlign: "center",
-                        width: 32,
                       }}
                       type="text"
                       value={userValue}
