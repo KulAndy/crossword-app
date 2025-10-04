@@ -1,0 +1,59 @@
+BIOS;non-volatile firmware used to perform hardware initialization during the booting process, and to provide runtime services for operating systems and programs
+GRUB;the boot loader package from the GNU Project
+UEFI;a specification that defines a software interface between an operating system and platform firmware
+init;the first process started during booting of the computer system
+ext4;a journaling file system for Linux, developed as the successor to ext3
+swap space;a portion of a hard disk drive that is used for simulating main memory
+word;a fixed-sized piece of data handled as a unit by the instruction set or the hardware of the processor
+cron;a time-based job scheduler in Unix-like computer operating systems
+X;oldest unix display server
+Wayland;a computer protocol that specifies the communication between a display server and its clients
+device file;an interface to a device driver that appears in a file system as if it were an ordinary file
+ALSA;a software framework and part of the Linux kernel that provides an application programming interface for sound card device drivers
+x86;a family of instruction set architectures based on the Intel 8086 microprocessor and its 8088 variant
+x86_64;the 64-bit version of the x86 instruction set
+GNU Hurd;the multiserver microkernel written as part of the GNU project
+Linux;a free and open-source monolithic Unix-like computer operating system kernel
+Syslinux;a suite of lightweight master boot record boot loaders for starting up IBM PC compatible computers with the Linux kernel
+boot loader;a program that loads an operating system when a computer is turned on
+systemd;an init system used to bootstrap the user space and to manage system processes after booting
+mount point;the directory under which a file system is accessible after being mounted
+parity bit;in asynchronous communications and primary storage, an extra bit added to a data byte for parity checking
+parity checking;the most basic technique used to detect memory or data communication errors
+process;instance of program thst being executed
+thread;dispatched unit of work with processor context and stack
+green thread; thread scheduled by a runtime library or virtual machine
+user mode;process mode that allows access only to part of the memory 
+kernel mode;process mode that allows access  to whole of the memory 
+IPC;inter-process communication
+semaphore;variable used to control access
+reliability;probability of correct operation (program execution and data protection)
+mean time to failure;expected time to failure for a non-repairable system
+mean time to repair;average time required to repair a failed component or device
+downtime;time during which the system is unavailable
+executive;responsible for memory management, processes, security, input-output and IPC
+HAL;mapping between commands and hardware responses
+driver;controls a specific device
+task;a unit of execution or a unit of work
+dispatcher;switches the CPU between processes
+RPC;executing program on another computer like on localhost
+thread pool;a set of threads for async tasks
+fiber;a unit of execution that an application must execute on its own
+resident set;a portion of data in main memory
+virtual memory;memory that appears real but is stored on disk
+thrashing;constantly throwing away a fragment of data just before use and bringing it back
+memory paging;storing data on a disk in same-size blocks
+page fault;exception thrown when page not found
+translation lookaside buffer;a memory cache with translations of virtual memory to physical memory
+time slicing;periodic replacement of the currently running process with the first one in the queue
+non-uniform memory access;memory access time depends on the memory location relative to the processor
+replacement policy;rules about which page should be swapped
+least-recently used;replacing the page that has not been referenced for the longest time
+fixed allocation;a fixed number of page frames to the process
+variable allocation;determines a number of page frames with the possibility of changing the number
+virtual time;a process's perceived execution time
+variable-interval sampled working set;a set of samples measured at variable time intervals to optimize memory access
+kernel panic;internal fatal error
+task force;grouped processes for specific tasks
+urgency;priority level of task execution
+criticality;impact of task failure or delay

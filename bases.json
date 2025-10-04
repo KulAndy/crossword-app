@@ -1,5 +1,48 @@
 [
-  "Automobile Vehicles.xlsx",
-  "English_4_IT.xlsx",
-  "Linux Dictionary.xlsx"
+  {
+    "category": "Automobile Vehicles",
+    "subcategories": [
+      "Appendix 1",
+      "Słownik - elektronika",
+      "Słownik - elementy znormalizowa",
+      "Słownik - nadwozie",
+      "Słownik - napęd",
+      "Słownik - obsługa i eksploatacj",
+      "Słownik - podwozie",
+      "Słownik - silnik",
+      "Słownik - wstęp",
+      "Unit 1 - Introduction to the ca",
+      "Unit 2 - The exterior",
+      "Unit 3 - The interior",
+      "Unit 4 - Under the bonnet",
+      "Unit 5 - Performance and techni",
+      "Unit 6 - Safety",
+      "Unit 7 - Design",
+      "Unit 8 - Future trends"
+    ]
+  },
+  {
+    "category": "English_4_IT",
+    "subcategories": [
+      "Memrise",
+      "Q&A",
+      "without headers"
+    ]
+  },
+  {
+    "category": "Linux Dictionary",
+    "subcategories": [
+      "Bash",
+      "Dir structure",
+      "Dockerization",
+      "GUI",
+      "General",
+      "Jokes",
+      "Kernel",
+      "Low level programming",
+      "Networking",
+      "Sheet1",
+      "Terminal & Tools"
+    ]
+  }
 ]

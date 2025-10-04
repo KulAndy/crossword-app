@@ -1,0 +1,138 @@
+air cleaner;filtr powietrza;air filter;x;x
+air compressor;sprężarka powietrza, kompresor;;x;x
+air jet;dysza powietrza;;x;x
+air temperature sensor;czujnik temperatury powietrza;;x;x
+air-fuel mixture;mieszanka paliwowo powietrzna;;x;x
+airflow sensor;przepływomierz powietrza;;x;x
+armature;wirnik, rotor;rotor;x;x
+balance shaft;wał wyrównoważający;;x;x
+ball;kulka;;x;x
+battery voltage sensor;czujnik napięcia akumulatora;;x;x
+bearing halfshell;półpanewka;;x;x
+blower;dmuchawa;;x;x
+bracket;wspornik;;x;x
+brush holder;szczotkotrzymacz;;x;x
+brush spring;sprężyna szczotki;;x;x
+cam;krzywka wałka rozrządu;;x;x
+camshaft;wał rozrządu;;x;x
+camshaft drive;napęd rozrządu;;x;x
+carburetter;gaźnik;carburetor;x;x
+chain drive;napęd łańcuchowy;;x;x
+chain link;ogniwo łańcucha;;x;x
+compression ring;pierścień uszczelniający;;x;x
+compression phase;sprężanie;;x;x
+compression stroke;suw sprężania;;x;x
+compressor turbine;turbina spalinowa (napędzająca sprężarkę);;x;x
+connecting rod;korbowód;piston rod;x;x
+counterweight;przeciwciężar;;x;x
+cover;pokrywa;;x;x
+crank of crankshaft;wykorbienie wału korbowego;;x;x
+crank radius;promień wykorbienia;;x;x
+crankcase;skrzynia korbowa;;x;x
+cylinder bearing surface;gładź cylindra;;x;x
+cylinder diameter;średnica cylindra;;x;x
+cylinder fin;żebro cylindra;;x;x
+cylinder head;głowica cylindrów;;x;x
+cylinder head cover;pokrywa głowicy;;x;x
+cylinder head gasket;uszczelka głowicy;;x;x
+digital control box;sterownik elektroniczny;;x;x
+drain plug;korek spustowy;;x;x
+E-ring;pierścień elastyczny;;x;x
+engine block;blok silnika;;x;x
+engine suspension;poduszka silnika;sandwich mounting;x;x
+exhaust manifold;kolektor wydechowy;;x;x
+exhaust stroke;suw wylotu;;x;x
+exhaust system;układ wylotowy;;x;x
+exhaust valve;zawór wylotowy;;x;x
+explosion phase;wybuch;;x;x
+fan;wentylator;;x;x
+fan pulley;koło pasowe wentylatora;;x;x
+flat engine;silnik o przeciwległych cylindrach;;x;x
+float;pływak;;x;x
+float chamber;komora pływakowa;;x;x
+flywheel;koło zamachowe;;x;x
+flywheel gear;wieniec zębaty koła zamachowego;;x;x
+four-stroke engine;silnik czterosuwowy;;x;x
+front bearing;łożysko przednie;;x;x
+front bracket;pokrywa przednia;;x;x
+front silencer;tłumik przedni;;x;x
+fuel filter;filtr paliwa;;x;x
+fuel injection pump;pompa wtryskowa;;x;x
+fuel pump;pompa paliwa;;x;x
+gas turbine;turbina spalinowa;;x;x
+gear drive;napęd zębaty;;x;x
+gear shaft;wał przekładni;;x;x
+heater plug;świeca żarowa;;x;x
+horizontal engine;silnik horyzontalny;;x;x
+hot bulb engine;silnik żarowy;;x;x
+ignition distributor;rozdzielacz zapłonu;;x;x
+injector;wtryskiwacz;;x;x
+intake;dolot;;x;x
+intake phase;ssanie;;x;x
+intake stroke;suw dolotu;suction stroke;x;x
+intake valve;zawór dolotowy;;x;x
+internal combustion engine;silnik węwnętrznego spalania;;x;x
+internal gear;przekładnia wewnętrzna;;x;x
+jump-start;odpalić samochód za pomocą kabli rozruchowych, z zewnętrznego akumulatora;;x;x
+lever;dźwignia;;x;x
+longitudinal engine;silnik usytuowany wzdłużnie;;x;x
+magnetic switch;stycznik;;x;x
+main metering jet;główna dysza paliwa;;x;x
+mesh;zazębienie, zazębiać się;;x;x
+mid-engine;silnik usytuowany centralnie;;x;x
+oil cooler;chłodnica oleju;;x;x
+oil drain hole;otwór spustowy oleju;sump drain hole;x;x
+oil filter;filtr oleju;;x;x
+oil passage;kanał olejowy;oilway;x;x
+oil pressure sensor;czujnik ciśnienia oleju;;x;x
+oil scraper ring;pierścień zgarniający;;x;x
+oil separator;odolejacz;;x;x
+outtake phase;wydech, wylot;;x;x
+overflow pipe;rurka przelewowa;;x;x
+overheat protection switch;wyłącznik ochronny, termowyłącznik;;x;x
+overrunning clutch;sprzęgło jednokierunkowe;;x;x
+packing;uszczelnienie;;x;x
+pinion;zębnik;;x;x
+pinion stopper;ogranicznik ruchu zębnika;;x;x
+piston stroke;skok cylindra;stroke;x;x
+planetary gear;przekładnia planetarna;;x;x
+power stroke;suw pracy;;x;x
+push-rod;drążek popychacza;;x;x
+radial engine;silnik gwiazdowy;;x;x
+radiator;chłodnica;;x;x
+rear bearing;łożysko tylne;;x;x
+rear bracket;pokrywa tylna;;x;x
+rear silencer;tłumik tylny;;x;x
+rotary piston;tłok obrotowy;;x;x
+rotary piston engine;silnik o tłoku obrotowym, silnik Wankla;;x;x
+safety valve;zawór bezpieczeństwa;;x;x
+single-cylinder engine;silnik jednocylindrowy;;x;x
+slow running jet;dysza biegu jałowego;;x;x
+spring;sprężyna;;x;x
+squirrel cage;klatka wirnika;;x;x
+squirrel-cage motor;silnik klatkowy;;x;x
+stall;zgasić, zgasnąć (o silniku);;x;x
+stator;stojan;;x;x
+sump filter;smok pompy oleju;oil strainer;x;x
+tappet;popychacz;;x;x
+terminal;styk, złącze zaciskowe;;x;x
+thermostat;termostat;;x;x
+throttle valve;przepustnica;butterfly valve;x;x
+timing chain;łańcuch pędny;;x;x
+transverse engine;silnik usytuowany poprzecznie;;x;x
+turbocharger;turbosprężarka;;x;x
+two-stroke engine;silnik dwusuwowy;;x;x
+united injector;pompowtryskiwacz;;x;x
+v-belt;pas klinowy;;x;x
+V-engine;silnik w układzie V;;x;x
+valve;zawór;;x;x
+valve head;główka zaworu;;x;x
+valve needle;iglica zaworu;;x;x
+valve rocker arm;dźwignia zaworu;;x;x
+viscous coupling;sprzęgło wiskotyczne, wiskoza;;x;x
+W-engine;silnik w układzie W;;x;x
+water cooling;chłodzenie cieczą;;x;x
+water jacket;płaszcz wodny;;x;x
+water pump;pompa wody;;x;x
+water pump impeller;wirnik pompy;;x;x
+yoke;korpus stojana;;x;x

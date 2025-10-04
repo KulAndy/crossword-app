@@ -1,0 +1,52 @@
+/;root directory
+/bin;binary files directory
+/dev;devices directory
+/dev/null;device file that discards all data written
+/etc;global configuration directory
+/etc/hosts;mapping hostname – ip address list
+/etc/hosts.equiv;list of hosts equivalent to local machine
+/etc/passwd;users login configuration
+/etc/services;mapping service name to port list
+/etc/sudoers;list of superadmins
+/boot;directory with files needed to boot
+/home;directory with user home directories
+/lib;libraries directory
+/mnt;directory to default mount external hard drives
+/media;directory to default mount optical and flash drives
+/opt;optional software directory
+/proc;directory mounted as virtual file system for processes
+/root;root’s home directory
+/run;directory for run-time variable data
+/sbin;superuser binary files directory
+/srv;directory for services to share data
+/sys;system information directory
+/tmp;temporary data directory
+/usr;secondary, read-only user data hierarchy
+/var;variable files
+/dev/random;random number generator based on entropy pool only 
+/dev/urandom;random number generator based on entropy pool or secure algorithm if needed
+/dev/full;file that always returns error „No space left on device”
+/dev/zero;a file that returns an infinite number of 0s (ASCII NULL)
+/etc/fstab;mount config file
+/etc/group;group config file
+/etc/local.gen;localization config file
+/etc/motd;greeting config
+/etc/shadow;file with hashed passwords
+/dev/fbX;frame buffer
+/dev/hdX;ATA hard drive
+/dev/sdX;SATA hard drive
+/dev/lpX;printer via LPT
+/lost+found;directory for files found during disk tests
+absolute path;path starting from /
+relative path;path starting from current directory
+file system;organizes and stores data on storage
+directory;file cataloging structure
+regular file;contains any data in blocks
+special file;represents hardware or system resources
+named pipes;communication channels between processes
+i-node;metadata structure for file details
+single indirect block;contains pointers to data blocks
+double indirect block;contains pointers pointers to single indirect blocks
+subdirectory;directory within directory
+dentry;record in directory file
+LUKS;disk encryption mechanism

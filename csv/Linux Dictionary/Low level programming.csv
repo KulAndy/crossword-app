@@ -1,0 +1,68 @@
+nasm;an assembler and disassembler for the Intel x86 architecture used to write 16-bit, 32-bit and 64-bit programs
+as;the portable GNU assembler
+ld;the GNU linker
+gcc;the GNU C and C++ compiler
+malloc;a function for allocating dynamic memory
+mmap;a function for creating a new mapping in the virtual address space of the calling process
+fork;a function for creating a new process by duplicating the calling process
+fcntl;a function for performing an operation of the open file descriptor
+open;a system call for creating / opening the specified file
+close;a system call for closing a file descriptor, so that it no longer refers to any file and may be reused
+read;a system call for reading up to given amount of bytes from the specified file descriptor
+write;a system call for writing data to the file referred to by the file descriptor
+exit;a function for causing normal process termination
+syscall;a function for invoking the system call whose assembly language interface has the specified number
+socket;a function for creating an endpoint for communication returning a file descriptor that refers to that endpoint
+file descriptor;an abstract indicator (handle) used to access a file or other input / output resource, such as a pipe or network socket;fd
+child process;a process created by another process
+compile;to translate a high level code into machine-code
+compiler;a program that converts instructions into machine-code form so that they can be read and executed
+assembly;a low-level programming language
+assembler;a program that converts assembly code into machine-code
+libc;"a shorthand for the ""standard C library""; a library of standard functions that can be used by all C programs"
+core dump;a dump of the contents of main memory, carried out typically as an aid to debugging
+breakpoint;an intentional stopping or pausing place in a program, put in place for debugging purposes
+ELF;a common standard file format for executable files, object code, shared libraries, and core dumps in Linux
+zombie process;a process that has completed execution but still has an entry in the process table
+magic number;an non-obvious constant whose value is significant to the operation of a program and that is hardcoded
+preprocessor;a program that processes its input data to produce output that is used as input to another program
+free;a function for freeing the memory space pointed to by the given pointer
+JIT compiler;a compiler that allows programs to be automatically compiled on the fly
+mutex;a synchronisation mechanism for enforcing limits on access to a resource in an environment where there are many threads
+null;a pointer pointing to the zero address
+concurrency;ability to execute parts of a program independently of each other
+busy waiting;repeated condition checking
+deadlock ;processes block each other
+livelock;processes respond endlessly without progress
+race condition;value of variable depends on the context switching
+mutual exclusion;only one process can access a shared resource at a time
+starvation;process does not get CPU time to complete the program due to low priority
+monitor ;language construct that provides a synchronization mechanism for safe access to shared resources among multiple threads or processes
+event flag;condition signals for coordination between processes
+mailbox ;a communication mechanism for exchanging messages between processes
+message;unit of data exchanged between processes through a communication mechanism
+weak semaphore;a semaphore that does not specify the order of removal from the queue
+strong semaphore;a semaphore that specifies the order of removal from the queue
+direct mapping;searching based on indexing
+associative mapping;searching based on hashing
+Advanced Configuration and Power Interface;power and hardware configuration management standard
+tightly coupled multiprocessor;system where multiple processors share memory and communicate closely
+synchronization granularity;measure of the amount of work performed by a task
+coefficient of variation;relative variability of a dataset compared to its mean
+load sharing;distributing tasks across multiple resources
+gang scheduling;coordinates related tasks to run together on multiple processors
+dedicated processor assignment;allocating specific processors exclusively to certain tasks
+dynamic scheduling;assigns tasks to processors based on real-time workload and resource availability
+run queue;list of processes ready to run on a CPU
+coscheduling;coordinating interdependent tasks to run together on multiple processors
+activity working set;a subset  of resources actively used by a process
+descheduling;removing a process from the execution queue
+hard real-time task;a task with a deadline to finish
+soft real-time task;a task with an expected but not required finish time
+periodic task;a recurring task scheduled to run at regular intervals
+aperiodic task;a non-recurring task with no fixed schedule
+adjacent cache;two cores share one memory
+DMA;memory transfer without a CPU
+block-oriented device;handles data in fixed-size blocks
+stream-oriented device;handles data byte by byte
+reading ahead;"fetching data before it's needed; e.g., prepaging"

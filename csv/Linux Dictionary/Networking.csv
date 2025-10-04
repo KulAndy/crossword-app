@@ -1,0 +1,33 @@
+DNS;a decentralized system that translates human-readable domain names into corresponding IP addresses
+DHCP;a network protocol that assigns IP addresses and provides network configuration information to devices
+TCP;a protocol which provides connection-oriented communication and ensuring orderly delivery of data
+UDP;connectionless and lightweight transport layer protocol, provides unreliable method of communication
+Routing Table;a data structure that stores the routes for network traffic
+Subnet;logical subdivision of an IP network, created by dividing a larger network into smaller
+Gateway;a network device or software that serves as an entry/exit point for data traffic 
+Firewall;a network software for monitoring, filtering, and controlling incoming/outgoing network traffic
+SSH;application layer network protocol designed for secure remote access
+NAT;a mechanism in TCP/IP networks that allows for conversion of IP addresses of transit packets
+ARP;a network protocol used to map a known IP to a corresponding physical MAC
+arpwatch;a network monitoring tool for tracking and logging Ethernet MAC/IP address pairings, alerting administrators of changes based on user-defined criteria
+bwm-ng;a monitoring tool used to track the current bandwidth usage of network interfaces or storage device
+dhclient;a utility to facilitate the Dynamic Host Configuration Protocol process
+ethtool;a utility for controlling network drivers and hardware
+gated;a daemon that provides gateway routing functions for the RIP, EGP, BGP, HELLO, OSPF, and SNMP protocols
+hping;a command-line tool for network scanning and testing
+ifstat;a utility for monitoring the load on network interfaces
+iftop;a command-line real-time network bandwidth usage monitoring tool
+mtr;a command-line tool for tracing the route and assessing the performance of network packets
+netcat;a networking utility for reading/writing network connections
+ngrep;a network packet analyzer for monitoring and capturing network traffic based on user-defined patterns
+nslookup;a command-line tool for querying DNS servers for obtaining domain name or IP address mapping
+route;"a command for managing and displaying the kernel's IP routing table; allows to add, delete, or modify routes for network traffic"
+ss;a tool for displaying network statistics
+tcpdump;a command-line packet analyzer
+tcptrack;a command-line tool for monitoring TCP connections on a network
+host;a command-line tool that performs DNS lookup
+curl;a program for transferring a URL
+ip;a program for showing / manipulating routing, network devices, interfaces and tunnels
+ping;a program for sending ICMP ECHO_REQUEST to network hosts
+peer architecture;model where all devices have equal capabilities, communicating directly without a central server
+master-slave;primary controls, secondary follows instructions

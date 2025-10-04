@@ -1,0 +1,24 @@
+Docker;a platform for developing, shipping, and running applications in containers
+Kubernetes;an open-source container orchestration platform for automating the deployment and management of containerized apps
+Container;a portable and self-sufficient unit that encapsulates an application and its dependencies
+Image;a stand-alone, executable software package that includes code, runtime, libraries, and system tools needed to run a piece of software
+Dockerfile;a script used to create a Docker image, specifying the instructions for building the image layer by layer
+Containerization;a process of packaging an application and its dependencies into a container for easy deployment and scaling
+Registry;a centralized repository for storing and distributing Docker images
+Docker Compose;a tool for defining and running multi-container Docker applications
+Orchestration;an automated arrangement, coordination, and management of multiple containers to ensure they work together efficiently
+Service;a group of containers that work together to provide a specific application component or function
+docker-compose.yml;"a YAML-formatted configuration file for defining and managing multi-container Docker applications; it specifies the services, networks, and volumes required for the application"
+Docker Hub;a cloud-based repository where Docker users can create, test, store, and distribute Docker images
+Volume;a specially-designated directory within one or more containers, designed to persist data, independent of the container's life cycle
+Host Volume;a directory or file on the Docker host's filesystem that is mounted into a container
+Named Volume;"a type of Docker volume that is managed by Docker and identified by a specific name; Docker determines the storage location of named volumes on the host machine"
+Anonymous Volume;a type of volume that is automatically created and managed by Docker without a specific name
+Layer;an image modification, represented by an instruction in the Dockerfile
+libcontainer;a native Go implementation for creating containers with namespaces, cgroups, capabilities, and filesystem access controls
+libnetwork;a native Go implementation for creating and managing container network namespaces and resources
+Swarm;Docker's native clustering and orchestration tool, turns a pool of Docker hosts into a single, virtual Docker host
+Swarm mode;a feature of Docker that enables the orchestration of containers across multiple Docker hosts
+Docker repository;a set of Docker images
+Docker Context;a named endpoint configuration that allows switching between multiple Docker environments
+Docker node;a physical or virtual machine running an instance of the Docker Engine in swarm mode

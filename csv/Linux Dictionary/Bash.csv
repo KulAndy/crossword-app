@@ -1,0 +1,63 @@
+$BASH;path to bash (default shell)
+$BASH_VERSION;bash (default shell) version
+$CDPATH;path to cd command
+$ENV;filename to initialize shell
+$FIGNORE;list of prefixes to ignore on fielname completion
+$HISTCMD;index in history list of current command
+$HISTCONTROL;ignore commands starts with space and and like last command flag
+$HISTFILE;file to store history
+$HISTFILESIZE;max number of lines in history file
+$HISTSIZE;max number of commands stored in history
+$HOME;home directory path
+$HOSTFILE;hostname hint file
+$HOSTTYPE;uniquely describe of the type of machine (system−dependent)
+$IFS;command or word separator
+$IGNOREEOF;number of consecutive EOF characters needed at the start of a line to exit the shell
+$INPUTRC;filename for the readline startup file
+$LINENO;current line number of the script (or function) being executed
+$MAIL;if $MAILPATH is undefined it’s path for mail info
+$MAILCHECK;how often (in seconds) bash checks for mail
+$MAILPATH;list of pathnames to be checked for mail
+$MAIL_WARNING;info about mails
+$OLDPWD;previous working directory as set by the cd command
+$OSTYPE;describe of the operating system
+$PATH;list of command directories
+$PROMPT_COMMAND;executed as a command prior to primary promp
+$PS1;primary prompt
+$PS2;secondary prompt
+$PS3;prompt for the select command
+$PS4;expanded and printed before each command
+$PWD;current working directory
+$RANDOM;random integer
+$SECONDS;seconds since shell invocation
+$SHLVL;Incremented by each new instance bash
+test EXPRESSION;command to check file types and compare values
+"command1;command2 ";run command1 and command2
+command1 && command2;run command2 if command1 ended successfully
+command1 || command2 ;run command2 if command1 failed
+variable=value;Assign value to variable
+variable1=$variable2;Assign value of variable2 to variable1
+while EXPRESSION do done;execute while EXPRESSION is true
+until EXPRESSION do done;execute while EXPRESSION is false
+if EXPRESSION then elif EXPRESSION then else fi;conditionals
+for i in {1..10} do done;for loop in range 1-10
+"case EXPRESSION in 1) ;; 2) ;; *);; esac";case statement
+`command`;result of command
+-;$OLDPWD alias
+~;$HOME alias
+CTRL+A;move cursor to beginning of line
+CTRL+E;move cursor to the end of the line
+CTRL+F;move cursor forward one character
+CTRL+B;move cursor back one character
+ALT+F;move cursor forward one word
+ALT+B;move cursor back one word
+CTRL+D;remove current character
+CTRL+H;remove character to the left of the cursor
+CTRL+W;remove word to the left of the cursor
+CTRL+U;remove everything to the left of the cursor
+CTRL+K;remove everything to the right of the cursor
+CTRL+L;clear screen
+CTRL+C;abort command
+CTRL+_;undo operation
+CTRL+R;searching history
+CTRL+G;abort searching history

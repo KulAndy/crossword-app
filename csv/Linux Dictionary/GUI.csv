@@ -1,0 +1,45 @@
+Xfce4;a lightweight desktop environment for UNIX-like operating systems
+Meld;a visual diff and merge tool targeted at developers
+Thunar;a file manager for the Xfce Desktop Environment
+GVim;a GUI for Vim text editor
+GTK;a multi-platform toolkit for creating graphical user interfaces
+GNOME;a graphical user interface created for GNU project
+Unity;a graphical shell for the GNOME desktop environment originally developed by Canonical Ltd.
+Nemo;a file manager for the Cinnamon Desktop Environment
+Cinnamon;the principal desktop environment for Linux Mint
+Blueman;a full featured Bluetooth manager written in GTK+
+KDE;"the K Desktop Environment; one of several user interfaces for Linux, built with Qt"
+Mate;a graphical user interface that is the continuation of GNOME 2
+xterm;the most basic terminal emulator for the X Window System
+gedit;the default text editor of the GNOME desktop environment and part of the GNOME Core Applications
+KeePassX;a cross-platform and open-source password manager
+LibreOffice;a free and open-source office suite, a project of The Document Foundation
+GIMP;a cross-platform image editor available for most operating systems
+Pinta;a Paint-like drawing program for Linux systems
+Synaptic;GTK+-based graphical user interface for APT
+GParted;a GTK+ front-end to GNU Parted and an official GNOME partition-editing application
+Conky;a free software desktop system monitor for the X Window System
+Transmission;a BitTorrent client which features a variety of user interfaces on top of a cross-platform back-end
+Wine;free and open-source compatibility layer that aims to allow computer programs developed for Windows to run on Linux
+Pidgin;a chat program which lets you log in to accounts on multiple chat networks simultaneously
+XDM;the default display manager for the X Window System
+Rythmbox;a free and open-source audio player that plays and helps organize digital audio files
+cmus;a small, fast and powerful console audio player which supports most major audio formats
+Atom;free and open-source text and source code editor developed by GitHub community
+Synapse;a semantic launcher written in Vala that you can use to start applications as well as find and access relevant documents and files
+Darktable;a free and open-source photography workflow application and raw developer aimed at non-destructive raw photo post production
+Calibre;a free to use e-book manager for most platforms
+Gcalculator;an open source scientific calculator with a GUI and part of the GNOME Core Applications
+Konqueror;"a free and open-source web browser and file manager; developed for KDE project"
+Nautilus;the default file manager for GNOME
+Dolphin;the default file manager for KDE Plasma 5
+Krusader;an advanced twin panel (commander style) file manager for KDE Plasma
+Caja;the default file manager for Mate desktop environment
+OpenGL;a cross-language, cross-platform API for rendering 2D and 3D vector graphics
+gman;a GTK+ based front-end for man
+Kate;a text editor developed by the KDE free software community
+Qt;a cross-platform application framework and widget toolkit for creating classic and embedded GUIs, and applications
+KFind;a KDE based file finder
+Wireshark;a free and open-source packet analyser used for network troubleshooting, analysis, software and communications protocol development
+Qt Creator;a cross-platform C++, JavaScript and QML integrated development environment which is part of the SDK for the Qt GUI application development framework
+proton;steam’s compatibility layer for Windows games to run on Linux-based operating systems
