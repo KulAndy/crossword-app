@@ -50,8 +50,8 @@ export default function App() {
   useEffect(() => {
     if (currentWord) {
       setWordDirection(currentWord.isHorizon ? "across" : "down");
-      setLastDirection((previous) =>
-        (previous ?? currentWord.isHorizon) ? "across" : "down",
+      setLastDirection(
+        (previous) => previous ?? (currentWord.isHorizon ? "across" : "down"),
       );
     }
   }, [currentWord]);
@@ -179,7 +179,7 @@ export default function App() {
         setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const wordDirection =
-          (lastDirection ?? word.isHorizon) ? "across" : "down";
+          lastDirection ?? (word.isHorizon ? "across" : "down");
 
         setLastDirection((previous) => previous ?? wordDirection);
 
