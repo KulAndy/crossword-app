@@ -1,4 +1,5 @@
-import type { CWGResult, PositionObject } from "cwg";
+import type { CWGResult } from "../types/CWGResult";
+import type { PositionObject } from "../types/PositionObject";
 
 interface CrosswordGridProperties {
   currentWord: null | PositionObject;
@@ -78,13 +79,7 @@ export const CrosswordGrid = ({
   return (
     <div style={{ position: "relative" }}>
       {question}
-      <table
-        style={{
-          borderCollapse: "collapse",
-          fontFamily: "monospace",
-          margin: "auto",
-        }}
-      >
+      <table>
         <tbody>
           {grid.map((row, y) => (
             <tr key={y}>

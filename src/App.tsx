@@ -1,21 +1,76 @@
-import CWG, { type CWGResult, type PositionObject } from "cwg";
+import { type CrosswordResult, generateCrossword } from "crossword-generator";
 import Rand, { PRNG } from "rand-seed";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import type { CWGResult } from "./types/CWGResult";
+import type { PositionObject } from "./types/PositionObject";
 import type { Row } from "./types/Row";
 
 import { CluesList } from "./components/CluesList";
+import "./App.css";
 import { CrosswordGrid } from "./components/CrosswordGrid";
 import { WordsTable } from "./components/WordsTable";
 import { generateNumberedLabels } from "./utilities";
 
 const baseUrl = import.meta.env.BASE_URL;
-const maxWidth = 15;
+const maxGridSize = 15;
 
 interface Category {
   category: string;
   subcategories: string[];
 }
+
+const transformCrosswordResult = (crossword: CrosswordResult): CWGResult => {
+  const { grid, placedWords } = crossword;
+
+  const positionObjectArray: PositionObject[] = placedWords.map((word) => ({
+    isHorizon: word.direction === "horizontal",
+    wordStr: word.word,
+    xNum: word.startCol,
+    yNum: word.startRow,
+  }));
+
+  const height = grid.length;
+  const width = height > 0 ? grid[0].length : 0;
+
+  const ownerMap = grid.map((row, rowIndex) =>
+    row.map((cell, columnIndex) => {
+      if (cell === null) {
+        return;
+      }
+
+      const isHorizontal = placedWords.some(
+        (item) =>
+          item.direction === "horizontal" &&
+          item.startRow === rowIndex &&
+          item.endRow === rowIndex &&
+          item.startCol >= columnIndex &&
+          item.endCol <= columnIndex,
+      );
+      const isVertical = placedWords.some(
+        (item) =>
+          item.direction === "horizontal" &&
+          item.startRow === rowIndex &&
+          item.endRow === rowIndex &&
+          item.startCol >= columnIndex &&
+          item.endCol <= columnIndex,
+      );
+
+      return {
+        horizontal: isHorizontal ? 1 : undefined,
+        letter: cell,
+        vertical: isVertical ? 1 : undefined,
+      };
+    }),
+  );
+
+  return {
+    height,
+    ownerMap,
+    positionObjArr: positionObjectArray,
+    width,
+  };
+};
 
 export default function App() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -33,6 +88,7 @@ export default function App() {
   );
   const inputReferences = useRef<HTMLInputElement[][]>([]);
   const numberedLabels = generateNumberedLabels(cwResult);
+  const generateTimeoutReference = useRef<null | number>(null);
 
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
@@ -100,34 +156,45 @@ export default function App() {
     if (!rows || rows.length === 0) {
       return;
     }
-    try {
-      const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
-      const wordList = rows
-        .map((r) => r.term.toUpperCase())
-        .filter((item) => item.length <= maxWidth)
-        .toSorted(() => rand.next() - 0.5);
-      const newWordList = wordList.slice(0, 2);
-      let resul: CWGResult = CWG(newWordList);
-      for (let index = 2; index < wordList.length; index++) {
-        const element = wordList[index];
-        newWordList.push(element);
-        const newResult = CWG(newWordList);
-        resul = newResult;
-        if (newResult.width > maxWidth && newResult.height > maxWidth) {
-          break;
-        }
-        resul = newResult;
-      }
-      setCwResult(resul);
-      setUserGrid(
-        Array.from({ length: resul.height }, () =>
-          Array.from({ length: resul.width }, () => ""),
-        ),
-      );
-    } catch (error) {
-      console.error("Crossword generation failed:", error);
-      setCwResult(null);
+
+    if (generateTimeoutReference.current) {
+      clearTimeout(generateTimeoutReference.current);
     }
+
+    generateTimeoutReference.current = setTimeout(() => {
+      try {
+        const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
+        const wordList = rows
+          .map((r) => r.term.toUpperCase())
+          .filter((item) => item.length <= maxGridSize)
+          .toSorted((a, b) => a.length * rand.next() - b.length * rand.next());
+
+        let newCW = generateCrossword(wordList, {
+          maxAttempts: 100,
+          maxGridSize,
+          validationLevel: "strict",
+          wordCount: wordList.length,
+        });
+        while (newCW.grid.length <= 2 || newCW.grid[0].length <= 2) {
+          newCW = generateCrossword(wordList, {
+            maxAttempts: 100,
+            maxGridSize,
+            wordCount: wordList.length,
+          });
+        }
+        const transformedResult = transformCrosswordResult(newCW);
+        setCwResult(transformedResult);
+        setUserGrid(
+          Array.from({ length: transformedResult.height }, () =>
+            // eslint-disable-next-line sonarjs/no-nested-functions
+            Array.from({ length: transformedResult.width }, () => ""),
+          ),
+        );
+      } catch (error) {
+        console.error("Crossword generation failed:", error);
+        setCwResult(null);
+      }
+    }, 500);
   };
 
   const handleFocus = useCallback(

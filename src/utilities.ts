@@ -1,4 +1,4 @@
-import type { CWGResult } from "cwg";
+import type { CWGResult } from "./types/CWGResult";
 
 export const generateNumberedLabels = (
   cwResult: CWGResult | null,

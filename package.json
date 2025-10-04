@@ -15,11 +15,10 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "cwg": "^0.2.2",
+    "crossword-generator": "^1.0.1",
     "rand-seed": "^3.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "seedrandom": "^3.0.5",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -27,7 +26,6 @@
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
-    "@types/seedrandom": "^3.0.8",
     "@types/xlsx": "^0.0.35",
     "@typescript-eslint/parser": "^8.45.0",
     "@vitejs/plugin-react": "^5.0.4",
