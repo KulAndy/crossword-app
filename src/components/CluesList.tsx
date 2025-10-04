@@ -14,7 +14,7 @@ export const CluesList = ({
   return (
     <div style={{ display: "flex", gap: 20 }}>
       <div>
-        <h3>Horizontal</h3>
+        <h3>Across</h3>
         <ul>
           {cwResult?.positionObjArr
             .filter((w) => w.isHorizon)
@@ -32,7 +32,7 @@ export const CluesList = ({
         </ul>
       </div>
       <div>
-        <h3>Vertical</h3>
+        <h3>Down</h3>
         <ul>
           {cwResult?.positionObjArr
             .filter((w) => !w.isHorizon)

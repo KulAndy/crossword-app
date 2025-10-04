@@ -24,12 +24,12 @@ export default function App() {
   const [cwResult, setCwResult] = useState<CWGResult | null>(null);
   const [userGrid, setUserGrid] = useState<string[][]>([]);
   const [currentWord, setCurrentWord] = useState<null | PositionObject>(null);
-  const [lastDirection, setLastDirection] = useState<
-    "horizontal" | "vertical" | null
-  >(null);
-  const [wordDirection, setWordDirection] = useState<
-    "horizontal" | "vertical" | null
-  >(null);
+  const [lastDirection, setLastDirection] = useState<"across" | "down" | null>(
+    null,
+  );
+  const [wordDirection, setWordDirection] = useState<"across" | "down" | null>(
+    null,
+  );
   const inputReferences = useRef<HTMLInputElement[][]>([]);
 
   const numberedLabels = generateNumberedLabels(cwResult);
@@ -49,9 +49,9 @@ export default function App() {
 
   useEffect(() => {
     if (currentWord) {
-      setWordDirection(currentWord.isHorizon ? "horizontal" : "vertical");
+      setWordDirection(currentWord.isHorizon ? "across" : "down");
       setLastDirection((previous) =>
-        (previous ?? currentWord.isHorizon) ? "horizontal" : "vertical",
+        (previous ?? currentWord.isHorizon) ? "across" : "down",
       );
     }
   }, [currentWord]);
@@ -179,13 +179,13 @@ export default function App() {
         setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const wordDirection =
-          (lastDirection ?? word.isHorizon) ? "horizontal" : "vertical";
+          (lastDirection ?? word.isHorizon) ? "across" : "down";
 
         setLastDirection((previous) => previous ?? wordDirection);
 
         if (value && index < word.wordStr.length - 1) {
-          const nextX = lastDirection === "horizontal" ? x + 1 : x;
-          const nextY = lastDirection === "horizontal" ? y : y + 1;
+          const nextX = lastDirection === "across" ? x + 1 : x;
+          const nextY = lastDirection === "across" ? y : y + 1;
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();
@@ -262,11 +262,11 @@ export default function App() {
           });
           if (word) {
             if (x !== newX) {
-              setLastDirection("horizontal");
+              setLastDirection("across");
             } else if (y === newY) {
               setLastDirection(null);
             } else {
-              setLastDirection("vertical");
+              setLastDirection("down");
             }
           }
         }, 0);

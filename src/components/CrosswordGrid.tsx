@@ -8,9 +8,9 @@ interface CrosswordGridProperties {
   onFocus: (y: number, x: number) => void;
   onInputChange: (y: number, x: number, value: string) => void;
   onKeyDown: (event: React.KeyboardEvent, y: number, x: number) => void;
-  setLastDirection: (x: "horizontal" | "vertical" | null) => void;
+  setLastDirection: (x: "across" | "down" | null) => void;
   userGrid: string[][];
-  wordDirection: "horizontal" | "vertical" | null;
+  wordDirection: "across" | "down" | null;
   wordToDefinition: Record<string, string>;
 }
 
@@ -67,7 +67,7 @@ export const CrosswordGrid = ({
         >
           <b>
             {numberedLabels[`${currentWord.xNum},${currentWord.yNum}`]}.
-            {wordDirection === "horizontal" ? " Across" : " Down"}
+            {wordDirection === "across" ? " Across" : " Down"}
           </b>{" "}
           {wordToDefinition[currentWord.wordStr] || currentWord.wordStr}
         </div>
