@@ -57,15 +57,7 @@ export const CrosswordGrid = ({
   const question = (
     <>
       {currentWord && (
-        <div
-          style={{
-            border: "1px solid #ccc",
-            borderRadius: 4,
-            margin: 4,
-            padding: 8,
-            zIndex: 10,
-          }}
-        >
+        <div className="question">
           <b>
             {numberedLabels[`${currentWord.xNum},${currentWord.yNum}`]}.
             {wordDirection === "across" ? " Across" : " Down"}
@@ -90,45 +82,12 @@ export const CrosswordGrid = ({
                 const labelNumber = isFirst ? getLabelNumber(x, y) : null;
                 const userValue = userGrid[y]?.[x] || "";
                 if (cell === "") {
-                  return (
-                    <td
-                      key={x}
-                      style={{
-                        backgroundColor: "blue",
-                        border: "1px solid #ccc",
-                        height: 32,
-                        position: "relative",
-                        textAlign: "center",
-                        width: 32,
-                      }}
-                    />
-                  );
+                  return <td key={x} />;
                 }
                 const isCorrect = userValue === cell;
                 return (
-                  <td
-                    key={x}
-                    style={{
-                      border: "1px solid #ccc",
-                      height: 32,
-                      position: "relative",
-                      textAlign: "center",
-                      width: 32,
-                    }}
-                  >
-                    {isFirst && (
-                      <div
-                        style={{
-                          color: "black",
-                          fontSize: 8,
-                          left: 2,
-                          position: "absolute",
-                          top: 2,
-                        }}
-                      >
-                        {labelNumber}
-                      </div>
-                    )}
+                  <td key={x}>
+                    {isFirst && <div>{labelNumber}</div>}
                     <input
                       maxLength={2}
                       onChange={(event) => {

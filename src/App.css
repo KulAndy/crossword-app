@@ -11,13 +11,47 @@ table {
 }
 
 td {
-  border: "1px solid #ccc";
+  border: 1px solid #ccc;
   height: 32px;
-  position: "relative";
-  text-align: "center";
+  position: relative;
+  text-align: center;
   width: 32px;
 }
 
 td:empty {
-  background-color: "blue";
+  background-color: blue;
+}
+
+td input {
+  color: black;
+}
+
+td div:first-child {
+  color: black;
+  font-size: 8;
+  left: 2;
+  position: absolute;
+  top: 2;
+}
+
+th {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+details td {
+  border: 1px solid #eee;
+  padding: 8px;
+}
+
+details td:first-child {
+  font-family: monospace;
+}
+
+.question {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 4px;
+  padding: 8px;
+  z-index: 10;
 }
