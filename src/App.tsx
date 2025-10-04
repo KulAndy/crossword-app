@@ -102,6 +102,12 @@ export default function App() {
     setRows(parsed);
   }, [workbookData, selectedSheet]);
 
+  const isHorizon = useCallback(
+    (w: PositionObject) =>
+      (lastDirection === null && w.isHorizon) || lastDirection === "across",
+    [lastDirection],
+  );
+
   const handleGenerate = () => {
     if (!rows || rows.length === 0) {
       return;
@@ -147,7 +153,7 @@ export default function App() {
       }
 
       const word = cwResult.positionObjArr.find((w) => {
-        return w.isHorizon
+        return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
@@ -156,7 +162,7 @@ export default function App() {
         setCurrentWord(word);
       }
     },
-    [cwResult],
+    [cwResult, isHorizon],
   );
 
   const handleInputChange = useCallback(
@@ -170,7 +176,7 @@ export default function App() {
       setUserGrid(newGrid);
 
       const word = cwResult.positionObjArr.find((w) => {
-        return w.isHorizon
+        return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
@@ -184,16 +190,26 @@ export default function App() {
         setLastDirection((previous) => previous ?? wordDirection);
 
         if (value && index < word.wordStr.length - 1) {
-          const nextX = lastDirection === "across" ? x + 1 : x;
-          const nextY = lastDirection === "across" ? y : y + 1;
+          const nextX = wordDirection === "across" ? x + 1 : x;
+          const nextY = wordDirection === "across" ? y : y + 1;
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();
+
+            if (inputReferences.current[nextY]?.[nextX]) {
+              if (x !== nextX) {
+                setLastDirection("across");
+              } else if (y === nextY) {
+                setLastDirection(null);
+              } else {
+                setLastDirection("down");
+              }
+            }
           }, 0);
         }
       }
     },
-    [userGrid, cwResult, lastDirection],
+    [cwResult, userGrid, isHorizon, lastDirection],
   );
 
   const handleKeyDown = useCallback(
@@ -203,7 +219,7 @@ export default function App() {
       }
 
       const word = cwResult.positionObjArr.find((w) => {
-        return w.isHorizon
+        return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
@@ -251,16 +267,7 @@ export default function App() {
         setTimeout(() => {
           inputReferences.current[newY]?.[newX]?.focus();
 
-          const word = cwResult.positionObjArr.find((w) => {
-            return w.isHorizon
-              ? w.yNum === newY &&
-                  w.xNum <= newX &&
-                  newX < w.xNum + w.wordStr.length
-              : w.xNum === newX &&
-                  w.yNum <= newY &&
-                  newY < w.yNum + w.wordStr.length;
-          });
-          if (word) {
+          if (inputReferences.current[newY]?.[newX]) {
             if (x !== newX) {
               setLastDirection("across");
             } else if (y === newY) {
@@ -272,7 +279,7 @@ export default function App() {
         }, 0);
       }
     },
-    [cwResult],
+    [cwResult, isHorizon],
   );
 
   const wordToDefinition = Object.fromEntries(
@@ -304,6 +311,7 @@ export default function App() {
       {cwResult && (
         <>
           <h2>Crossword Grid</h2>
+          {lastDirection}
           <CrosswordGrid
             currentWord={currentWord}
             cwResult={cwResult}
