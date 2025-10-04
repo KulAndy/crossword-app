@@ -1,24 +1,25 @@
 import CWG, { type CWGResult, type PositionObject } from "cwg";
 import Rand, { PRNG } from "rand-seed";
 import { useCallback, useEffect, useRef, useState } from "react";
-import * as XLSX from "xlsx";
 
 import type { Row } from "./types/Row";
-import type { WorkbookData } from "./types/WorkbookData";
 
 import { CluesList } from "./components/CluesList";
 import { CrosswordGrid } from "./components/CrosswordGrid";
-import { FileSelector } from "./components/FileSelector";
 import { WordsTable } from "./components/WordsTable";
 import { generateNumberedLabels } from "./utilities";
 
 const baseUrl = import.meta.env.BASE_URL;
 const maxWidth = 15;
 
+interface Category {
+  category: string;
+  subcategories: string[];
+}
+
 export default function App() {
-  const [bases, setBases] = useState<string[]>([]);
-  const [selectedBase, setSelectedBase] = useState<string>("");
-  const [workbookData, setWorkbookData] = useState<null | WorkbookData>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSheet, setSelectedSheet] = useState<string>("");
   const [rows, setRows] = useState<Row[]>([]);
   const [cwResult, setCwResult] = useState<CWGResult | null>(null);
@@ -31,21 +32,54 @@ export default function App() {
     null,
   );
   const inputReferences = useRef<HTMLInputElement[][]>([]);
-
   const numberedLabels = generateNumberedLabels(cwResult);
 
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
       .then((resource) => {
         if (!resource.ok) throw new Error("Failed to load /bases.json");
-        return resource.json() as Promise<string[]>;
+        return resource.json() as Promise<Category[]>;
       })
-      .then(setBases)
+      .then(setCategories)
       .catch((error) => {
         console.error(error);
-        setBases([]);
+        setCategories([]);
       });
   }, []);
+
+  useEffect(() => {
+    if (!selectedCategory || !selectedSheet) {
+      setRows([]);
+      return;
+    }
+
+    const csvFileName = `${selectedCategory}/${selectedSheet}.csv`;
+    const url = `${baseUrl}csv/${csvFileName}`;
+
+    fetch(url)
+      .then((resource) => {
+        if (!resource.ok) throw new Error(`Failed to fetch ${url}`);
+        return resource.text();
+      })
+      .then((csvData) => {
+        const lines = csvData.split("\n");
+        const parsed: Row[] = lines
+          .map((line) => {
+            const columns = line.split(";");
+            return {
+              def: columns[1] ? columns[1].trim() : "",
+              term: columns[0] ? columns[0].trim() : "",
+            };
+          })
+          .filter((row) => row.term && row.def);
+
+        setRows(parsed);
+      })
+      .catch((error) => {
+        console.error("Error reading CSV:", error);
+        setRows([]);
+      });
+  }, [selectedCategory, selectedSheet]);
 
   useEffect(() => {
     if (currentWord) {
@@ -55,52 +89,6 @@ export default function App() {
       );
     }
   }, [currentWord]);
-
-  useEffect(() => {
-    if (!selectedBase) {
-      setWorkbookData(null);
-      setRows([]);
-      setSelectedSheet("");
-      return;
-    }
-    const url = `${baseUrl}bases/${encodeURIComponent(selectedBase)}`;
-    fetch(url)
-      .then((resource) => {
-        if (!resource.ok) throw new Error(`Failed to fetch ${url}`);
-        return resource.arrayBuffer();
-      })
-      .then((buffer) => {
-        const wb = XLSX.read(buffer, { type: "array" });
-        setWorkbookData({ sheets: wb.SheetNames, workbook: wb });
-        setSelectedSheet("");
-        setRows([]);
-      })
-      .catch((error) => {
-        console.error("Error reading workbook:", error);
-        setWorkbookData(null);
-      });
-  }, [selectedBase]);
-
-  useEffect(() => {
-    if (!workbookData || !selectedSheet) {
-      setRows([]);
-      return;
-    }
-    const ws = workbookData.workbook.Sheets[selectedSheet];
-    if (!ws) {
-      setRows([]);
-      return;
-    }
-    const raw = XLSX.utils.sheet_to_json<unknown[]>(ws, { header: 1 });
-    const parsed: Row[] = (raw as (string | undefined)[][])
-      .slice(1)
-      .map((r) => ({
-        def: (r[1] ?? "").toString().trim(),
-        term: (r[0] ?? "").toString().trim(),
-      }))
-      .filter((r) => r.term.length > 0 && r.def.length > 0);
-    setRows(parsed);
-  }, [workbookData, selectedSheet]);
 
   const isHorizon = useCallback(
     (w: PositionObject) =>
@@ -114,15 +102,12 @@ export default function App() {
     }
     try {
       const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
-
       const wordList = rows
         .map((r) => r.term.toUpperCase())
         .filter((item) => item.length <= maxWidth)
         .toSorted(() => rand.next() - 0.5);
-
       const newWordList = wordList.slice(0, 2);
       let resul: CWGResult = CWG(newWordList);
-
       for (let index = 2; index < wordList.length; index++) {
         const element = wordList[index];
         newWordList.push(element);
@@ -133,7 +118,6 @@ export default function App() {
         }
         resul = newResult;
       }
-
       setCwResult(resul);
       setUserGrid(
         Array.from({ length: resul.height }, () =>
@@ -151,13 +135,11 @@ export default function App() {
       if (!cwResult) {
         return;
       }
-
       const word = cwResult.positionObjArr.find((w) => {
         return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
-
       if (word) {
         setCurrentWord(word);
       }
@@ -170,32 +152,26 @@ export default function App() {
       if (!cwResult) {
         return;
       }
-
       const newGrid = [...userGrid];
       newGrid[y][x] = value.toUpperCase();
       setUserGrid(newGrid);
-
       const word = cwResult.positionObjArr.find((w) => {
         return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
-
       if (word) {
         setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const wordDirection =
           lastDirection ?? (word.isHorizon ? "across" : "down");
-
         setLastDirection((previous) => previous ?? wordDirection);
-
         if (value && index < word.wordStr.length - 1) {
           const nextX = wordDirection === "across" ? x + 1 : x;
           const nextY = wordDirection === "across" ? y : y + 1;
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();
-
             if (inputReferences.current[nextY]?.[nextX]) {
               if (x !== nextX) {
                 setLastDirection("across");
@@ -217,20 +193,16 @@ export default function App() {
       if (!cwResult) {
         return;
       }
-
       const word = cwResult.positionObjArr.find((w) => {
         return isHorizon(w)
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
-
       if (!word) {
         return;
       }
-
       const index = word.isHorizon ? x - word.xNum : y - word.yNum;
       const target = event.currentTarget as HTMLInputElement;
-
       if (event.key === "Backspace" && !target.value && index > 0) {
         event.preventDefault();
         const previousX = word.isHorizon ? x - 1 : x;
@@ -241,7 +213,6 @@ export default function App() {
       } else {
         let newX = x;
         let newY = y;
-
         switch (event.key) {
           case "ArrowDown": {
             newY = y + 1;
@@ -266,7 +237,6 @@ export default function App() {
         event.preventDefault();
         setTimeout(() => {
           inputReferences.current[newY]?.[newX]?.focus();
-
           if (inputReferences.current[newY]?.[newX]) {
             if (x !== newX) {
               setLastDirection("across");
@@ -289,14 +259,37 @@ export default function App() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", padding: 20 }}>
       <h1>Bases / Sheets → Terms / Crossword</h1>
-      <FileSelector
-        bases={bases}
-        onSelectBase={setSelectedBase}
-        onSelectSheet={setSelectedSheet}
-        selectedBase={selectedBase}
-        selectedSheet={selectedSheet}
-        workbookData={workbookData}
-      />
+      <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
+        <select
+          onChange={(event) => {
+            setSelectedCategory(event.target.value);
+            setSelectedSheet("");
+          }}
+          value={selectedCategory}
+        >
+          <option value="">Select category</option>
+          {categories.map((category) => (
+            <option key={category.category} value={category.category}>
+              {category.category}
+            </option>
+          ))}
+        </select>
+        <select
+          disabled={!selectedCategory}
+          onChange={(event) => setSelectedSheet(event.target.value)}
+          value={selectedSheet}
+        >
+          <option value="">Select sheet</option>
+          {selectedCategory &&
+            categories
+              .find((c) => c.category === selectedCategory)
+              ?.subcategories.map((sheet) => (
+                <option key={sheet} value={sheet}>
+                  {sheet}
+                </option>
+              ))}
+        </select>
+      </div>
       {rows.length > 0 && (
         <div style={{ marginBottom: 20 }}>
           <button
@@ -311,7 +304,6 @@ export default function App() {
       {cwResult && (
         <>
           <h2>Crossword Grid</h2>
-          {lastDirection}
           <CrosswordGrid
             currentWord={currentWord}
             cwResult={cwResult}
@@ -336,7 +328,7 @@ export default function App() {
       {rows.length > 0 ? (
         <WordsTable rows={rows} />
       ) : (
-        selectedBase &&
+        selectedCategory &&
         selectedSheet && (
           <p>No rows found (expect col A = term, col B = def).</p>
         )
