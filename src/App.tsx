@@ -269,55 +269,62 @@ export default function App() {
       if (!word) {
         return;
       }
-      const index = word.isHorizon ? x - word.xNum : y - word.yNum;
-      const target = event.currentTarget as HTMLInputElement;
-      if (event.key === "Backspace" && !target.value && index > 0) {
-        event.preventDefault();
-        const previousX = word.isHorizon ? x - 1 : x;
-        const previousY = word.isHorizon ? y : y - 1;
-        setTimeout(() => {
-          inputReferences.current[previousY]?.[previousX]?.focus();
-        }, 0);
-      } else {
-        let newX = x;
-        let newY = y;
-        switch (event.key) {
-          case "ArrowDown": {
-            newY = y + 1;
-            break;
+      let newX = x;
+      let newY = y;
+      switch (event.key) {
+        case "ArrowDown": {
+          newY = y + 1;
+          break;
+        }
+        case "ArrowLeft": {
+          newX = x - 1;
+          break;
+        }
+        case "ArrowRight": {
+          newX = x + 1;
+          break;
+        }
+        case "ArrowUp": {
+          newY = y - 1;
+          break;
+        }
+        case "Backspace": {
+          const newGrid = [...userGrid];
+          newGrid[y][x] = "";
+          setUserGrid(newGrid);
+
+          const direction =
+            lastDirection ??
+            wordDirection ??
+            (word.isHorizon ? "across" : "down");
+          if (direction === "across") {
+            newX--;
+          } else {
+            newY--;
           }
-          case "ArrowLeft": {
-            newX = x - 1;
-            break;
-          }
-          case "ArrowRight": {
-            newX = x + 1;
-            break;
-          }
-          case "ArrowUp": {
-            newY = y - 1;
-            break;
-          }
-          default: {
-            return;
+
+          break;
+        }
+        default: {
+          return;
+        }
+      }
+
+      event.preventDefault();
+      setTimeout(() => {
+        inputReferences.current[newY]?.[newX]?.focus();
+        if (inputReferences.current[newY]?.[newX]) {
+          if (x !== newX) {
+            setLastDirection("across");
+          } else if (y === newY) {
+            setLastDirection(null);
+          } else {
+            setLastDirection("down");
           }
         }
-        event.preventDefault();
-        setTimeout(() => {
-          inputReferences.current[newY]?.[newX]?.focus();
-          if (inputReferences.current[newY]?.[newX]) {
-            if (x !== newX) {
-              setLastDirection("across");
-            } else if (y === newY) {
-              setLastDirection(null);
-            } else {
-              setLastDirection("down");
-            }
-          }
-        }, 0);
-      }
+      }, 0);
     },
-    [cwResult, isHorizon],
+    [cwResult, isHorizon, lastDirection, userGrid, wordDirection],
   );
 
   const wordToDefinition = Object.fromEntries(
