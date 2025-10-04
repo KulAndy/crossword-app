@@ -202,16 +202,18 @@ export default function App() {
       if (!cwResult) {
         return;
       }
+
       const word = cwResult.positionObjArr.find((w) => {
-        return isHorizon(w)
+        return w.isHorizon
           ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
+
       if (word) {
         setCurrentWord(word);
       }
     },
-    [cwResult, isHorizon],
+    [cwResult],
   );
 
   const handleInputChange = useCallback(
@@ -228,7 +230,6 @@ export default function App() {
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
       if (word) {
-        setCurrentWord(word);
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const wordDirection =
           lastDirection ?? (word.isHorizon ? "across" : "down");
