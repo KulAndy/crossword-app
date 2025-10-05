@@ -72,6 +72,13 @@ const transformCrosswordResult = (crossword: CrosswordResult): CWGResult => {
   };
 };
 
+const headers = new Set([
+  "English",
+  "Rozdzial",
+  "Słówko",
+  "Slowo",
+  "Word in English",
+]);
 export default function App() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -111,6 +118,9 @@ export default function App() {
 
   useEffect(() => {
     setCurrentWord(null);
+    setRows([]);
+    setCwResult(null);
+    setUserGrid([]);
   }, [selectedSheet]);
 
   useEffect(() => {
@@ -139,6 +149,7 @@ export default function App() {
               term: columns[0] ? columns[0].trim() : "",
             };
           })
+          .filter((row) => !headers.has(row.term.trim()))
           .filter((row) => row.term && row.def);
 
         setRows(parsed);

@@ -40,9 +40,13 @@ files.forEach((file) => {
       skipHidden: true,
     });
 
-    const outPath = path.join(fileCsvDir, `${sheetName}.csv`);
-    fs.writeFileSync(outPath, csvData, "utf8");
-    console.log(`  ✔ Sheet "${sheetName}" → ${baseName}/${sheetName}.csv`);
+    if (csvData.trim()) {
+      const outPath = path.join(fileCsvDir, `${sheetName}.csv`);
+      fs.writeFileSync(outPath, csvData, "utf8");
+      console.log(`  ✔ Sheet "${sheetName}" → ${baseName}/${sheetName}.csv`);
+    } else {
+      console.log(`  Skipped Sheet "${sheetName}"`);
+    }
   });
 
   console.log(`✅ Finished generating CSV for ${file}`);
