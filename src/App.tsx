@@ -106,6 +106,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    setSelectedSheet("");
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    setCurrentWord(null);
+  }, [selectedSheet]);
+
+  useEffect(() => {
     if (!selectedCategory || !selectedSheet) {
       setRows([]);
       return;
@@ -166,6 +174,7 @@ export default function App() {
     }
 
     generateTimeoutReference.current = setTimeout(() => {
+      setCurrentWord(null);
       try {
         const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
         const wordList = rows
@@ -207,11 +216,13 @@ export default function App() {
         return;
       }
 
-      const word = cwResult.positionObjArr.find((w) => {
-        return w.isHorizon
-          ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
-          : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
-      });
+      const word = cwResult.positionObjArr
+        .filter((w) => {
+          return w.isHorizon
+            ? w.yNum === y && w.xNum <= x && x < w.xNum + w.wordStr.length
+            : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
+        })
+        .toSorted((a, b) => b.wordStr.length - a.wordStr.length)[0];
 
       if (word) {
         setCurrentWord(word);
