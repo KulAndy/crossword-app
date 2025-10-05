@@ -1,6 +1,6 @@
 import { type CrosswordResult, generateCrossword } from "crossword-generator";
 import Rand, { PRNG } from "rand-seed";
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import type { CWGResult } from "./types/CWGResult";
 import type { PositionObject } from "./types/PositionObject";
@@ -95,7 +95,6 @@ export default function App() {
   );
   const inputReferences = useRef<HTMLInputElement[][]>([]);
   const numberedLabels = generateNumberedLabels(cwResult);
-  const generateTimeoutReference = useRef<null | number>(null);
 
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
@@ -175,50 +174,49 @@ export default function App() {
     [lastDirection],
   );
 
-  const handleGenerate = () => {
+  const handleGenerate = (event: React.MouseEvent) => {
     if (!rows || rows.length === 0) {
       return;
     }
 
-    if (generateTimeoutReference.current) {
-      clearTimeout(generateTimeoutReference.current);
-    }
+    const button = event.target as HTMLButtonElement;
+    button.disabled = true;
+    setCurrentWord(null);
+    try {
+      const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
+      const wordList = rows
+        .map((r) => r.term.toUpperCase())
+        .filter((item) => item.length <= maxGridSize)
+        .toSorted((a, b) => a.length * rand.next() - b.length * rand.next());
 
-    generateTimeoutReference.current = setTimeout(() => {
-      setCurrentWord(null);
-      try {
-        const rand = new Rand(new Date().toISOString(), PRNG.xoshiro128ss);
-        const wordList = rows
-          .map((r) => r.term.toUpperCase())
-          .filter((item) => item.length <= maxGridSize)
-          .toSorted((a, b) => a.length * rand.next() - b.length * rand.next());
-
-        let newCW = generateCrossword(wordList, {
+      let newCW = generateCrossword(wordList, {
+        maxAttempts: 100,
+        maxGridSize,
+        validationLevel: "strict",
+        wordCount: wordList.length,
+      });
+      while (newCW.grid.length <= 2 || newCW.grid[0].length <= 2) {
+        newCW = generateCrossword(wordList, {
           maxAttempts: 100,
           maxGridSize,
-          validationLevel: "strict",
           wordCount: wordList.length,
         });
-        while (newCW.grid.length <= 2 || newCW.grid[0].length <= 2) {
-          newCW = generateCrossword(wordList, {
-            maxAttempts: 100,
-            maxGridSize,
-            wordCount: wordList.length,
-          });
-        }
-        const transformedResult = transformCrosswordResult(newCW);
-        setCwResult(transformedResult);
-        setUserGrid(
-          Array.from({ length: transformedResult.height }, () =>
-            // eslint-disable-next-line sonarjs/no-nested-functions
-            Array.from({ length: transformedResult.width }, () => ""),
-          ),
-        );
-      } catch (error) {
-        console.error("Crossword generation failed:", error);
-        setCwResult(null);
       }
-    }, 500);
+      const transformedResult = transformCrosswordResult(newCW);
+      setCwResult(transformedResult);
+      setUserGrid(
+        Array.from({ length: transformedResult.height }, () =>
+          Array.from({ length: transformedResult.width }, () => ""),
+        ),
+      );
+    } catch (error) {
+      console.error("Crossword generation failed:", error);
+      setCwResult(null);
+    }
+
+    setTimeout(() => {
+      button.disabled = false;
+    }, 3000);
   };
 
   const handleFocus = useCallback(
