@@ -254,13 +254,12 @@ export default function App() {
           : w.xNum === x && w.yNum <= y && y < w.yNum + w.wordStr.length;
       });
       if (word) {
-        const index = word.isHorizon ? x - word.xNum : y - word.yNum;
         const currentWordDirection =
           lastDirection ?? (word.isHorizon ? "across" : "down");
         setLastDirection((previous) => previous ?? currentWordDirection);
-        if (value && index < word.wordStr.length - 1) {
-          const nextX = currentWordDirection === "across" ? x + 1 : x;
-          const nextY = currentWordDirection === "across" ? y : y + 1;
+        const nextX = currentWordDirection === "across" ? x + 1 : x;
+        const nextY = currentWordDirection === "across" ? y : y + 1;
+        if (inputReferences.current[nextY]?.[nextX]) {
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();
@@ -334,7 +333,6 @@ export default function App() {
         }
       }
 
-      event.preventDefault();
       setTimeout(() => {
         inputReferences.current[newY]?.[newX]?.focus();
         if (inputReferences.current[newY]?.[newX]) {
