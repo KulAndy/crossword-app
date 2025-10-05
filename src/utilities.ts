@@ -3,7 +3,9 @@ import type { CWGResult } from "./types/CWGResult";
 export const generateNumberedLabels = (
   cwResult: CWGResult | null,
 ): Record<string, number> => {
-  if (!cwResult) return {};
+  if (!cwResult) {
+    return {};
+  }
 
   const labels: Record<string, number> = {};
   let labelCounter = 1;
@@ -14,6 +16,13 @@ export const generateNumberedLabels = (
 
   for (const word of sortedObjects) {
     const key = `${word.xNum},${word.yNum}`;
+    const previousKey = word.isHorizon
+      ? `${word.xNum - 1},${word.yNum}`
+      : `${word.xNum},${word.yNum - 1}`;
+
+    if (labels[previousKey]) {
+      continue;
+    }
     if (!labels[key]) {
       labels[key] = labelCounter++;
     }

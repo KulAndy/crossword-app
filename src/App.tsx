@@ -93,7 +93,9 @@ export default function App() {
   useEffect(() => {
     fetch(`${baseUrl}bases.json`)
       .then((resource) => {
-        if (!resource.ok) throw new Error("Failed to load /bases.json");
+        if (!resource.ok) {
+          throw new Error("Failed to load /bases.json");
+        }
         return resource.json() as Promise<Category[]>;
       })
       .then(setCategories)
@@ -114,7 +116,9 @@ export default function App() {
 
     fetch(url)
       .then((resource) => {
-        if (!resource.ok) throw new Error(`Failed to fetch ${url}`);
+        if (!resource.ok) {
+          throw new Error(`Failed to fetch ${url}`);
+        }
         return resource.text();
       })
       .then((csvData) => {
@@ -231,12 +235,12 @@ export default function App() {
       });
       if (word) {
         const index = word.isHorizon ? x - word.xNum : y - word.yNum;
-        const wordDirection =
+        const currentWordDirection =
           lastDirection ?? (word.isHorizon ? "across" : "down");
-        setLastDirection((previous) => previous ?? wordDirection);
+        setLastDirection((previous) => previous ?? currentWordDirection);
         if (value && index < word.wordStr.length - 1) {
-          const nextX = wordDirection === "across" ? x + 1 : x;
-          const nextY = wordDirection === "across" ? y : y + 1;
+          const nextX = currentWordDirection === "across" ? x + 1 : x;
+          const nextY = currentWordDirection === "across" ? y : y + 1;
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();

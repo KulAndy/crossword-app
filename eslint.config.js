@@ -72,6 +72,104 @@ export default defineConfig([
       "unicorn/filename-case": "off",
       "promise/always-return": "off",
       "react-hooks-extra/no-direct-set-state-in-use-effect": "off",
+      curly: ["error", "all"],
+      "func-names": ["error", "always"],
+      "no-eval": "error",
+      "prefer-template": "error",
+      "space-infix-ops": "error",
+      "object-curly-spacing": ["error", "always"],
+
+      "arrow-spacing": [
+        "error",
+        {
+          before: true,
+          after: true,
+        },
+      ],
+
+      "multiline-comment-style": ["error", "starred-block"],
+      "no-unneeded-ternary": "error",
+      eqeqeq: "error",
+
+      "func-style": [
+        "error",
+        "declaration",
+        {
+          allowArrowFunctions: true,
+        },
+      ],
+
+      "no-caller": "error",
+      "no-unused-expressions": "error",
+      "no-shadow": "error",
+      "no-unused-vars": "error",
+      "no-redeclare": "error",
+      "prefer-spread": "error",
+      "prefer-rest-params": "error",
+      "comma-dangle": ["error", "always-multiline"],
+
+      "key-spacing": [
+        "error",
+        {
+          beforeColon: false,
+          afterColon: true,
+        },
+      ],
+
+      "line-comment-position": [
+        "error",
+        {
+          position: "above",
+        },
+      ],
+
+      "no-empty-pattern": "error",
+      "no-fallthrough": "error",
+      "no-mixed-spaces-and-tabs": "error",
+      "no-useless-rename": "error",
+      "prefer-const": "error",
+      quotes: ["error", "double"],
+      semi: ["error", "always"],
+      "linebreak-style": ["error", "unix"],
+      "no-trailing-spaces": "error",
+      "eol-last": ["error", "always"],
+      curly: ["error", "all"],
+      "no-var": "error",
+      "prefer-arrow-callback": "warn",
+      "no-duplicate-imports": "error",
+
+      "no-use-before-define": [
+        "error",
+        {
+          functions: false,
+          classes: true,
+        },
+      ],
+
+      "no-empty": "warn",
+      "no-extra-semi": "error",
+      "no-extra-boolean-cast": "warn",
+      "no-dupe-keys": "error",
+      "no-implied-eval": "error",
+      "no-new-wrappers": "error",
+      "for-direction": "error",
+      "no-compare-neg-zero": "error",
+      "no-cond-assign": ["error", "always"],
+      "no-debugger": "error",
+      "no-dupe-else-if": "error",
+      "no-duplicate-case": "error",
+      "no-irregular-whitespace": "error",
+      "no-self-compare": "error",
+      "no-sparse-arrays": "error",
+      "no-template-curly-in-string": "error",
+      "no-unexpected-multiline": "error",
+      "no-unmodified-loop-condition": "error",
+      complexity: ["warn", 60],
+      "max-nested-callbacks": ["error", 10],
+      "no-lonely-if": "error",
+      "no-negated-condition": "error",
+      yoda: ["error", "never"],
+      "no-unused-vars": "off",
     },
   },
 ]);

@@ -18,6 +18,7 @@ export const CluesList = ({
         <ul>
           {cwResult?.positionObjArr
             .filter((w) => w.isHorizon)
+            .filter((w) => numberedLabels[`${w.xNum},${w.yNum}`])
             .toSorted(
               (a, b) =>
                 (numberedLabels[`${a.xNum},${a.yNum}`] || 0) -
@@ -36,6 +37,7 @@ export const CluesList = ({
         <ul>
           {cwResult?.positionObjArr
             .filter((w) => !w.isHorizon)
+            .filter((w) => numberedLabels[`${w.xNum},${w.yNum}`])
             .toSorted(
               (a, b) =>
                 (numberedLabels[`${a.xNum},${a.yNum}`] || 0) -

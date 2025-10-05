@@ -29,15 +29,20 @@ export const CrosswordGrid = ({
   wordToDefinition,
 }: CrosswordGridProperties) => {
   const renderGrid = (): string[][] => {
-    if (!cwResult) return [];
+    if (!cwResult) {
+      return [];
+    }
     const { height, positionObjArr, width } = cwResult;
     const grid: string[][] = Array.from({ length: height }, () =>
       Array.from({ length: width }, () => ""),
     );
     for (const w of positionObjArr) {
       for (let index = 0; index < w.wordStr.length; index++) {
-        if (w.isHorizon) grid[w.yNum][w.xNum + index] = w.wordStr[index];
-        else grid[w.yNum + index][w.xNum] = w.wordStr[index];
+        if (w.isHorizon) {
+          grid[w.yNum][w.xNum + index] = w.wordStr[index];
+        } else {
+          grid[w.yNum + index][w.xNum] = w.wordStr[index];
+        }
       }
     }
     return grid;
@@ -46,12 +51,16 @@ export const CrosswordGrid = ({
   const grid = renderGrid();
 
   const isFirstLetter = (x: number, y: number): boolean => {
-    if (!cwResult) return false;
+    if (!cwResult) {
+      return false;
+    }
     return !!numberedLabels[`${x},${y}`];
   };
 
   const getLabelNumber = (x: number, y: number): null | number => {
-    if (!cwResult) return null;
+    if (!cwResult) {
+      return null;
+    }
     return numberedLabels[`${x},${y}`] || null;
   };
   const question = (
@@ -76,8 +85,9 @@ export const CrosswordGrid = ({
           {grid.map((row, y) => (
             <tr key={y}>
               {row.map((cell, x) => {
-                if (!inputReferences.current[y])
+                if (!inputReferences.current[y]) {
                   inputReferences.current[y] = [];
+                }
                 const isFirst = isFirstLetter(x, y);
                 const labelNumber = isFirst ? getLabelNumber(x, y) : null;
                 const userValue = userGrid[y]?.[x] || "";
@@ -87,7 +97,18 @@ export const CrosswordGrid = ({
                 const isCorrect = userValue === cell;
                 return (
                   <td key={x}>
-                    {isFirst && <div>{labelNumber}</div>}
+                    {isFirst && (
+                      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+                      <div
+                        onClick={() => {
+                          if (inputReferences.current[y][x]) {
+                            inputReferences.current[y][x].focus();
+                          }
+                        }}
+                      >
+                        {labelNumber}
+                      </div>
+                    )}
                     <input
                       maxLength={2}
                       onChange={(event) => {
