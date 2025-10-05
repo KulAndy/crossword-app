@@ -1,0 +1,906 @@
+absorption tube;rura absorpcyjna
+acidimeter;kwasomierz
+analyzer;analizator
+calorimeter;kalorymetr
+centrifuge;wirówka
+container;pojemnik
+controlled equipment;wyposażenie kontrolowane
+equipment;wyposażenie
+Erlenmeyer flask;kolba Erlenmeyera
+fermentation tube;rura fermentacyjna
+fusion reactor;reaktor fuzyjny
+flame;płomień
+Florence flask;kolba Florence
+forceps;kleszcze
+fuel ;paliwo
+funnel;lejek
+fuse;bezpiecznik
+goggles;okulary ochronne
+graduated cylinder;cylinder miarowy
+graduated beaker;zlewka z podziałką
+graduated pipette;pipeta z podziałką
+laboratory burner;palnik laboratoryjny
+magnet;magnes
+manometer;manometr
+device;urządzenie
+medicine dropper;kroplomierz lekarski
+particle accelerator;akcelerator cząstek
+pipe;rura
+capillary tubes;rurki kapilarne
+pipette;pipeta
+spectrometer;spektrometr
+test tube;probówka
+test tube holder;uchwyt do rurki testowej
+test tube rack;rama rurki testowej
+thermonuclear device;narzędzie termonuklearne
+tongs;szczypce
+transfer pipette;pipeta przekazująca
+volumetric flask;kolba miarowa objętości
+volumetric pipette;pipeta miary objętości
+weighing bottle;butla do ważenia
+actinium;aktyn (Ac)
+aluminum;glin (Al)
+americium;ameryk (Am)
+cadmium;kadm (Cd)
+berylium;beryl (Be)
+calcium;wapń (Ca)
+boron;bor (B)
+argon;argon (Ar)
+arsenic;arsen (As)
+bromine;brom (Br)
+yttrium;itr (Y)
+antimony;antymon (Sb)
+barium;bar (Ba)
+lutetium;lutet (Lu)
+bismuth;bizmut (Bi)
+astatine;astat (At)
+berkelium;berkel (Bk)
+californium;kaliforn (Cf)
+rutherfordium;rutherford (Rf)
+dubnium;dubn (Db)
+seaborgium;seaborg (Sg)
+bohrium;bohr (Bh)
+hassium;has (Hs)
+meitnerium;meitner (Mt)
+darmstadtium;darmsztadt (Ds)
+roentgenium;roentgen (Rg)
+copernicium;kopernik (Cn) 
+nihonium;nihonium (Nh)
+flerovium;flerow (Fl)
+moscovium;moscovium (Mc)
+livemorium;liwermor (Lv)
+tennessine;tennessine (Ts)
+oganesson;oganesson (Og)
+carbon;węgiel (C)
+cerium;cer (Ce)
+cesium;cez (Cs)
+chlorine;chlor (Cl)
+chromium;chrom (Cr)
+cobalt;kobalt (Co)
+copper;miedź (Cu)
+curium;kiur (Cm)
+dysprosium;dysproz (Dy)
+einsteinium;einstein (Es)
+erbium;erb (Er)
+europium;europ (Eu)
+fermium;ferm (Fm)
+fluorine;fluor (F)
+francium;frans (Fr)
+gadolinium;gadolin (Gd)
+gallium;gal (Ga)
+gold;złoto (Au)
+germanium;german (Ge)
+hafnium;hafn (Hf)
+helium;hel (He)
+holmium;holm (Ho)
+hydrogen;wodór (H)
+indium;ind (In)
+iodine;jod (J)
+iridium;iryd (Ir)
+iron;żelazo(Fe)
+krypton;krypton (Kr)
+lanthanum;lantan (La)
+lawrencium;lorens (Lw)
+lead;ołów (Pb)
+lithium;lit (Li)
+magnesium;magnez (Mg)
+manganese;mangan (Mn)
+mendelevium;mendelew (Md)
+mercury;rtęć (Hg)
+molybdenum;molibden (Mo)
+neodymium;neodym (Nd)
+neon;neon (Ne)
+neptunium;neptun (Np)
+nickel;nikiel (Ni)
+niobium;niob (Nb)
+nitrogen;azot (N)
+nobelium;nobel (No)
+osmium;osm (Os)
+oxygen;tlen (O)
+palladium;pallad (Pd)
+phosphorus;fosfor (P)
+platinum;platyna (Pt)
+plutonium;pluton (Pu)
+polonium;polon (Po)
+potassium;potas (K)
+praseodymium;prazeodym (Pr)
+promethium;promet (Pm)
+protactinium;protaktyn (Pa)
+radium;rad (Ra)
+radon;radon (Rn)
+rhenium;ren (Re)
+rhodium;rod (Rh)
+rubidium;rubid (Rb)
+ruthenium;ruten (Ru)
+samarium;samar (Sm)
+scandium;skand (Sc)
+selenium;selen (Sn)
+silicon;krzem (Si)
+silver;srebro (Ag)
+sodium;sód (Na)
+strontium;stront (Sr)
+sulfur;siarka (S)
+tantalum;tantal (Ta)
+technetium;technet (Tc)
+tellurium;tellur (Tr)
+terbium;terb (Tb)
+thallium;tal (Tl)
+thorium;tor (Th)
+thulium;tul (Tm)
+tin;cyna (Sn)
+titanium;tytan (Ti)
+tungsten;wolfram (W)
+uranium;uran (U)
+vanadium;wanad (V)
+xenon;ksenon (Xe)
+ytterbium;iterb (Yb)
+zinc;cynk (Zn)
+zirconium;cyrkon (Zr)
+aluminium oxide;tlenek glinu
+calcium oxide;tlenek wapnia
+carbon dioxide;dwutlenek węgla
+carbon monoxide;tlenek węgla
+chlorine dioxide;ditlenek chloru
+dioxide;dwutlenek
+hydrogen peroxide;nadtlenek wodoru
+iron oxide;tlenek żelaza (III)
+lead oxides;tlenki ołowiu
+manganese dioxide;tlenek manganu (IV)
+manganese (II) oxide;tlenek manganu (II)
+oxide;tlenek
+oxidant;utleniacz
+superoxide;nadtlenek 
+trioxide;trójoxide
+acid oxide;tlenek kwasowy
+basic oxide ;tlenek zasadowy
+neutral oxide;tlenek obojętny
+calcium carbonate;węglan wapnia
+mercuric chloride;chlorek rtęci (I)
+calcium chloride;chlorek wapnia
+calcium phosphate;fosforan wapnia
+calcium sulfate;siarczan wapnia
+chromium (II) sulfate;siarczan chromu (II)
+lead chromate;chromian ołowiu (II)
+normal salt;sól zwykła
+potassium nitrate;azotan potasu
+potassium permanganate;nadmanganian potasu
+sodium chloride;chlorek sodu
+sodium bisulfate;wodorosiarczan sodowy
+bisulfate;wodorosiarczan
+acid-base indicator;wskaźnik kwasu-zasady
+colorant;barwnik
+carotene;karoten
+Congo red;czerwień Kongo
+indanthrone blue;błękit indantrenowy
+Indian red;rodzaj czerwonego pigmentu zawierającego tlenek żelaza
+indicator;wskaźnik
+iron blue;błękit żelazowy
+ivory black;czerń kostna
+litmus paper;papierek lakmusowy
+neutral red;obojętna czerwień
+peacock blue;zielono-niebieski barwnik
+Prussian blue;błękit pruski
+tincture;zabarwienie
+methyl orange;oranż metylowy
+alizarin;alizaryna
+acid-base neutralization;reakcja zobojętniania
+acidification;zakwaszenie
+calcination;kalcynacja
+carburetion;karburacja
+chain reaction;reakcja łańcuchowa
+chemical bond;łączenie chemiczne
+chemical equation;równanie chemiczne
+chemical equilibrium;równowaga reakcji chemicznych
+chemical reaction;reakcja chemiczna
+chemisorption;chemisorpcja
+combustion;spalanie
+condensation;kondensacja
+condensation reaction;reakcja kondensacji
+crystallization;krystalizacja
+decomposition;rozkład 
+dehydration;odwadnianie
+dehydrogenation;odwodornianie
+dehumidification;osuszanie
+destructive distillation;destylacja rozkładowa
+dialysis;dializa
+diffusion;dyfuzja
+dilute solution;roztwór rozcieńczony
+displacement;wymiana
+dissociation;dysocjacja
+double replacement;podwójna zamiana
+endothermic reaction;reakcja endotermiczna
+esterification;estryfikacja
+extraction;ekstrakcja
+exothermic reaction;reakcja egzotermiczna
+fermentation;fermentacja
+filtration;filtracja
+fission;rozszczepienie jądra atomu
+freezing;zamarzanie
+hydration;uwadnianie
+hydrolysis;hydroliza
+ionization;jonizacja
+liquefaction;skraplanie
+melting;topić się
+melting point;punkt skraplania
+oxidization;utlenianie
+reactant;reagent
+reaction mechanism;mechanizm reakcji chemicznych
+reaction rate;tempo reakcji
+reaction;reakcja
+reduction;redukcja
+reduction potential;potencjał redukcji
+replacement;wymiana
+reversible reaction;reakcja odwrotna
+saponification;zmydlanie
+single replacement;pojedyncza wymiana
+slow oxidization;powolne utlenianie
+sublimate;sublimat
+sublimation;sublimacja
+sublime;sublimować
+substitution reaction;reakcja podstawiania
+substrate;substrat
+surface reaction;reakcja powierzchniowa
+vaporization;parowanie
+volatilize;ulatniać się
+water softening;zmiękczanie wody
+activation energy;energia aktywacji
+activator ;aktywator
+active centre;centrum akwytne
+alpha emission;emisja alfa
+alpha-particle;cząsteczka alfa
+alternating current;prąd zmienny
+catalyst;katalizator
+cathode;katoda
+cathode ray;strumień katodowy
+cation;kation
+conduction;przewodzenie
+conductivity;przewodnictwo
+conductor;przewodnik
+conservation of charge;zachowanie ładunku
+decay;rozpad
+electric current;prąd elektryczny
+electric conductivity;indukcja elektryczna
+electrochemical;elektrochemiczny
+electrochemical cell;komórka elektrochemiczna
+electrochemistry;elektrochemia
+electrode;elektroda
+galvanization;galwanizacja
+electrolysis;elektroliza
+electrolyte;elektrolit
+electrolytic conduction;przewodnictwo elektrolityczne
+electrolyze;poddawać elektrolizie
+electromotive force;siła elektromotoryczna
+electromotive series ;serie elektromotoryczne
+electronegative;elektroujemny
+electronegativity;elektroujemność
+electropositive;elektrododatni
+electrostatic force;siła elektrostatyczna
+gamma rays;promienie gamma
+inhibitor;inhibitor
+initiator;inicjator
+alkane;alkan
+cykloalkane;cykloalkan
+alkyl group;grupa alkilowa
+alkyne;alkin
+alkene;alken
+butane;butan
+butene;buten
+1-butyne;but-1-yn
+2-butyne;but-2-yn
+alkadiene;alkadien
+cyclohexane;cykloheksan
+ethyne;etyn
+ethylene;eten
+ethane;etan
+ethyl;etyl
+homocyclic;homocykliczny
+methane;metan
+pentane;pentan
+propylene;propylen
+methyl group;grupa metylowa
+ethyl group;grupa etylowa
+propyl group;grupa propylowa
+isopropyl group;grupa izopropylowa
+chloromethane;chlorometan
+aromatic compound;związek aromatyczny
+benzene ring;pierścień benzenowy
+naphthalene;naftalen
+phenol;fenol
+phenolic;fenolowy
+toluene;toluen
+xylene;ksylen
+cyclic hydrocarbon;węglowodór cykliczny
+mixed acid;mieszanina nitrująca
+nitro group;grupa nitrowa
+benzene;benzen
+sulfo group;grupa sulfonowa
+anthracene;antracen
+phenanthrene;fenantren
+decalin;dekalina
+tetralin;tetralina
+absolute alcohol;alkohol absolutny
+alcohol;alkohol
+benzyl alcohol;alkohol benzylowy
+butanol;butanol
+butyl alcohol;alkohol butylowy
+ethylene glycol;glikol etylenowy
+ethyl alcohol;alkohol etylowy
+industrial alcohol;alkohol przemysłowy
+hydroxyl group;grupa hydroksylowa
+isopropyl alcohol;alkohol izopropylowy
+methyl alcohol;alkohol metylowy
+tertiary alcohol;alkohol trzeciorzędowy
+primary alcohol;alkohol pierwszorzędowy
+secondary alcohol;alkohol drugorzędowy
+alkoxide;alkoholan
+glycol ;glikol
+acetaldehyde;acetaldehyd
+benzaldehyde;aldehyd benzoesowy
+formaldehyde;formaldehyd
+aldehyde;aldehyd
+polyformaldehyde;poliformaldehyd
+aldehyde group, formyl;grupa aldehydowa
+acetone;aceton
+ketone;keton
+butanone;butanon
+acetophenone;acetofenon
+benzophenone;benzofenon
+acyl group;grupa acylowa
+benzoic acid;kwas benzenokarboksylowy
+carbonyl group;grupa karbonylowa
+carboxyl group;grupa karboksylowa
+carboxylic acid;kwas karboksylowy
+citric acid;kwas cytrynowy
+fatty acid;kwas tłuszczowy
+formic acid;kwas metanowy
+nicotinic acid;kwas nikotynowy
+acetic acid;kwas etanowy
+butanoic acid;kwas butanowy
+ethanedioic acid;kwas etanodiowy
+palmitic acid;kwas palmitynowy
+stearic acid;kwas stearynowy
+ester;ester
+stearin;stearyna
+acid;kwas
+acidic;kwasowy
+acid anhydride;bezwodnik kwasowy
+acid residue;reszta kwasowa
+acidity;kwasowość
+anhydride;bezwodnik
+anhydrous;bezwodny
+boric acid;kwas borowy
+carbonic acid;kwas węglowy
+chromic acid;kwas chromowy
+hydrochloric acid;kwas chlorowodorowy
+hydrocyanic acid;kwas cyjanowodorowy
+nitric acid;kwas azotowy (V)
+nitric anhydride;bezwodnik azotowy
+nitrous acid;kwas azotowy (III)
+oxygen acid;kwas tlenowy
+strong acid;mocny kwas
+sulfuric acid;kwas siarkowy
+ethyl acetate;octan etylu
+lipid;tłuszcz
+triglyceride;trójgliceryd
+saponification value;liczba zmydlania
+iodine value;liczba jodowa
+wax;wosk
+saturated fat;tłuszcze nasycone
+animal fats;tłuszcze pochodzenia zwierzęcego
+phospholipid;fosfolipid
+glycolipid;glikolipid
+benzidine;benzydyna
+methylamine;metyloamina
+amine;amina
+aniline;anilina, fenyloamina, aminobenzen
+amphetamine;amfetamina
+diethylamine;dietyloamina
+primary amine;amina pierwszorzędowa
+secondary amine ;amina drugorzędowa
+tertiary amine;amina trzeciorzędowa
+amide;amid
+formamide;formamid (metanoamid)
+acetamide;acetamid (etanoamid)
+carbamide;mocznik (diamid kwasu węglowego)
+biuret;biuret (dimocznik)
+hydroxy acid;hydroksykwas
+lactic acid;kwas mlekowy
+salicylic acid;kwas salicylowy
+sodium lactate;mleczan sodu
+acetylsalicylic acid (aspirin);kwas acetylosalicylowy (aspiryna)
+malic acid;kwas jabłkowy
+tartaric acid;kwas winowy
+glucose;glukoza
+maltose;maltoza
+peptidase;peptydaza
+protein;białko
+protein structure;struktura białka
+primary structure;struktura pierwszorzędowa
+secondary structure;struktura drugorzędowa
+tertiary structure;struktura trzeciorzędowa
+quaternary structure;struktura czwartorzędowa
+protein denaturation;denaturacja białek
+salting out;wysalanie białek
+biuret test;reakcja biuretowa
+xanthoproteic reaction;reakcja ksantoproteinowa
+monosaccharides;monosacharydy
+oligosaccharide;oligosacharyd
+polysaccharide;polisacharyd
+saccharide;sacharyd, cukier
+fructose;fruktoza
+saccharose;sacharoza
+lactose;laktoza
+cellobiose;celobioza
+starch;skrobia
+cellulose;celuloza
+simple sugar;cukier prosty
+amylose;amyloza 
+amylopectin;amylopektyna
+galactose;galaktoza
+alicyclic hydrocarbons;węglowodory alicykliczne
+aliphatic hydrocarbons;węglowodory alifatyczne
+alkalinity;zasadowość
+alkalic;zasadowy
+alkali metal;metale alkaliczne
+hydrocarbon;węglowodór
+amalgam;amalgamat
+bronze;brąz
+ferrous alloy;stop żelaza
+steel;stal
+magnalium;magnal
+duralumin;duraluminium
+cupronickel;miedzionikiel
+brass;mosiądz
+nichrome;chromonikielina
+cast iron;żeliwo
+alloy;stop (metalu)
+amino acid;aminokwas
+glycine;glicyna
+alanine;alanina
+cysteine;cysteina
+serine;seryna
+thiol;tiol
+phenylalanine;fenyloalanina
+peptide bond;wiązanie peptydowe
+dipeptide;dwupeptyd
+ammonium;amon
+ammonia;amoniak
+boron hydride;wodorek boru
+radical;rodnik
+fluoride;fluorek
+hydride;wodorek
+chloride;chlorek
+bromide;bromek
+iodide;jodek
+bismuthane;wodorek bizmutu
+sodium fluoride;fluorek sodu
+ammonium chloride;chlorek amonowy
+lead bromide;bromek ołowiu
+mercury (II) iodide;jodek rtęci (II)
+mercury (I)  iodide;jodek rtęci (I)
+acid radical;rodnik kwasowy
+calcium hydroxide;wodorotlenek wapnia
+sodium hydroxide;wodorotlenek sodu
+strong base;mocna zasada
+weak electrolyte;slaby elektrolit
+hydroxide;wodorotlenek
+zinc hydroxide;wodorotlenek cynku
+aluminum hydroxide;wodorotlenek glinu
+magnesium hydroxide;wodorotlenek magnezu
+lead (II) hydroxide;wodorotlenek ołowiu (II)
+potassium hydroxide;wodorotlenek potasu
+barium hydroxide, baryta;wodorotlenek baru
+atom;atom
+atomic bond;wiązanie atomowe
+atomic mass;masa atomowa
+atomic mass unit;jednostka masy atomowej
+atomic pile;reaktor jądrowy
+atomic radius;promień atomowy
+atomic weight;ciężar atomowy
+attraction;przyciąganie
+electron;elektron
+electron configuration;konfiguracja elektronów
+neutron;neutron
+proton;proton
+nucleon;nukleon
+valence electrons;elektrony walencyjne
+bauxite;boksyt
+diamond;diament
+dolomite;dolomit
+graphite;grafit
+gypsum;gips
+mineral;minerał
+zeolite;zeolit
+pyrite, fool’s gold;piryt
+molybdenite;molibdenit
+corundum, diamond spar;korund
+anhydrite;anhydryt
+turquoise;turkus
+lazulite, blue spar;lazulit
+topaz;topaz
+zircon;cyrkon
+quartz;kwarc
+emerald;szmaragd
+ruby;rubin
+sapphire;szafir
+aquamarine;akwamaryn
+absolute zero;zero absolutne
+heat ;ciepło
+heat exchanger;wymiennik ciepła
+heat of combustion;ciepło spalania
+heat of condensation;ciepło kondensacji
+heat of crystallization;ciepło krystalizacji
+heat of dilution;ciepło rozpuszczania
+heat of formation;ciepło tworzenia
+heat of fusion;ciepło topnienia
+heat of hydration;ciepło uwadniania
+heat of reaction;ciepło reakcji
+heat of sublimation;ciepło sublimacji
+heat of solution;ciepło roztworu
+heat of vaporization;ciepło parowania
+heat transfer;ciepło przekazywane
+latent heat;ciepło utajone
+specific heat;ciepło właściwe
+absorption;pochłanianie
+accelerator;akcelerator
+absorption coefficient;współczynnik pochłaniania
+absorptivity;absorpcyjność
+electron acceptor;akceptor (cząsteczka, pojedynczy atom lub jon) 
+accuracy;dokładność
+activation;aktywacja
+activity;aktywność
+adsorbate;adsorbat
+adsorbent;adsorbent
+air pressure;ciśnienie powietrza
+alum;ałun
+amperometry;amperometria
+analysis;analiza
+analytical chemistry;chemia analityczna
+angle;kąt
+antacid;związek zobojętniający kwas
+antienzyme;antyenzym
+antichlor;antychlor
+antifebrin;antyfebryn
+antifreeze;środek przeciw zamarzaniu
+antimatter;antymateria
+antioxidant;antyutleniacz
+antiseptic;antyseptyczny
+aqua;woda
+atmosphere;atmosfera
+atmospheric pressure;ciśnienie atmosferyczne
+balance;równowaga
+binary compound;związek chemiczny składający się z dwóch elementów
+binding energy;energia wiązania
+biochemistry;biochemia
+boiling;wrzący
+bond;wiązanie
+bond energy;energia wiązania chemicznego
+bonding;wiązanie (czynność)
+buffer;bufor
+calorie;kaloria
+capacity;pojemność
+carbon black;czarny węgiel
+chain;łańcuch
+change;zmiana
+chelate;chelat
+chemical property;własność chemiczna
+chemistry;chemia
+circulation;obieg
+clamp;klamra
+coefficients;współczynniki
+collision;zderzenie
+colloid chemistry;chemia koloidów
+combination;kombinacja
+complex ion;jon kompleksowy
+component;składnik
+composite;złożony
+composition;kompozycja
+compound;kompleks, mieszanina
+concentrated solution;stężony roztwór
+concentration;stężenie
+configuration;konfiguracja
+constant;stała
+covalent bond;wiązanie kowalencyjne
+cover;przykrycie
+cracking;pękanie
+critical mass;masa krytyczna
+critical point;punkt krytyczny
+critical pressure;ciśnienie krytyczne
+critical temperature;temperatura krytyczna
+curve;krzywa
+data;dane
+definition;definicja
+dehydration agent;czynnik odwadniający
+deionized water;dejonizowana woda
+detergent;detergent
+deuterium;deuter
+diluent;rozcieńczalnik
+dipole;dipol
+direct combination;bezpośrednia kombinacja
+direct combustion reaction;bezpośrednia reakcja spalania
+direct current;bezpośredni strumień
+disproportionation;dysproporcjonowanie
+distillation;destylat
+double bond;wiązanie podwójne
+element;element
+elevation;poziom
+empirical formula;wzór empiryczny
+emulsion;emulsja
+endpoint;punkt na jednym z końców odcinka
+enthalpy;entalpia
+enzyme;enzym
+equation;równanie
+equivalent;równoważny
+equivalent masses;masy równoważne
+experiment;doświadczenie
+fiber;włókno
+filler;wypełniacz
+filtrate;filtrować
+force;siła
+formula;wzór
+formula mass;masa cząsteczkowa
+fossil;skamieniałość
+free energy;wolna energia
+free radical;wolny rodnik
+freezing point;punkt zamarzania
+frequency;częstotliwość
+functional group;grupa funkcyjna
+gas;gaz
+halogen;halogen
+hard water;twarda woda
+heavy hydrogen;ciężki wodór
+heterocyclic;heterocykliczny
+homogenous mixture;mieszanina jednorodna
+hydrogen bomb;bomba wodorowa
+hydrogen bond;wiązanie wodorowe
+hypothesis;hipoteza
+impurity;zanieczyszczenia
+ideal gas;gaz doskonały
+increment;przyrost
+inorganic;nieorganiczny
+inorganic chemistry;chemia nieorganiczna
+insecticide;środek owadobójczy
+intermediate;pośredni
+ion;jon
+ionic bond;wiązanie jonowe
+irreversible;nieodwracalny
+isolation;izolacja
+isomer;izomer
+isomerization;izomeryzacja
+isotope;izotop
+kilogram;kilogram
+kinetic energy;energia kinetyczna
+kinetics;kinetyka
+level;poziom
+light metal;metal lekki
+liquid crystal;ciekły kryształ
+macromolecule;makrocząsteczka
+matter;materia
+metallic bond;wiązanie metaliczne
+metallic conduction;kondukcja metaliczna
+microanalysis;mikroanaliza
+mixture;mieszanina
+molar concentration;stężenie molowe
+molecular formula;wzór cząsteczkowy
+mole;mol
+molecule;cząsteczka
+monomer;monomer
+neutral solution;roztwór neutralny
+noble gas;gaz szlachetny
+non-electrolyte;nieelektrolit
+nonmetal;niemetal
+nonpolar molecule;niespolaryzowana cząsteczka
+normal solution;zwykły roztwór
+nuclear energy;energia nuklearna
+nuclear fission;rozszczepienie nuklearne
+nuclear fuel;paliwo nuklearne
+nuclear fusion;fuzja jądrowa
+nuclear reaction;reakcja nuklearna
+number;liczba
+nylon;nylon
+observed value;wartość zaobserwowana
+oil;olej
+optical;optyczny
+optical rotation;obrót optyczny
+orbit;orbita
+orbital;orbitalny
+order;kolejność
+order of reaction;rząd reakcji chemicznej
+organic;organiczny
+organic chemistry;chemia organiczna
+organic compound;związek organiczny
+ozone;ozon
+pair;para
+percentage composition;skład procentowy
+percentage error;błąd procentowy
+perfect;idealny
+period;okres
+periodic;okresowy
+periodic law;prawo okresowe
+periodic table;tablica okresowa
+petroleum;ropa naftowa
+phase;faza
+photochemistry;fotochemia
+photon;foton
+physical change;zmiana fizyczna
+point;punkt
+polar bond;wiązanie spolaryzowane
+polar molecule;cząsteczka spolaryzowana
+potential energy;energia potencjalna
+precipitant;odczynnik strącający
+precipitate;osadzać
+atmospheric precipitation;opad atmosferyczny
+product;produkt
+proof;dowód
+proton acceptor;przyjmujący proton
+purity;czystość
+qualitative analysis;analiza jakościowa
+quality control;kontrola jakości
+radiation;promieniowanie
+radiocarbon;radiowęglowy
+rare;rzadki
+rare gas;rzadki gaz
+rare metal;rzadki metal
+ray;strumień
+reflux;cofać się (o płynach)
+regeneration;regeneracja
+replicating ;replikowanie
+ring;pierścień
+saturated compound;związek nasycony
+saturated solution;roztwór nasycony
+scientific method;metoda naukowa
+scientific notation;zapis naukowy
+yeast;drożdże
+X-rays;promienie X
+wave;fala
+water vapor;para wodna
+water pollution;zanieczyszczenie wody
+water glass;szkło wodne
+water gas;gaz wodny
+volumetric analysis;analiza objętościowa
+vicinal;sąsiedni, przylegający
+ultraviolet radiation;promieniowanie ultrafioletowe
+ultimate analysis;analiza zawartości biomasy
+true solution;roztwór właściwy
+tritium;tryt
+triple point;punkt potrójny
+triple bond;potrójne wiązanie
+transmutation;transmutacja
+titrant;roztwór miareczkowany
+thermochemistry;termochemia
+theory;teoria
+solid solution;roztwór stały
+solute;substancja rozpuszczalna
+solution;roztwór
+solvent;rozpuszczalnik
+spectroscopy;spektroskopia
+stability;stabilność
+stabilization;stabilizacja
+stabilizer;stabilizator
+standard solution;rozwiązania standardowe
+state;stan
+stereochemistry;stereochemia
+stereoisomer;stereoizomer
+strong electrolyte;mocny elektrolit
+structural formula;wzór strukturalny
+sublevel;podpoziom
+subscript;indeks dolny
+chemical substance;substancja chemiczna
+substituent;składnik zastępczy
+supersaturated solution;roztwór przesycony
+surface;powierzchnia
+surface area;pole powierzchni
+suspension;zawiesina
+symbol;symbol
+synthesis gas;gaz syntezowy
+technology;technika
+copolymer;kopolimer
+polycarbonate;poliwęglan
+polychloroprene;polichloropren
+polycondensation;polikondensacja
+polyelectrolyte;polielektrolit
+polyester;poliester
+polyethylene;polietylen
+polyethylene glycols;glikole polietylenowe
+polyhydric alcohol;alkohol poliwodorowy
+polyisoprene;poliizopren
+polymer;polimer
+polymerization;polimeryzacja
+polypropylene;polipropylen
+polystyrene;polistyren
+adhesive;adhezyjny
+amphoteric;amfoteryczny
+aqueous;wodnisty
+colligative properties;własności koligatywne roztworów
+electrovalence;wartościowość elektrochemiczna
+hygroscopic;higroskopijny
+immiscible;niemieszalny
+impermeable;nieprzepuszczalny
+non-flammable;niepalny
+isotropic;izotropowy
+molecular;molekularny
+miscible;mieszalny
+plastic;plastyczny
+property;właściwość
+radioactivity;radioaktywność
+semi-permeability;półprzepuszczalność
+semisynthetic;półsyntetyczny
+thermoplastic;termoplastyczny
+vitreous;szklisty
+viscosity;lepkość
+weak acid;słaby kwas
+weak base;słaba zasada
+solubility;rozpuszczalność
+density;gęstość
+inflammable, incendiary;łatwo palny
+toxicity;toksyczność
+ductility;kowalność
+reactivity;reaktywność
+Avogadro constant;stała Avogadra
+Boyle's law;prawo Boyla
+centimeter;centymetr
+centi;centi
+Celsius scale;skala Celsjusza
+cubic centimeter;centymetr sześcienny
+dot diagram;diagram punktowy
+equilibrium constant;stała równowagi
+gram;gram
+hertz;herc
+hardness;twardość
+kinetic theory;kinetyczno-molekularna teoria gazów
+Kelvin scale;skala Kelwina
+joule;dżul
+isotonic;izotoniczny
+ionization constant;stała jonizacji
+Law of Conservation of Mass;Prawo Zachowania Masy
+liter;litr
+mass number;liczba masowa
+Nernst equation;równanie Nernsta
+molecular mass;masa cząsteczkowa
+molarity;stężenie molarne
+molar volume;objętość molarna
+molality;molalność
+milliliter;mililitr
+milli;mili
+Pascal;Pascal
+physical property;własność fizyczna
+radius;promień
+solubility curve;krzywa rozpuszczalności
+solubility product constant ;stała wyniku rozpuszczalności
+stability constant;stała stabilności
+standard condition;warunki standardowe
+standard electrode potential;standardowa potencjalność elektrody
+standard solution;rozwiązanie standardowe
+temperature;temperatura
+volume;objętość
+volt;wolt
+velocity of light;prędkość światła
+velocity;prędkość
+vapor pressure;ciśnienie parowania
+Van't Hoff equation;równanie Van't Hoffa
+Van der Waals force;siła Van der Walsa
+unit;jednostka
+uncertainty principle ;zasada nieokreśloności Heisenberga
+wave length;długość fali
+wave velocity;prędkość fali
+weight ;waga

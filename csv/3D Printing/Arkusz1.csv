@@ -1,0 +1,432 @@
+English ;Polish
+Unit 1:  FDM 3D Printer elements:
+bracket;uchwyt
+bolt;śruba
+chamber;komora
+fuses;bezpieczniki
+direct drive extruder;wytłaczarka bezpośrednia
+axis;oś
+filament spool;szpula filamentu
+spool holder;uchwyt na szpulę
+print cooling fan;wentylator chłodzący wydruk
+Z probe;sonda osi Z
+NTC thermistor;termistor NTC
+PTC thermistor;termistor PTC
+set screw;śruba ustalająca
+gantry;suwnica
+toolhead;głowica
+auxiliary fan;wentylator pomocniczy
+knob ;pokrętło
+print bed;stół drukarki
+heated bed;stół grzewczy
+stepstick;sterownik silnika krokowego
+extruder;wytłaczarka
+dual gear extruder;wytłaczarka z dwoma radełkami
+extrusion gear;radełko
+carriage;karetka
+hotend;zespół elementów nagrzewający filament
+heat brake;izolator termiczny między blokiem grzejnym a radiatorem hotendu
+heat block;blok grzejny
+PTFE tube;rurka z teflonu
+nozzle;dysza 
+thermistor;czujnik temperatury
+stepper motor;silnik krokowy
+power supply unit;zasilacz
+motherboard;płyta główna
+geared belt;pasek zębaty
+pulley;koło pasowe
+endstop;czujnik krańcowy
+fan ;wentylator
+LCD display;wyświetlacz LCD
+linear rail;szyna liniowa
+linear bearing;łożysko liniowe
+bearing;łożysko 
+lead screw;śruba pociągowa
+trapezoidal screw;śruba pociągowa o gwincie trapezowym
+ball screw;śruba pociągowa o gwincie kulowym
+nut;nakrętka
+lead screw nut;nakrętka śruby pociągowej
+lead screw nut with flange;nakrętka śruby pociągowej z flanszą
+coupler;sprzęgło
+T-slot nut;nakrętka młoteczkowa
+aluminium profiles;profile aluminiowe
+fan duct;kanał powietrzny wentylatora, dmuchawa
+bed leveling sensor;czujnik poziomowania stołu
+enclosure;pokrywa, komora grzewcza
+nozzle cleaning brush;szczotka do czyszczenia dyszy
+filament sensor;czujnik braku filamentu
+silicone socks;czujnik braku filamentu
+SD card reader;czytnik kart SD
+tensioner;napinacz
+mount;mocowanie
+adapter;przejściówka
+capacitive sensor;czujnik pojemnościowy
+inductive sensor;czujnik indukcyjny
+build plate;płyta robocza
+frame;rama
+heater;grzałka
+accelerometer ;akcelerometr
+thermocouple;termopara
+hall sensor;czujnik halla
+piezo sensor;czujnik piezoelektryczny
+bowden extruder;wytłaczarka bowdena
+ground;uziemienie
+insulation;izolacja
+glass plate;płyta szklana
+borosilicate glass;szkło borokrzemowe
+toothed pulley;zębate koło pasowe
+Unit 2 SLA, DLP,  MSLA and LCD resin 3D printing technologies
+build platform;platforma robocza
+resin tank;zbiornik na żywicę
+resin vat;kadź na żywicę
+UV light source;źródło ultrafioletu
+curing;utwardzanie
+resin ;żywica
+lens;soczewka
+protective film;folia ochronna
+guide rail;prowadnica
+resin level sensor;czujnik poziomu żywicy
+resin filter;filtr żywicy
+UV LED array;matryca LED UV
+enclosure;pokrywa
+automatic resin dispensing system;automatyczny system dozowania żywicy
+vat film;folia kadzi
+FEP film;folia FEP
+elevator;winda
+layer thickness;grubość warstwy
+digital micromirror device;cyfrowe urządzenie z mikrolustrami
+light intensity;intensywność światła
+exposure time;czas ekspozycji
+LCD masking;maskowanie wyświetlaczem LCD
+pixel dimming;przyciemnianie pikseli
+grayscale;skala szarości
+backlight;podświetlenie
+polarizer;polaryzator
+refresh rate;częstotliwość odświeżania
+backlight bleeding;przenikanie podświetlenia
+screen burn-in;wypalenie ekranu
+dead pixel;martwy piksel
+tear;rozdarcie
+flickering;migotanie
+judder;drganie
+Unit 3 Acronyms
+PSU;power supply unit
+MMU;memory management unit
+SLA;stereolitography
+DLP;digital light processing
+FDM;fused deposition modeling
+MSLA;masked stereolitography apparatus
+PA (extrusion);pressure advanced
+FEP;fluorinated ethylene propylene
+FFF;fused filament fabrication
+PEI;polyethermide
+STL;stereolitography
+AMF;additive manufacturing file
+3MF;3D manufacturing format
+PETG;polyethylene terephthalate glycol
+TPU;thermoplastic polyurethane
+PVA;polyvinyl alcohol
+ABS;acrylonitrile butadiene styrene
+ASA;acrylonitrile styrene acrylate
+HIPS;high impact polystyrene
+PC;polycarbonate
+PP;polypropylene
+PA (material);polyamide
+CF;carbon fiber
+CAD;computer aided design
+CAM ;computer aided manufacturing
+CNC;computer numerical control
+SLS;selective laser sintering
+SLM;selective laser melting
+Tools
+scraper;skrobak
+pliers;szczypce
+digital caliper;cyfrowy suwmiarka
+screwdriver;śrubokręt
+needle-nose pliers;szczypce z wąskimi końcówkami
+wire cutters;obcinaczki do drutu
+sandpaper;papier ścierny
+glue stick;klej w sztyfcie
+masking tape;taśma maskująca
+kapton tape;taśma kaptonowa
+cleaning brush;szczotka czyszcząca
+razor blade;żyletka
+multimeter;multimetr
+3D scanner;skaner 3D
+spanner;klucz płaski
+heat gun;opalarka
+soldering iron;lutownica
+curing machine;maszyna utwardzająca wydruk
+allen key;klucz imbusowy
+hex key;klucz sześciokątny
+tape ;taśma
+caliper;suwmiarka
+lubricant;smar
+spatula;szpachla
+tweezers;pęseta
+wrench (f);klucz francuski
+thermal paste;pasta termoprzewodząca
+desiccant;środek osuszający
+bearing puller;ściągacz do łożysk
+belt tension meter;miernik napięcia pasa
+usb stick;pendrive
+SD card;karta SD
+file;pilnik
+micrometer;mikrometr
+spring steel sheet;blacha sprężynowa
+wrench;klucz
+funnel;lejek
+feeler gauge;szczelinomierz
+Slicing Software & printer firmware
+antialiasing;wygładzanie krawędzi
+supports;podpory
+retraction speed;prędkość retrakcji
+print temperature;temperatura druku
+bed temperature;temperatura stołu
+layer height;wysokość warstwy
+first layer height;wysokość pierwszej warstwy
+line width;szerokość ekstruzji
+outer wall;ściana zewnętrzna
+inner wall;ściana wewnętrzna
+top surface;górna powierzchnia
+sparse infill;rzadkie wypełnienie
+internal solid infill;wewnętrzne pełne wypełnienie
+solid infill;pełne wypełnienie
+seam;szew
+staggered inner seams;naprzemienne szwy wewnętrzne
+wipe speed;prędkość wycierania
+resolution;rozdzielczość
+slice gap closing;zamykanie luk między ekstrudowanym materiałem
+hole compensation;kompensacja otworów
+elephant foot compensation;kompensacja stopy słonia
+X-Y contour compensation;kompensacja wymiarów konturów w płaszczyźnie x-y
+polyholes;otwory w kształcie wielokątów
+ironing;wygładzanie powierzchni
+wall generator;generator ścian
+wall transitioning threshold angle;kąt progu przejścia przez ścianę
+minimum feature size;minimalny rozmiar elementu
+wall transition length;długość przejścia przez ściany
+bridging;mostowanie
+bridge density;gęstość mostów
+bridge counterbore holes;sfazowanie otworów mostów
+quality;jakość
+precision;precyzja
+bridges;mosty
+flow rate;przepływ
+overhangs;nawisy
+wall loops;obramowania 
+thin walls;wąskie ściany
+surface pattern;wzór wypełnienia powierzchni
+shell layers;warstwy zewnętrznej powłoki
+shell thickness;grubość powłoki
+infill overlap;nakładanie się na siebie wypełnienia
+infil direction;kierunek wypełniania struktury
+narrow solid infill;ciasne pełne wypełnianie
+small perimeters;małe obrysy
+perimeters;obrysy
+travel speed;prędkość ruchu jałowego
+acceleration;przyspieszenie
+jerk;maksymalna prędkość podczas kończenia ruchu
+raft;tratwa
+support interface layers;warstwy międzypodporowe
+spacing;rozstaw
+expansion;rozszerzenie
+skirt;obwódka podstawy wydruku
+brim;dodatkowe obrzegowanie podstawy wydruku
+prime tower;wieża przygotowująca
+print sequence;sekwencja wydruku
+concentric infill;wypełnienie koncentryczne
+vase mode;tryb wydruku wazonu
+fuzzy skin;nierówna powierzchnia
+interlocking depth of a segmented region;głębokość zazębiania segmentowanego obszaru
+slicer profile;profil programu tnącego model
+slicer;program przygotowujący (tnący) model do wydruku
+minimum layer time;minimalny czas druku warstwy
+Z-hop;skok w osi Z
+linear advance;liniowa kompensacja
+pressure advance;kompensacja ciśnienia
+thermal runaway protection;zabezpieczenie przed niekontrolowaną zmianą temperatury
+manual mesh leveling;ręczne poziomowanie siatki punktów
+noise cancelation ;redukcja hałasu
+vibration compensation;kompensacja wibracji
+auto leveling;automatyczne poziomowanie
+auto tune;automatyczne strojenie
+resonance;rezonans
+current;natężenie prądu
+recover;przywracać
+3D printing theory
+additive manufacturing;produkcja addytywna
+tolerance;tolerancja
+homing;pozycjonowanie początkowe
+build volume ;objętość drukowania
+shrinkage;skurcz
+multi-material printing;druk wielomateriałowy
+filament diameter;średnica filamentu
+build orientation;orientacja budowy
+structural integrity;integralność strukturalna
+tensile strength;wytrzymałość na rozciąganie
+layer;warstwa
+warping ;podwijanie
+cartesian coordinates;współrzędne kartezjańskie
+delta printer;drukarka o kinematyce delta
+nozzle pressure;ciśnienie dyszy
+flow dynamics;dynamika przepływu
+kinematics;kinematyka
+bed slinger;drukarka z ruchomym stołem
+coreXY;drukarka z głowicą poruszającą się w osiach X, Y
+bed adhesion;przyczepność stołu
+surface;powierzchnia
+extrusion;wytłaczanie
+flow;przepływ
+friction;tarcie
+properties;właściwości
+squeeze out;wyciskać
+spatial;przestrzenny
+replace;wymieniać
+Materials, print quality
+brittle;kruchy
+reliability;niezawodność
+accuracy;dokładność
+biodegradable;biodegradowalny
+conductivity;przewodność
+fiber;włókno
+brass;mosiądz
+thermoplastic;termoplastyczny
+stiff;sztywny
+porosity;porowatość
+flame-resistant;ognioodporny
+ductile;ciągliwy
+durable;trwały
+efficient;efektywny
+epoxy resin;żywica epoksydowa
+erode;erodować
+expand;rozszerzać
+non-recyclable;nienadający się do przetworzenia
+flexible;elastyczny
+miscibility;mieszalność
+permeability;przepuszczalność
+flammable;łatwopalny
+impermeable;nieprzepuszczalny
+impurities;zanieczyszczenia
+polished;wypolerowany
+leak;przeciekać
+melting point;temperatura topnienia
+odorless;bezwonny
+wear;zużycie
+shearing force;siła ścinająca
+viscosity;lepkość
+Processing
+processing;obróbka
+casting;odlewanie
+die casting;odlewanie ciśnieniowe
+drill;wiercić
+furnace;piec
+inject;wtryskiwać
+injection molding;formowanie wtryskowe
+mold;forma
+annealing;wyżarzanie
+milling;frezowanie
+polishing;polerowanie
+sandblasting;piaskowanie
+cnc machining;obróbka numeryczna
+heat treatment;obróbka cieplna
+sintering;spiekanie
+surface finish;obróbka powierzchniowa
+lathe;tokarka
+grinding;szlifowanie
+deburring;gratowanie
+electroplating;galwanizacja
+hardening;hartowanie
+tempering;odpuszczanie
+quenching;hartowanie przez chłodzenie
+ultrasonic cleaning;czyszczenie ultradźwiękowe
+vibratory finishing;obróbka wibracyjna
+laser cutting;cięcie laserowe
+water jet cutting;cięcie strumieniem wody
+lapping;docieranie
+buffing;polerowanie końcowe
+reaming;rozwiercanie
+blasting;śrutowanie
+electrochemical machining;obróbka elektrochemiczna
+plastic deformation;odkształcenie plastyczne
+plating;powlekanie
+plastering;tynkowanie
+flame cutting;cięcie płomieniem
+3D modeling 
+vertex;wierzchołek
+cross-section;przekrój
+diameter;średnica
+counterbore;faza otworu
+chamfer;faza 
+fillet;zaokrąglenie
+dimension;wymiar
+smoothing;wygładzanie
+edge;krawędź
+mesh;siatka
+polygon;wielokąt
+extrude;wyciągać
+texture;tekstura
+rendering;renderowanie
+shader;moduł cieniujący
+animation;animacja
+topology;topologia
+boolean operation;operacja boole'a
+viewport;rzutnia
+bump map;mapa wypukłości
+ambient occlusion;zacienienie otoczenia
+sculpting;rzeźbienie
+subdivision surface;powierzchnia podziału
+perspective view;widok perspektywiczny
+pivot point;punkt obrotu
+sketch;szkic
+revolve;obrót
+sweep;przeciągnięcie
+loft;wyciągnięcie po profilach
+rib;żebro
+emboss;wytłoczenie
+rectangular prism;prostopadłościan
+thread;gwint
+cube;sześcian
+box;pudełko
+cylinder;walec
+sphere;sfera
+torus;torus
+coil;cewka
+pipe;rura
+pattern;wzorzec
+mirror;odbicie
+shell;powłoka
+draft angle;kąt pochylenia
+draft;pochylać
+scale;skalować
+combine;połączyć
+offset face;przesunięcie powierzchni
+split body;podział bryły
+move;przenosić
+align;wyrównywać
+arrange;rozmieszczać
+component;element
+joint;złącze
+rigid;sztywny
+tangent;styczna
+motion link;połączenie ruchu
+motion study;analiza ruchu
+bill of material;wykaz materiałów
+parent;rodzic
+midplane;środkowa płaszczyzna
+trim;przycięcie
+extend;rozszerzenie
+stitch;zszywanie
+assembly;złożenie
+tessellate;podzielić na elementy skończone
+flange;kołnierz
+bend;zakrzywić
+derive;pochodzić
+rip;rozciąć
+design;projektować
+simulation;symulacja
+drawing;rysunek
+insert;wstawić
+origin;punkt zerowy
+appearance;wygląd
+feature;cecha

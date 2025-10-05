@@ -1,0 +1,132 @@
+ILS;Instrument Landing System
+VFR;Visual Flight Rules
+IFR;Instrument Flight Rules
+VMC;Visual Meteorological Conditions
+IMC;Instrument Meteorological Conditions
+VOR;VHF Omnidirectional Radio Range
+DME;Distance Measuring Equipment
+GS;ground speed
+IAF;Initial Approach Fix
+METAR;aerodrome routine meteorological report
+TAF;aerodrome forecast
+NOTAM;Notice to Airman
+ATIS;Automatic Terminal Information Service
+CAVOK;Clouds and Visibility OK
+RVR;Runway Visual Range
+AAL;Above Aerodrome Level
+ACARS;Aircraft Communication Addressing and Reporting System
+ACAS;Airborne Collision Avoidance System
+ATD;Actual Time of Departure
+ADIZ;Air Defence Identification Zone
+CB;cumulonimbus
+AIP;Aeronautical Information Publication
+ATZ;Aerodrome Traffic Zone
+CPDLC;Controller-Pilot Data Link Communications
+CTR;Control Zone
+CVR;Cockpit Voice Recorder
+DA;Decision Altitude
+DCT;direct
+EAT;Expected Approach Time
+EET;Estimated Elapsed Time
+ELT;Emergency Locator Transmitter
+ETA;Estimated Time of Arrival
+EOBT;Estimated Off-block Time
+ETD;Estimated Time of Departure
+FAF;Final Approach Fix
+FAP;Final Approach Point
+FIR;Flight Information Region
+FIS;Flight Information Service
+FL;Flight Level
+FMS;Flight Management System
+FPM;feet per minute
+GND;ground
+GP;glide path
+WX;weather
+ISA;International Standard Atmosphere
+LMT;Local Mean Time
+ST;Standard Time
+UTC;Coordinated Universal Time
+LOC;localizer
+MAPT;Missed Approach Point
+MDA;Minimum Descend Altitude
+MDH;Minimum Descend Height
+MLS;Microwave Landing System
+MOC;Minimum Obstacle Clearance
+MSA;Minimum Sector Altitude
+MSL;mean sea level
+NDB;Non Directional Radio Beacon
+NIL;nothing in line
+NM;nautical miles
+NOSIG;no significant change
+OCA;Obstacle Clearance Altitude
+OCH;Obstacle Clearance Height
+FMC;Flight Management Computer
+PAPI;Precission Approach Path Indicator
+PAX;passengers
+PAR;Precission Approach Radar
+RMK;remark
+RNAV;area navigation
+SAR;Search and Rescue
+SELCAL;Selective Calling System
+SR;sunrise
+SS;sunset
+TOC;top of climb
+TOD;top of descend
+TWR;tower
+VAR;variation
+WILCO;will comply
+WPT;waypoint
+TCAS;Traffic Alert and Collision Avoidance System
+GPWS;Ground Proximity Warning System
+WCA;wind correction angle
+IAS;indicated airspeed
+TAS;true airspeed
+CAS;calibrated airspeed
+EAS;equivalent airspeed
+ISA DEV;ISA deviation
+TC;true course
+TT;true track
+MC;magnetic course
+MT;magnetic track
+TH;true heading
+MH;magnetic heading
+RTO;rejected take off
+PACK;Pressurisation and Air Conditioning Kit
+APU;Auxiliary Power Unit
+GPU;Ground Power Unit
+TA;traffic advisory
+RA;resolution advisory
+CRS;course
+HDG;heading
+SPD;speed
+V/S;vertical speed
+ALT;altitude
+A/T;autothrottle
+F/D;Flight Director
+APP;approach
+MCP;Mode Control Panel
+FMA;Flight Mode Annunciator
+WS;windshear
+LE;leading edge
+TE;trailing edge
+IRS;Inertial Reference System
+GPS;Global Positioning System
+CG;center of gravity
+OAT;outside air temperature
+LB;pound
+FT;feet
+GNSS;Global Navigation Satellite System
+TRA;Temporary Reserved Area
+TSA;Temporary Segregated Area
+TFR;TSA Feeding Route
+TMA;Terminal Control Area
+AUP;Airspace Use Plan
+AGL;above ground level
+AMSL;above mean sea level
+FDR;Flight Data Recorder
+CFIT;Controlled Flight Into Terrain
+PFD;Primary Flight Display
+CDU;Control Display Unit
+CDI;Course Deviation Indicator
+RMI;Radio Magnetic Indicator
+HSI;Horizontal Situation Indicator

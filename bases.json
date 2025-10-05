@@ -1,5 +1,48 @@
 [
   {
+    "category": "3D Printing",
+    "subcategories": [
+      "Arkusz1"
+    ]
+  },
+  {
+    "category": "Academic English",
+    "subcategories": [
+      "Sheet1"
+    ]
+  },
+  {
+    "category": "Acronyms",
+    "subcategories": [
+      "Arkusz1"
+    ]
+  },
+  {
+    "category": "Anatomy",
+    "subcategories": [
+      "Arkusz1"
+    ]
+  },
+  {
+    "category": "Architecture",
+    "subcategories": [
+      "All",
+      "Elementy konstrukcyjne",
+      "Instalacje techniczne",
+      "Materialy budowlane",
+      "Narzedzia i sprzet",
+      "Planowanie urbanistyczne, archi",
+      "Pomiary i jednostki",
+      "Procesy budowlane",
+      "Rysunek techniczny i wizualizac",
+      "Style, ornamenty, sztuka i hist",
+      "Typy budynkow",
+      "Wykonczenia i detale",
+      "Wyposazenie i wnetrza",
+      "Zarzadzanie projektem, bezpiecz"
+    ]
+  },
+  {
     "category": "Automobile Vehicles",
     "subcategories": [
       "Appendix 1",
@@ -19,6 +62,33 @@
       "Unit 6 - Safety",
       "Unit 7 - Design",
       "Unit 8 - Future trends"
+    ]
+  },
+  {
+    "category": "Aviation",
+    "subcategories": [
+      "Acronyms",
+      "English"
+    ]
+  },
+  {
+    "category": "Bridge",
+    "subcategories": [
+      "Końcowy arkusz"
+    ]
+  },
+  {
+    "category": "Chemistry",
+    "subcategories": [
+      "Arkusz1",
+      "Arkusz2",
+      "Arkusz3"
+    ]
+  },
+  {
+    "category": "DIY",
+    "subcategories": [
+      "Arkusz1"
     ]
   },
   {

@@ -1,0 +1,418 @@
+course,intended direction of travel set between two points
+heading,the direction to which the nose of the aircraft is pointing
+track,the actual path traveled over ground
+true,a method of determining the direction in which reference point is set on a geographical pole
+magnetic,a method of determining the direction in which reference point is set on a magnetic pole
+grid,a method of determining direction in which the reference point is set using pole projection
+latitude,the angle between the plane of the equator and the line from the centre of the Earth to the position
+longitude,the arc at equator between the Greenwich meridian and the meridian of the place; measured in degrees
+meridian,an imaginary line between the North Pole and the South Pole
+equator,a great circle with its plane perpendicular to the Earth rotational axis
+Tropic of Cancer,the northernmost circle of latitude on Earth at which the Sun can be directly overhead
+orthodrome,a circle on the surface of the Earth which plane passes through the centre of the globe
+loxodrome,an arc crossing all meridians at the same angle
+Tropic of Capricorn,the southernmost circle of latitude on Earth at which the Sun can be directly overhead
+small circle,a circle on the surface of Earth whose plane does not pass through the centre of the globe
+variation,the angle on the horizontal plane between magnetic north and true north
+deviation,the error induced in a compass by unwanted magnetic fields
+parallel,an imaginary east-west line circling a globe
+density altitude,the altitude at which the air density in the conditions of the standard atmosphere would be equal to the actual air density at the place of observation
+radial,a magnetic bearing from station to an aircraft
+rate of descent,the vertical velocity at which an aircraft is descending; usually expressed in feet per minute
+wind correction angle,the angle between the course and the heading that is required for an aircraft to track that course
+blind transmission,a transmission from one station to another in circumstances where two-way communication cannot be established but it is believed that the called station is able to receive the transmission
+dead reckoning,a method of navigation based upon known or estimated speeds over elapsed time and course
+runway,an area on a land aerodrome prepared for the landing and takeoff of an aircraft
+taxiway,a path along which aircraft taxi to or from a runway; usually marked by one or two letters or letter and number
+threshold,the beginning of the runway
+propeller,a type of fan that transmits power by converting rotational motion into thrust
+leading edge,the foremost part of a wing or stabilizer
+trailing edge,the rearmost part of a wing or stabilizer
+flaps,moving parts mounted on a trailing edge used to increase the lift of an aircraft; especially during takeoffs and landings
+slats,moving parts mounted on a leading edge which when deployed; allowing the wing to operate at a higher angle of attack
+vertical stabilizer,a still vertical part of an aircraft that is used to maintain the aircraft stability
+horizontal stabilizer,a still horizontal part of an aircraft that is used to maintain the aircraft stability
+ailerons,moving parts of an aircraft used in pairs to control the aircraft roll
+elevator,a moving part of an aircraft used to control the aircraft pitch
+rudder,a moving part of an aircraft used to control the aircraft yaw
+trim,a moving part of an aircraft used to set the attitude without using control surfaces
+pitch,motion about an axis that has its origin at the centre of gravity and is directed towards the bottom of an aircraft
+yaw,motion about an axis that has its origin at the centre of gravity and is directed to the right; parallel to a line drawn from wingtip to wingtip
+roll,motion about an axis that has its origin at the centre of gravity and is directed forward; parallel to the fuselage reference line
+hull,a part of an aircraft that carries passengers and luggage
+lift,a force that is perpendicular to the oncoming flow direction which is produced by wings
+drag,the aerodynamic force that opposes an aircraft motion through the air
+induced drag,the aerodynamic resistance caused by the pressure difference at the top and bottom of the wings
+form drag,the aerodynamic resistance caused by the shape of an aircraft
+friction drag,the aerodynamic resistance caused by the interaction of air particles with the surface of an aircraft
+interference drag,the aerodynamic resistance caused by the way parts of an aircraft are attached to each other
+wave drag,the aerodynamic resistance caused by shockwaves occuring at transonic and supersonic flights
+altitude,the vertical distance of an aircraft above the mean sea level; measured in feet
+Mach number,a number that equals aircraft speed divided by the speed of sound
+attitude,the term that describes deviation of the aircraft from horizontal flight
+shock wave,a wave forming at transonic and supersonic flights
+transonic,the term that describes flights at speeds close the speed of sound
+subsonic,the term that describes flights at speeds below the speed of sound
+supersonic,the term that describes flights at speeds above the speed of sound
+hypoxia,a condition in which the body is deprived of adequate oxygen supply
+hyperventilation,a condition in which the rate or tidal volume of breathing eliminates more carbon dioxide than the body can produce
+decompression sickness,a condition caused by a rapid decrease of air pressure
+air sickness,a specific form of motion sickness induced by air travel
+spatial disorientation,the inability to determine one’s position; location; and motion relative to their environment
+touch and go,an airplane landing followed immediately by application of power and a takeoff
+low pass,a low runway flyby without touchdown
+clearance,an instruction by air traffic control for an aircraft
+clearance limit,a point to which a specific clearance is valid
+decompression,uncontrolled loss of air pressure inside an aircraft
+rapid decompression,immediate loss of air pressure inside an aircraft
+emergency,a situation in which the flight is threatened by serious danger and immediate help is required
+emergency landing,a type of landing in which emergency procedures have to be used
+mayday,an emergency callout
+urgency,a situation in which the flight is threatened by serious danger; but immediate help is not required
+pan-pan,an urgency callout
+radio silence,a radio comunication ban enforced in an emergency situation
+attenuation,the reduction in power of radio wave
+rotation,the action of applying back pressure to a control device to lift the nose wheel off the ground
+takeoff roll,the process whereby an aircraft is aligned with the runway centerline and the aircraft is moving forward with the intent to take off
+runway incursion,an incident where an unauthorized aircraft; vehicle or person is on a runway
+autobrake,a type of automatic wheel-based hydraulic brake system used on touchdown
+speedbrake,a type of flight control surface used on an aircraft to increase drag
+stall,a situation in which an aerofoil cannot make enough lift to keep an aircraft in flight
+spin,a special category of stall resulting in autorotation around the vertical axis and rapid loss of altitude
+stick shaker,a mechanical device that rapidly and noisily vibrates the control yoke of an aircraft to warn the pilot of an imminent stall
+Pitot tube,a dynamic pressure inlet
+alpha vane,an external probe used to measure the angle of attack
+altimeter,an instrument used to measure the altitude of an aircraft
+glidepath,the path that an airplane follows on its final approach to land on a runway
+turboprop,a type of engine designed to produce thrust by a propeller driven by a turbine
+jet,a type of engine in which thrust is produced by forcing out hot gases at high velocity
+piston,a type of engine that uses one or more pistons to convert pressure into a rotating motion
+turn indicator,a device which indicates the rate of turn and whether the aircraft is in a coordinated turn
+checklist,a list of tasks that should be performed by pilots and aircrew prior to crucial part of a flight
+flow,a pattern of movement across the aircraft controls
+memory items,memorized tasks performed in case of emergency prior to using a checklist
+landing gear,the undercarriage of an aircraft; usually retracted in flight
+mixture,a substance made up of air and fuel in proper ratio
+throttle,a device used to control the power of an engine
+thrust,a force generated by the engines of an aircraft through some kind of propulsion system
+greyout,a loss of color vision caused by hypoxia
+blackout,a complete loss vision caused by hypoxia
+tunnel vision,a loss of peripheral vision caused by hypoxia
+redout,the lower eyelid coming into the visual field due to the pull of negative g-force
+g-force,a measurement of the type of acceleration that causes a perception of weight
+localizer,a system of horizontal guidance in the instrument landing system which is used to guide an aircraft along the axis of the runway
+private pilot license,a type of pilot licence that permits the holder to act as a pilot of an aircraft non commercially
+commercial pilot license,a type of pilot licence that permits the holder to act as a pilot of an aircraft and be paid for his work
+instrument flight rules,a set of rules under which the flight can be conducted without visibility of the Earth surface
+visual flight rules,a set of rules under which the flight must be conducted with visibility of the Earth surface
+airline transport pilot license,the highest licence one can earn as a civil airplane pilot
+pushback,an airport procedure during which an aircraft is pushed backwards from an airport gate
+startup,a process of starting the engines
+dew point,the atmospheric temperature below which water droplets begin to condense
+height,a height measured with respect to the underlying ground surface
+radioaltimeter,a device capable of measuring the height of an aircraft using radar pulses
+windshear,a significant change in wind speed and direction over a relatively short distance in the atmosphere
+crosswind component,part of the wind which is perpendicular to the longitudinal axis of the aircraft
+backtrack,an airport ground procedure in which a portion of the active runway is used as a taxiway
+flare,a maneuver during the landing in which nose of an aircraft is being raised; slowing the descent rate
+marshaller,a person who guides the movement of an aircraft on the apron
+jetway,an enclosed movable connector which extends from an airport terminal gate to an airplane
+airway,a defined corridor that connects one specified location to another at a specified altitude
+approach,a process in which an aircraft is lined up with the runway and descending for landing
+arrival,a point in time when an aircraft arrives at the airport
+departure,a point in time when an aircraft leaves the airport
+takeoff,a phase of flight in which an aircraft gets up to speed and goes from the ground to flying in the air
+landing,a phase of flight in which an aircraft touches the ground and decreases its speed
+weather radar,a type of radar used to detect the rain droplets
+transponder,an electronic device that sends data about an aircraft to radars
+squawk,a discrete code that is assigned by air traffic controllers to identify an aircraft uniquely
+artificial horizon,a flight instrument that informs the pilot of an aircraft orientation relative to Earth's horizon
+taxi,movement of aircraft on the ground
+yoke,a device used to control the ailerons and elevator
+centre of gravity,the mutual point of all mass forces acting on an aeroplane
+center of lift,the mutual point of all lift forces acting on an aeroplane
+icing conditions,the atmospheric conditions that can lead to the formation of ice on the surfaces of an aircraft
+flight level,a vertical altitude at standard pressure; nominally expressed in hundreds of feet
+transition altitude,the altitude at or below which the vertical position of an aircraft is determined by reference to altitude
+transition level,the flight level at or above which the vertical position of an aircraft is determined by reference to flight levels
+transition layer,the airspace located between the transition altitude and the transition level
+jetstream,a fast flowing air current in the atmosphere used by an aircraft to fly faster
+carburettor,a device that mixes air and fuel for internal combustion engines in the proper ratio for combustion
+carburettor heat,a system used in piston-powered aircraft engines to prevent or clear carburettor icing
+angle of attack,the angle between the wing and the oncoming flow
+black box,an electronic recording device placed in an aircraft for the purpose of facilitating the investigation of aviation accidents
+coffin corner,the region where an aircraft stall speed is near the critical Mach number
+airspace class,the type of airspace subdivided in terms of separation and air traffic control rules
+flight plan,a document filed by a pilot prior to departure which indicates the planned flight informations
+amendment,information reported to air traffic control in order to change the flight plan
+cross country,a type of flight that leaves the area of a departure airport
+standard atmosphere,a model of atmosphere used for the standarization of aircraft instruments and calculations
+forced landing,a type of landing made when the aircraft is not able to continue the flight
+incapacitation,the term used to describe the inability of a pilot to carry out their normal duties because of his medical condition
+precautionary landing,a type of landing conducted when continuing a flight might be dangerous
+ditching,an emergency landing on water
+radar vectors,heading instructions that ATC gives you under a radar environment
+final leg,the last leg in an aircraft approach to landing when the aircraft is lined up with the runway and descending for landing
+base leg,leg between downwind and final
+downwind leg,leg in a traffic pattern that is parallel to runway but is not a centerline extention
+crosswind leg,leg before downwind
+abeam,a flight next to a given point
+broadcast,information which is directed to all stations
+affirm,a phrase used to confirm given information
+negative,a phrase used to deny given information
+wilco,a phrase meaning that the speaker will follow the instructions to which they are replying
+confirm,a phrase used to make sure that information was transmitted properly
+verify,a phrase used to make sure that an aircraft is properly configured
+unable,a phrase used when an instruction is impossible to perform
+correction,a phrase used when information was not transmitted properly
+request,a phrase used to ask for permission or information from the air traffic control
+approved,a phrase used to give permission for previous request
+disregard,a phrase used when a message has to be ignored
+runway vacated,a phrase used to inform the air control that you left a runway
+break,a phrase used as a divider between different parts of message
+break break,a phrase used to divide messages directed to different aircraft
+wake turbulence,a disturbance in the atmosphere that forms behind an aircraft as it passes through the air
+holding point,a point in front of a runway which cannot be passed without ATC clearance
+separation,the concept of keeping an aircraft outside a minimum distance from another aircraft to reduce the risk of accident
+line-up,a phrase used to instruct the airplane to taxi onto the runway
+operational procedures,a set of procedures used to perform a given task
+airworthiness,the measure of an aircraft's suitability for safe flight
+callsign,a set of letters and numbers used to call specific station
+touchdown,an act of wheels touching the ground during the landing
+touchdown zone,an area in which touchdown should be performed
+holding,an maneuver designed to delay an aircraft that is already in flight
+clear air turbulence,the turbulent movement of air masses in the absence of any visual clues; such as clouds
+windscreen,a glass screen at the front of a vehicle
+standby attitude indicator,a flight instrument that informs the pilot of the aircraft orientation relative to the Earth's horizon
+standby airspeed indicator,a flight instrument indicating the airspeed of an aircraft in kilometers per hour (km/h)
+standby altimeter,a flight instrument used to measure the altitude of an object above a fixed level
+primary flight display,the pilot's primary reference for flight information
+control column,an airplane lever that operates the elevators
+control wheel,a device used for piloting some fixed-wing aircraft
+speedbrake lever,a flight instrument used to slow the aircraft immediately upon landing
+systems display,the total system; combining hardware and software; needed to achieve a visible representation of information in a data-processing system
+capitan's seat,a place for the captain to sit
+throttles,a device controlling the flow of fuel or power to an engine
+communication panels,an electronic circuit; usually designed to a specific standard; that enables one machine to telecommunicate with another machine
+engine fuel valves,a device that regulates; directs or controls the flow of a fluid by opening; closing; or partially obstructing various passageways
+control console,a desk; column; or bench with panels that display information
+flap lever,a kind of high-lift device used to reduce the stalling speed of an aircraft wing at a given weight
+air data computer,a computer; rather than individual instruments; can determine the calibrated airspeed; Mach number; altitude; and altitude trend data from an aircraft's pilot-static system
+flight management computer,a specialized computer system that automates a wide variety of in-flight tasks
+first officer's seat,a place for the first officer to sit
+nose cone,the forwardmost section of a rocket; guided missile or aircraft
+mounting point,
+accessory gear box,
+compression,the action of compressing or being compressed
+fuel control,fuel-metering device that regulates the fuel flow to the engine
+compressor turbine,
+ignition box,a device whose  generates a spark or heats an electrode to a high temperature to ignite a fuel-air mixture in spark ignition
+combustion,the process of burning something
+power turbines,devices generating electrical power
+hot air,air that has been heated
+exhaust duct,low-pressure pneumatic conveyors to convey dust; particles; shavings; fumes
+exhaust,refers to what comes out of tailpipe
+landing gear lever,the undercarriage of an aircraft or spacecraft and may be used for either takeoff or landing
+autopilot controls,a system used to control the trajectory of an aircraft without constant manual control by a human operator being required
+engine and crew alarm display,an aircraft system for displaying engine parameters and alerting the crew
+overhead switch panel,
+lighting,the arrangement or effect of lights
+speaker,an output hardware device that connects to a computer to generate sound
+air intake,an opening through which air enters an engine or system
+axial compressor blade,working fluid by first accelerating the fluid and then diffusing it to obtain a pressure increase
+outer stators,
+inner stators,
+centrifugal compressor,a sub-class of dynamic axisymmetric work-absorbing turbomachinery
+pipe diffusers,a device for reducing the velocity and increasing the static pressure of a fluid passing through a system
+turbine-compressor shaft,transmits the torque to the output shaft and also redirects the fluid leaving the turbine to the hydraulic system
+annular combustion chamber,the shape of a ring or a cylinder and the whole of the annulus between the compressor and the turbine is used for combustion
+bypass duct,an annular passage that allows some of a turbofan s airflow to bypass the engine core; or gas generator
+cold air,
+exhaust guide vanes,grooves found in turbines that help direct water; gas; or air around bends at maximum efficiency
+platform,a raised level surface on which people or things can stand
+lobby,a room providing space out of which one or more other rooms or corridors lead; typically one near the entrance of a public building
+automatically controlled door,a door that opens automatically
+hotel reservation desk,a place in a hotel; office; etc; where an employee takes bookings for rooms; tickets; etc
+ticket counter,the place where you register a ticket for public transport; the theatre; cinema; etc
+baggage check-in counter,the place in which the passenger; upon arrival at the airport; hands over any baggage that they don’t want or are not allowed to carry inside the aircraft's cabin
+security check,a verification of identity and trustworthiness
+observation deck,a room or platform at the top of a tall building which provides views of the surrounding panorama
+passport control,the area in an airport where passports are checked
+duty-free shop,retail outlets whose goods are exempt from the payment of certain local or national taxes and duties
+flight information board,a computer system used in airports to display flight information to passengers
+departure lounge,the place where passengers wait before they get onto their plane
+passenger transfer vehicle,a vehicle carrying many passengers used for public transport
+cargo dispatch,
+cargo reception,
+runway touchdown zone marking,markings consisting of groups of one; two; and three rectangular bars symmetrically arranged in pairs about the runway centerline
+fixed distance marking,a marker located at 1000 ft (300 m) from the threshold to provide a marker for jet aircraft that are not on the precision runway
+customs control,measures applied by the customs to ensure compliance with the laws
+runway threshold markings,consisting of eight white longitudinal stripes of uniform dimension arranged evenly about the runway centerline
+exit taxiway,used as an exit from a runway to another runway; apron; or other aircraft operating area
+conveyor belt,a continuous moving band of fabric; rubber; or metal used for transporting objects from one place to another
+runway side stripe markings,providing a visual distinction between the runway and the surrounding terrain and also outline the runway width
+baggage claim area,an area where arriving passengers claim checked-in baggage
+runway centre line markings,markings identifying the centre of the runway
+information counter,a help desk intended to provide the customer or end user with information
+rail shuttle service,a train that runs back and forth between two points
+holding area marking,a marking used at some airports where it is necessary to hold an aircraft on a taxiway located in the approach
+runway designation marking,a marking consisting of a two-digit number located at the threshold
+airport,a complex of runways and buildings for the take-off; landing; and maintenance of civil aircraft; with facilities for passengers
+air transport,the movement of passengers and freight by any conveyance that can sustain controlled flight
+35 mm still camera,a still photographic film camera which uses the 35 mm format
+helmet ring,
+computer screen intensity controls,changing the quality or state of giving out or reflecting light
+communications volume controls,
+glove,a part of clothes covering the hand worn for protection against cold or dirt and typically having separate parts for each finger and the thumb
+safety suit connection,
+safety tether,a set of equipment intended to reduce the risk due to a specific hazard
+thruster,a small rocket engine on a spacecraft; used to make alterations in its flight path or altitude
+liquid cooling and ventilation garment,a form-fitting garment worn by astronauts in order to maintain a comfortable core body temperature during extra-vehicular activity
+insulation layers,a thick layer of a substance that keeps something warm
+protection layer,a physical entity supported by a management system which is capable of preventing a hazardous event from propagating into an undesired consequence
+manned manceurving unit,
+propellant level gauge,sensor which allow to monitor fuel
+life support system,an artificial or natural system that provides all or some of the items necessary for maintaining life or health
+solar shield,something put over the windscreen to keep the sun out
+helmet,a hard or padded protective hat
+colour television camera,
+procedure checklist,a template consisting of quality checklist of certain project which aids the project team to consider all aspects of quality check and perform the routine process without any error
+tool tether,
+rear-view mirror,in vehicles that allows the driver to see rearwards
+life support system controls,
+body temperature unit,the degree or intensity of heat present in a substance or object
+oxygen pressure actuator,a control valve that reduces the input pressure of a fluid or gases to a desired value at its output
+biomedical monitoring sensor,a special type of sensors that provide the necessary interface between the biological environment and electronics systems
+space transport,transporting people and cargo to and from an orbiting spacecraft
+spacesuit,a garment designed to allow an astronaut to survive in space
+spoiler,a flap on the wing of an aircraft
+trailing edge flap,wing devices used to increase the maximum lift coefficient that a wing can generate
+antenna,the interface between radio waves propagating through space and electric currents moving in metal conductors; used with a transmitter or receiver
+upper deck,the topmost full-length deck of an aircraft
+anticollision light,a set of lights required on every aircraft to improve visibility to others
+flight deck,the cockpit of a large aircraft
+nose,a part of an aircraft which slices through the air; allowing it to flow around the aircraft in a gentle way that won't slow it down
+first-class cabin,a place in an aircraft usually in the front of the plane; passengers get to board and de-board first; often without coming into contact with passengers in other sections
+nose landing gear,landing gear situated in the nose of an aircraft
+galley,the compartment of a ship; train; or aircraft where food is cooked and prepared
+window,fitted with glass in a frame to admit light or air and allow people to see out
+door,a hinged; sliding; or revolving barrier at the entrance to a building; room; or vehicle; or in the framework of a cupboard
+root rib,
+wing rib,a part of aircraft which forming elements of the structure of a wing; especially in traditional construction
+spar,a large iron or steel beam
+fuselage,the main body of an aircraft
+passenger cabin,the section of an aircraft in which passengers travel
+tail assembly,a structure at the rear of an aircraft that provides stability during flight
+tail,
+tailplane,a horizontal aerofoil at the tail of an aircraft
+cargo hold,the part of plane where goods are carried
+main landing gear,a type of landing gear which touches the ground first while landing and leaves the ground last during takeoff
+wing,a rigid horizontal structure that projects from both sides of an aircraft and supports it in the air
+winglet,a vertical projection on the tip of an aircraft wing for reducing drag
+navigation light,a set of lights shown by an aircraft at night to indicate its position and orientation
+engine mounting pylon,the link connecting the engine and the wing
+turbojet engine,a gas turbine in which the exhaust gases provide the propulsive thrust to drive an aircraft
+fuselage-mounted tail unit,a part of an aircraft tail that is used to change the direction of an aircraft up or down
+fin-mounted tail unit,a part of an aircraft tail that is used to change the direction of an aircraft to the right or left
+triple tail unit,a part of tail with two vertical stabilizers placed at the ends of the horizontal stabilizers and one mounted on the fuselage
+T-tail unit,a type of tailplane which is high-mounted on the fin
+swept-back wing,a type of wing that is almost always used in jet aircraft
+straight wing,a type of wing which extends at right angles to the line of flight
+tapered wing,a type of wing which narrows towards the tip
+variable geometry wing,type of wing that allows you to modify their shape during flight
+delta wing,type of wing which is characterized by good properties at supersonic speeds
+taxiway high-speed exit,
+tower control room,a room used to monitor and control the aircraft in air to ensure safety
+control tower,a tall building at an airport from which the movements of air traffic are controlled.
+access road,
+passenger terminal,a building or place used for the assembly and dispersal of travelling passengers
+maintenance hangar,a wide building whose only purpose is to carry out major aircraft repairs
+parking area,a place where cars are parked
+taxiway by-pass,a place which allows an aircraft to bypass another aircraft parked on the parallel or entrance taxiways in order to reach the runway for takeoff
+apron,the area of an airport where aircrafts are parked
+service road,a path within the apron intended for service vehicles that service aircrafts
+telescopic corridor,a narrow; collapsible passageway in the airport
+service area,the area where all service work is carried out
+boarding walkway,a tunnel leading passengers from the airport to aircraft
+taxiway line,a path for aircraft at an airport connecting runways with aprons; hangars; terminals and other facilities
+satellite terminal,a building detached from other airport buildings; so that aircraft can park around its entire circumference
+tow bar,a bar that is used in towing a aircraft
+tractor,a vehicle used to tow aircraft
+compressed air starting unit,a ground support equipment equipped with pneumatic starter; used to start aircraft engines
+jet refueler,a vehicle that is used to transport / refuel fuel to aircraft
+electrical power unit,a vehicle that is used to charge an aircraft with electricity
+ground air conditioner,a ground support equipment supplying cold air or hot air into a parked aircraft
+tailet truck,a vehicle used to clean the aircraft tank of faeces
+aircraft maintenance truck,a vehicle used for aircraft maintenance
+drinking water truck,a vehicle used to transport / refuel drinking water to aircraft
+wheel chock,strong wedges placed near the wheels of the aircraft to prevent accidental movement
+boom truck,a vehicle for service work by aircraft at different heights
+tripod tail support,a part of airport service which used to support a parked aircraft to prevent their tail from drooping to the ground
+baggage trailer,a vehicle transporting bagage to the aircraft
+baggage conveyor,a device that delivers checked baggage to the passengers at the baggage reclaim area
+unit load device,a device loading baggage; freight; and mail to the aircraft
+pallet loader,a device loading pallets to the aircraft
+container loader,a device loading containers to the aircraft
+catering vehicle,a vehicle loading groceries to the aircraft
+mobile passenger steps,a vehicle allowing passengers to board to plane
+universal passenger steps,a motorless vehicle that allows passengers to board the plane
+rotor blade,the long airfoil that rotates to provide the lift that supports a helicopter in the air
+rotor head,the axis around which the major rotor of a helicopter turns
+mast,the part of the helicopter that rotating the upper control board and blades
+rotor hub,the part of the helicopter holding the blades and connects them to the main shaft of the wind machine
+drive shaft,a rotating shaft which transmits torque to the helicopter engine
+tail boom,a main spar of several making up the longitudinal framework carrying the tail of an aeroplane when not supported by the fuselage
+tail fin,a projecting vertical surface on the tail of an aircraft; providing stability and typically housing the rudder
+tail skid,a support for the tail of an aircraft when on the ground
+anti-torque tail rotor,a type of propeller mounted at the back of the helicopter
+control stick,a lever used to control the motion of an aircraft by changing the angle of the elevators and ailerons
+landing window,a window through which passengers can look during the flight
+landing light,a bright light on an aircraft that is switched on prior to landing
+cabin,the section of an aircraft in which passengers travel
+boarding step,a set of steps built into an aircraft so that passengers may board and alight the aircraft
+fuel tank,a container holding the fuel supply in a motor vehicle; aircraft
+position light,a type of lights which give information on a craft's position; heading; and status
+exhaust pipe,a pipe for removing exhaust gases
+baggage compartment,an airplane room in which the passenger's luggage is stored during the flight
+launch escape system,a system which is used to quickly separate the capsule from its launch vehicle rocket in case of a launch abort emergency; such as an impending explosion
+command module,a detachable control compartment of a manned spacecraft
+service module,a detachable compartment of a spacecraft carrying fuel and supplies
+instrument unit,a device for measuring a physical quantity in spacecraft
+helium sphere,helium powered balloon
+J-2 engine,a liquid-fuel cryogenic rocket engine used in the Apollo program
+liquid hydrogen tank,a tank that contains spacecraft fuel
+variable geometry wing,a tank which contains supply of gaseous oxygen for breathing in high-altitude aircraft flights
+liquid oxygen tank baffle,
+kerosene tank,
+fuel transfer pipe,
+stabilizing fin,a fin mounted on aircraft in such a way as to oppose unwanted rolling motions of the vehicle and thus contribute to its stability
+nozzle,a cylindrical or round spout at the end of a pipe; hose; or tube used to control a jet of gas or liquid
+F-1 engine,a gas generator-cycle rocket engine
+payload,a part of an aircraft's; from which revenue is derived (passengers and cargo)
+third stage,a stage which usually is the last of multistage rocket
+second stage,a stage which usually decreasing in size multistage rocket
+first stage,a stage which is at the bottom and is usually the largest in the multistage rocket
+booster parachute,a part of spacecraft which allows you to deliver an empty rocket for fuel when disconnected from the spacecraft back to Earth
+shuttle,a type of spacecraft which can be used many times and is usually adapted to launch into orbit and bring artificial satellites and other charges from orbit
+external fuel tank,during take-off and ascent; it provides fuel and oxidant under pressure to the three main space aircraft engines in orbit
+solid-rocket booster,a large solid propellant motors used to provide thrust in spacecraft launches from initial launch through the first ascent stage
+surface insulation,a material which keeps all the spacecraft's component systems within acceptable temperature ranges during all mission phases
+engines,machines with moving parts that convert power into motion
+heat shield,an outer covering on a spacecraft; especially on the nose cone and leading edges; to protect it from the heat generated during re-entry into the earth's atmosphere
+payload bay door,a flap to the area inside the space shuttle orbiter where cargo was packed
+payload bay,the area inside the space shuttle orbiter where cargo was packed
+radiator panel,a mainly flat surface for conveying convective and radiant energy to an indoor space in spacecraft
+spacelab,a laboratory in space where scientific experiments are performed on a space shuttle
+instrument pallet,
+scientific instruments,instruments measuring certain physical quantities in spacecraft
+laboratory air lock,a device which permits the passage of people and objects between a pressure vessel and its surroundings
+observation window,a place to conduct experiments; dockings and observations of Earth
+hatch,a door in an aircraft; spacecraft
+communication tunnel,
+remote-control arm,
+tile,a thin rectangular slab used in overlapping rows
+elevon,the movable part of the trailing edge of a delta wing
+body flap,
+tank,a large receptacle or storage chamber; especially for liquid or gas
+main engines,a component of the propulsion system for an aircraft that generates main mechanical power
+maneuvring engine,an engine whose task is to enter orbit; preserve orbit parameters; enter a higher orbit; connect to another spacecraft; disembark from orbit; deorbit
