@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import eslint from "vite-plugin-eslint2";
 
 export default defineConfig({
-  base: "/crossword-app/",
+  base: "/crosswords/",
   build: {
     minify: "esbuild",
     sourcemap: false,
