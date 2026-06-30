@@ -97,7 +97,9 @@ export default function App() {
   const numberedLabels = generateNumberedLabels(cwResult);
 
   useEffect(() => {
-    fetch(`${baseUrl}bases.json`)
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch(`${baseUrl}bases.json`, { signal })
       .then((resource) => {
         if (!resource.ok) {
           throw new Error("Failed to load /bases.json");
@@ -105,10 +107,14 @@ export default function App() {
         return resource.json() as Promise<Category[]>;
       })
       .then(setCategories)
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error(error);
         setCategories([]);
       });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {
@@ -131,7 +137,10 @@ export default function App() {
     const csvFileName = `${selectedCategory}/${selectedSheet}.csv`;
     const url = `${baseUrl}csv/${csvFileName}`;
 
-    fetch(url)
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch(url, { signal })
       .then((resource) => {
         if (!resource.ok) {
           throw new Error(`Failed to fetch ${url}`);
@@ -153,10 +162,14 @@ export default function App() {
 
         setRows(parsed);
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error("Error reading CSV:", error);
         setRows([]);
       });
+
+    return () => {
+      controller.abort();
+    };
   }, [selectedCategory, selectedSheet]);
 
   useEffect(() => {
@@ -175,7 +188,7 @@ export default function App() {
   );
 
   const handleGenerate = (event: React.MouseEvent) => {
-    if (!rows || rows.length === 0) {
+    if (rows.length === 0) {
       return;
     }
 
@@ -233,6 +246,7 @@ export default function App() {
         })
         .toSorted((a, b) => b.wordStr.length - a.wordStr.length)[0];
 
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (word) {
         setCurrentWord(word);
       }
@@ -259,10 +273,12 @@ export default function App() {
         setLastDirection((previous) => previous ?? currentWordDirection);
         const nextX = currentWordDirection === "across" ? x + 1 : x;
         const nextY = currentWordDirection === "across" ? y : y + 1;
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (inputReferences.current[nextY]?.[nextX]) {
           setTimeout(() => {
             inputReferences.current[nextY]?.[nextX]?.focus();
             inputReferences.current[nextY]?.[nextX]?.select();
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (inputReferences.current[nextY]?.[nextX]) {
               if (x !== nextX) {
                 setLastDirection("across");
@@ -335,6 +351,7 @@ export default function App() {
 
       setTimeout(() => {
         inputReferences.current[newY]?.[newX]?.focus();
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (inputReferences.current[newY]?.[newX]) {
           if (x !== newX) {
             setLastDirection("across");
@@ -373,7 +390,9 @@ export default function App() {
         </select>
         <select
           disabled={!selectedCategory}
-          onChange={(event) => setSelectedSheet(event.target.value)}
+          onChange={(event) => {
+            setSelectedSheet(event.target.value);
+          }}
           value={selectedSheet}
         >
           <option value="">Select sheet</option>

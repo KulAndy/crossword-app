@@ -116,11 +116,15 @@ export const CrosswordGrid = ({
                         event.target.value = lastLetter;
                         onInputChange(y, x, lastLetter);
                       }}
-                      onClick={() => setLastDirection(null)}
+                      onClick={() => {
+                        setLastDirection(null);
+                      }}
                       onFocus={() => {
                         onFocus(y, x);
                       }}
-                      onKeyDown={(event) => onKeyDown(event, y, x)}
+                      onKeyDown={(event) => {
+                        onKeyDown(event, y, x);
+                      }}
                       ref={(element) => {
                         if (element) {
                           inputReferences.current[y][x] = element;
@@ -129,7 +133,7 @@ export const CrosswordGrid = ({
                       style={{
                         backgroundColor: isCorrect
                           ? "lightgreen"
-                          : userValue && !isCorrect
+                          : userValue
                             ? "lightpink"
                             : "white",
                       }}
