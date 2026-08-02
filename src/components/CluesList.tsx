@@ -24,8 +24,8 @@ export const CluesList = ({
                 (numberedLabels[`${a.xNum},${a.yNum}`] || 0) -
                 (numberedLabels[`${b.xNum},${b.yNum}`] || 0),
             )
-            .map((w, index) => (
-              <li key={index}>
+            .map((w) => (
+              <li key={w.wordStr}>
                 <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
                 {wordToDefinition[w.wordStr] || w.wordStr}
               </li>
@@ -43,8 +43,8 @@ export const CluesList = ({
                 (numberedLabels[`${a.xNum},${a.yNum}`] || 0) -
                 (numberedLabels[`${b.xNum},${b.yNum}`] || 0),
             )
-            .map((w, index) => (
-              <li key={index}>
+            .map((w) => (
+              <li key={w.wordStr}>
                 <b>{numberedLabels[`${w.xNum},${w.yNum}`]}. </b>
                 {wordToDefinition[w.wordStr] || w.wordStr}
               </li>

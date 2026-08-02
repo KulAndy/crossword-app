@@ -16,8 +16,8 @@ export const WordsTable = ({ rows }: WordsTableProperties) => {
           </tr>
         </thead>
         <tbody>
-          {rows.map((r, index) => (
-            <tr key={index}>
+          {rows.map((r) => (
+            <tr key={r.term}>
               <td>{r.term}</td>
               <td>{r.def}</td>
             </tr>

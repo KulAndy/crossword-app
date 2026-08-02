@@ -23,14 +23,11 @@ td input {
   height: min(5vw, 5vh, 32px);
   text-align: center;
   width: min(5vw, 5vh, 32px);
+  color: black;
 }
 
 td:empty {
   background-color: blue;
-}
-
-td input {
-  color: black;
 }
 
 td div:first-child {

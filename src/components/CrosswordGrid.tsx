@@ -92,11 +92,11 @@ export const CrosswordGrid = ({
                 const labelNumber = isFirst ? getLabelNumber(x, y) : null;
                 const userValue = userGrid[y]?.[x] || "";
                 if (cell === "") {
-                  return <td key={x} />;
+                  return <td key={`${x},${y}`} />;
                 }
                 const isCorrect = userValue === cell;
                 return (
-                  <td key={x}>
+                  <td key={`${x},${y}`}>
                     {isFirst && (
                       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                       <div
