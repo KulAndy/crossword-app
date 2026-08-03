@@ -2,7 +2,7 @@
   "homepage": "https://KulAndy.github.io/crossword-app",
   "name": "crosswords",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
