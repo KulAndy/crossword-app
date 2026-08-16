@@ -29,6 +29,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=KulAndy_chess-scrappers
+            -Dsonar.projectKey=KulAndy_crossword-app
             -Dsonar.organization=kulandy
           projectBaseDir: .
