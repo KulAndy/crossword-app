@@ -1,6 +1,6 @@
 {
   "homepage": "https://KulAndy.github.io/crossword-app",
-  "name": "crosswords",
+  "name": "crossword-app",
   "private": true,
   "version": "1.0.2",
   "type": "module",
