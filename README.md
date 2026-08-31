@@ -13,3 +13,6 @@ Place files formatted this way
 - csv files as the `/public/csv/[base]/[subcategory].csv` (`xlsx` files are transformatted to `csv`)
 
 To generate the `/public/bases.json` file, run `npm run build`
+
+
+<!-- Security scan triggered at 2026-08-31 16:21:41 -->
